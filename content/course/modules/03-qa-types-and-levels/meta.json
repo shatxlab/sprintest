@@ -1,0 +1,22 @@
+{
+  "id": "03-qa-types-and-levels",
+  "slug": "03-qa-types-and-levels",
+  "order": 3,
+  "title": {
+    "en": "QA Types and Levels",
+    "ru": "Виды и уровни тестирования"
+  },
+  "summary": {
+    "en": "How to choose functional, non-functional, regression, exploratory, and level-based checks for a concrete risk.",
+    "ru": "Как выбирать функциональные, нефункциональные, регрессионные, исследовательские и уровневые проверки под конкретный риск."
+  },
+  "themes": [
+    "testing-types",
+    "testing-levels",
+    "risk-based-testing"
+  ],
+  "practiceTaskIds": [
+    "03-qa-types-and-levels-input-drill"
+  ],
+  "updatedAt": "2026-09-25"
+}

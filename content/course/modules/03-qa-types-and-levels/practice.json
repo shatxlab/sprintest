@@ -1,0 +1,120 @@
+[
+  {
+    "id": "03-qa-types-and-levels-input-drill",
+    "moduleId": "03-qa-types-and-levels",
+    "kind": "test-design",
+    "estimatedMinutes": 30,
+    "skillFocus": [
+      "testing-types",
+      "testing-levels",
+      "test-design",
+      "boundary-value-analysis"
+    ],
+    "updatedAt": "2026-09-25",
+    "languages": {
+      "en": {
+        "title": "Test an input field before you automate it",
+        "learnerBrief": "Take one small, very familiar object — an email input field — and design checks for it by hand. Then practice labeling every check with a testing type and a testing level, so you can see how much thought a single field really needs before any automation.",
+        "context": "A registration form has an email field. The browser checks the format client-side, and the server separately verifies that the email is not already registered. Nothing is executable here: you work from this description only. The field accepts free text, the client-side validation runs before submission, and the uniqueness check happens on the server during registration.",
+        "deliverable": "Produce a check list with at least 10 checks for this single email field. For every check, add two tags: a testing type (functional, negative, boundary, UI/UX, or security-adjacent) and a testing level (unit, integration, or system). Finish with a short note on which checks could NOT be covered by the field alone and why.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Teach the learner to generate good checks for one tiny area and to classify them by testing type and level accurately, before jumping straight to automation.",
+          "presentTaskHow": [
+            "Ask the learner to brainstorm checks first, before attaching any labels.",
+            "Invite a table format with columns for check, type, and level.",
+            "Push for boundary thinking: empty input, extremely long input, unicode characters, leading/trailing or inner spaces.",
+            "Remind the learner that client-side validation and the server-side uniqueness check live at different levels."
+          ],
+          "doNotReveal": [
+            "Do not provide a finished check list or ready-made classifications before the learner attempts the task.",
+            "Do not claim there is one exact correct type or level for every check; reward well-argued classification.",
+            "Do not invent hidden requirements or behavior beyond the described email field scenario."
+          ],
+          "reviewFor": [
+            "Classification accuracy: the type and level tags actually match what each check exercises.",
+            "Boundary coverage: empty, very long, unicode, and space-containing inputs are represented.",
+            "At least one check that belongs to the integration level because it exercises the server-side uniqueness check, not just UI validation.",
+            "Realistic security-adjacent ideas such as scripts or oversized payloads, without turning the task into a security audit.",
+            "Honest note about what a single field's checks cannot cover (other form fields, cross-field rules, full registration flow)."
+          ],
+          "completionCriteria": [
+            "The check list contains at least 10 distinct checks for the email field.",
+            "Every check carries both a testing type tag and a testing level tag.",
+            "At least one check is tagged at integration level and clearly tied to the server-side uniqueness check.",
+            "At least three checks exercise boundaries: empty, very long, unicode, or spaces.",
+            "The closing note names at least one behavior that could NOT be covered by the field alone."
+          ],
+          "hintProgression": [
+            "Ask what valid input looks like first, then move to invalid and edge inputs.",
+            "Ask what the field should do with an empty value and with a 500-character value.",
+            "Ask where the uniqueness rule is enforced and which testing level that implies.",
+            "Offer one sample classified row only after the learner has a draft or is stuck."
+          ],
+          "ifLearnerStruggles": [
+            "Ask for five checks first, then extend to the full deliverable.",
+            "Ask them to list every character or shape of input they can think of for one scenario, such as spaces.",
+            "Ask which checks could be run without a browser at all — this usually reveals the level question."
+          ],
+          "afterCompletion": [
+            "Point out the learner's best-classified check and one mislabeled or debatable one.",
+            "Ask which of these checks are the first automation candidates and why.",
+            "Connect the exercise to how test suites for forms are layered across unit, integration, and system levels."
+          ]
+        }
+      },
+      "ru": {
+        "title": "Протестируйте поле ввода до автоматизации",
+        "learnerBrief": "Возьмите один маленький и очень знакомый объект — поле ввода e-mail — и придумайте для него проверки вручную. Затем потренируйтесь помечать каждую проверку видом тестирования и уровнем тестирования, чтобы увидеть, сколько осмысленной работы нужно даже одному полю до всякой автоматизации.",
+        "context": "На форме регистрации есть поле ввода e-mail. Браузер проверяет формат на клиентской стороне, а сервер отдельно проверяет, что такой e-mail ещё не зарегистрирован. Исполняемого продукта нет: работайте только с этим описанием. Поле принимает произвольный текст, клиентская валидация выполняется перед отправкой формы, а проверка уникальности происходит на сервере во время регистрации.",
+        "deliverable": "Составьте список минимум из 10 проверок для одного этого поля e-mail. Для каждой проверки добавьте две метки: вид тестирования (functional, negative, boundary, UI/UX или security-adjacent) и уровень тестирования (unit, integration или system). В конце добавьте короткую заметку о том, какие проверки НЕЛЬЗЯ покрыть одним полем и почему.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Научить ученика придумывать хорошие проверки для одной крошечной области и точно классифицировать их по виду и уровню тестирования, вместо того чтобы сразу бежать в автоматизацию.",
+          "presentTaskHow": [
+            "Попросите ученика сначала набросать проверки и только потом навешивать метки.",
+            "Предложите формат таблицы с колонками: проверка, вид, уровень.",
+            "Подталкивайте к граничному мышлению: пустой ввод, очень длинный ввод, unicode-символы, пробелы в начале/в конце и внутри.",
+            "Напомните, что клиентская валидация и серверная проверка уникальности живут на разных уровнях."
+          ],
+          "doNotReveal": [
+            "Не давайте готовый список проверок или готовые классификации до попытки ученика.",
+            "Не утверждайте, что для каждой проверки существует единственный верный вид или уровень; поощряйте аргументированную классификацию.",
+            "Не придумывайте скрытые требования или поведение за пределами описанного сценария с полем e-mail."
+          ],
+          "reviewFor": [
+            "Точность классификации: метки вида и уровня действительно соответствуют тому, что проверяет каждый тест.",
+            "Покрытие границ: пустой, очень длинный, unicode и вводы с пробелами представлены.",
+            "Минимум одна проверка уровня integration, потому что она затрагивает серверную проверку уникальности, а не только UI-валидацию.",
+            "Реалистичные security-adjacent идеи вроде скриптов или огромных значений, без превращения задания в security-аудит.",
+            "Заметка о том, чего проверки одного поля покрыть не могут (другие поля формы, кросс-полевые правила, весь сценарий регистрации)."
+          ],
+          "completionCriteria": [
+            "Список содержит минимум 10 разных проверок для поля e-mail.",
+            "У каждой проверки есть и метка вида тестирования, и метка уровня.",
+            "Минимум одна проверка помечена уровнем integration и явно связана с серверной проверкой уникальности.",
+            "Минимум три проверки задействуют границы: пустой, очень длинный, unicode или пробелы.",
+            "Финальная заметка называет минимум одно поведение, которое нельзя покрыть одним полем."
+          ],
+          "hintProgression": [
+            "Спросите сначала, как выглядит валидный ввод, затем переходите к невалидным и граничным вводам.",
+            "Спросите, что поле должно делать с пустым значением и со значением в 500 символов.",
+            "Спросите, где enforced правило уникальности и какой уровень тестирования из этого следует.",
+            "Дайте одну примерную классифицированную строку только после черновика ученика или явного тупика."
+          ],
+          "ifLearnerStruggles": [
+            "Попросите сначала пять проверок, затем расширьте до полного артефакта.",
+            "Попросите перечислить все символы и формы ввода, которые они могут придумать, для одного сценария, например пробелов.",
+            "Спросите, какие проверки можно запустить вообще без браузера — это обычно раскрывает вопрос уровня."
+          ],
+          "afterCompletion": [
+            "Отметьте лучшую по классификации проверку ученика и одну спорную или неверно помеченную.",
+            "Спросите, какие из этих проверок стали бы первыми кандидатами на автоматизацию и почему.",
+            "Свяжите упражнение с тем, как тест-сьюты для форм распределяются по уровням unit, integration и system."
+          ]
+        }
+      }
+    },
+    "pillars": [
+      "test-design"
+    ]
+  }
+]

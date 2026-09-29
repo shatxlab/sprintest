@@ -1,0 +1,134 @@
+[
+  {
+    "id": "20-playwright-debugging-flaky-triage",
+    "moduleId": "20-playwright-debugging",
+    "kind": "automation-debug",
+    "estimatedMinutes": 40,
+    "skillFocus": [
+      "failure-triage",
+      "trace-analysis",
+      "flakiness"
+    ],
+    "pillars": [
+      "automation",
+      "bug-reporting"
+    ],
+    "updatedAt": "2026-09-25",
+    "languages": {
+      "en": {
+        "title": "Triage four failing tests from the trace viewer",
+        "learnerBrief": "A small app with a planted timing issue and four failing Playwright tests is scaffolded inside your own repository. Classify every failure from its trace, fix each one at the right level, and prove the fix fails for the right reason.",
+        "context": "Ask your AI agent to build the target inside your own repository: a small app with two or three interactive areas, such as a list that loads asynchronously, a form that saves, and a status line that updates after an action. The app must contain a deliberate timing or state problem. Alongside it the agent writes four Playwright tests that fail on a fresh run, each for a different underlying reason. No pre-built fixture is provided and none exists in this course: the scaffold is yours and you may use plain HTML with a tiny Node server, or any stack you already know. Before running anything, set `trace: 'retain-on-failure'` and `screenshot: 'only-on-failure'` in your Playwright configuration, then confirm that a failing run leaves a trace next to the results.",
+        "deliverable": "A triage note plus the corrected suite. For each of the four failures: (1) the classification, using the words real product bug, test bug, environment or data problem, or order-dependent flake, together with the trace evidence that decided it — the failing step, the Before snapshot, the network row, the console message, or the assertion source; (2) the fix you applied at that level; (3) the command you ran afterwards and its result; (4) a deliberate re-break that shows the test still fails for the right reason. Add the exported trace for the failure you classify as a real product bug, and one short paragraph explaining what you would send to a developer about it.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Teach the learner to turn a failing Playwright test into a classified, evidence-backed finding before touching any code, and to fix each failure at the level it actually belongs to: product, test, data, or ordering.",
+          "presentTaskHow": [
+            "Ask the learner to run their agent to scaffold the app and the four failing tests inside their own repository, then to run the suite once and paste the raw failure output before asking for any guidance.",
+            "Require a trace for every failure: check that tracing is enabled and that the learner opens each trace.zip with npx playwright show-trace and reports the failing step, the Before snapshot, the network rows, and the console.",
+            "Have the learner submit the classification table (failure, category, evidence, level of fix) before revealing anything about which failure belongs to which category.",
+            "Tell them to prove fixes with a deliberate re-break: change the app so the test must fail, and confirm it still asserts the right thing."
+          ],
+          "doNotReveal": [
+            "Never tell the learner which of the four failing tests belongs to which category. The classification is the exercise; ask for the trace evidence first and give feedback only on the reasoning.",
+            "The intended archetypes, for your own review only: (a) the product bug — the trace shows the app settled, no console error and no failing request, and the assertion the test makes is the one the product promises, yet the app produced a wrong value or skipped a state; (b) the test bug — the trace shows the app behaving correctly while the assertion encodes an expectation nobody promised, such as exact UI copy, an internal ID format, or a locale-specific number or currency rendering; (c) the environment or data problem — the failure follows the data, passing after a clean seed or on a fresh profile and failing on a dirty or shared record, often with a duplicate-key or missing-record symptom in the network row; (d) the order-dependent flake — green when run alone or with --workers=1, red inside the full file run, because an earlier test mutates state that a later one reads.",
+            "The timing issue is a real race, not a slow test: the app renders its async region after a delay while the test asserts immediately, so a longer fixed sleep appears to fix it on a fast machine. Do not say this outright; if the learner proposes a bigger sleep or extra retries, ask what evidence in the trace shows the app never settled.",
+            "Do not write the corrected test code, the corrected assertions, or the fixed app logic for the learner. Review their diff and point at the line that decides the question.",
+            "Do not accept 'the rerun was green' as a diagnosis, and do not let retries pass as a fix."
+          ],
+          "reviewFor": [
+            "Every one of the four failures has a category, and no category is used twice without justification.",
+            "Each classification cites concrete evidence from the trace or the terminal: a step number, a snapshot state, a status code, a console line, a source row.",
+            "The product-bug failure is separated from the test-bug failure by evidence, not by guesswork: the review question is whether the app settled and what the product actually promises.",
+            "The environment or data failure is traced to data or profile state rather than blamed on the framework.",
+            "The order-dependent failure is demonstrated with --workers=1 or a solo run, and the fix removes the shared state or the data collision.",
+            "The timing failure is fixed with a web-first assertion that polls, not with a longer waitForTimeout.",
+            "Each fix is verified by a deliberate re-break, and the learner can explain why the test now fails for the right reason."
+          ],
+          "completionCriteria": [
+            "Four failures are classified into the four distinct categories, each with cited evidence.",
+            "The corrected suite passes from a clean run, and the learner can name which change fixed which failure.",
+            "For the real product bug, a bug report paragraph and the exported trace are included.",
+            "For every fix, a deliberate re-break shows the test going red for the intended reason.",
+            "No fix consists of increasing a fixed sleep, adding retries, or deleting an assertion."
+          ],
+          "hintProgression": [
+            "Ask the learner to read the call log of one failure aloud: did the locator resolve, and to what?",
+            "If the classification is stuck, ask a narrowing question per failure: did the app settle before the assertion, did any request fail, does the failure follow the data, does the failure change with the order of tests?",
+            "Suggest --workers=1 and --repeat-each=5 as two experiments that separate ordering effects from real races.",
+            "If the learner blames the framework, ask them to point at the trace step where the product misbehaved.",
+            "If a fix looks arbitrary, ask what evidence would falsify it — and have them run that experiment."
+          ],
+          "ifLearnerStruggles": [
+            "Reduce scope to one failure at a time, starting with the one whose trace is the easiest to read.",
+            "Walk through the trace viewer once, together: jump to the failing step, open the Before snapshot, open the network panel, read the console.",
+            "If tracing was never enabled, have them turn it on and re-run the single failing test before continuing.",
+            "If they cannot tell whether the app settled, ask them to compare two snapshots around the failing step.",
+            "If they reach for a bigger sleep or more retries, ask them to write down the question that fix leaves unanswered."
+          ],
+          "afterCompletion": [
+            "Name the strongest piece of evidence the learner produced and why it decided the category.",
+            "Summarize the habit to keep: classify from the trace first, fix at the right level, prove the fix with a re-break.",
+            "Suggest a next step: keep tracing on for failures in CI and treat every retried test as an open defect rather than a pass."
+          ]
+        }
+      },
+      "ru": {
+        "title": "Разбор четырёх падающих тестов по trace viewer",
+        "learnerBrief": "В вашем собственном репозитории сгенерируется маленькое приложение с заложенной проблемой тайминга и четыре падающих теста Playwright. Определите категорию каждого падения по трейсу, исправьте каждое на своём уровне и докажите, что исправление падает по правильной причине.",
+        "context": "Попросите своего AI-агента собрать цель внутри вашего собственного репозитория: маленькое приложение с двумя-тремя интерактивными зонами, например список с асинхронной загрузкой, форма с сохранением и строка статуса, которая обновляется после действия. В приложении должна быть намеренная проблема тайминга или состояния. Рядом агент пишет четыре теста Playwright, которые падают на свежем прогоне, каждый по своей причине. Готовой фикстуры здесь нет и в курсе её не существует: каркас ваш, можно взять чистый HTML с крошечным Node-сервером или любой знакомый вам стек. Прежде чем что-то запускать, включите в конфигурации Playwright `trace: 'retain-on-failure'` и `screenshot: 'only-on-failure'`, а затем убедитесь, что после упавшего прогона рядом с результатами появляется трейс.",
+        "deliverable": "Заметка о разборе плюс исправленный набор тестов. Для каждого из четырёх падений: (1) категория — настоящий баг продукта, баг теста, проблема окружения или данных, зависимость от порядка — и доказательство из трейса, которое её определило: упавший шаг, снимок Before, строка запроса, сообщение консоли или строка ассерта; (2) исправление, которое вы применили на этом уровне; (3) команда, которую вы запустили после правки, и её результат; (4) намеренная поломка, показывающая, что тест по-прежнему падает по правильной причине. Приложите экспортированный трейс для того падения, которое вы отнесли к настоящему багу продукта, и один короткий абзац о том, что вы сообщили бы разработчику.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Научить учащегося превращать падающий тест Playwright в классифицированную находку с доказательствами, прежде чем что-то менять в коде, и исправлять каждое падение на том уровне, которому оно принадлежит: продукт, тест, данные или порядок.",
+          "presentTaskHow": [
+            "Попросите учащегося сначала запустить агента, чтобы тот сгенерировал приложение и четыре падающих теста в его репозитории, затем прогнать набор один раз и вставить сырой вывод падений до любых подсказок.",
+            "Требуйте трейс для каждого падения: проверьте, что трассировка включена, и что учащийся открывает каждый trace.zip через npx playwright show-trace и докладывает упавший шаг, снимок Before, сетевые строки и консоль.",
+            "Пусть учащийся сдаёт таблицу разбора (падение, категория, доказательство, уровень исправления) прежде, чем вы скажете хоть слово о том, какое падение к какой категории относится.",
+            "Настаивайте на доказательстве исправления намеренной поломкой: измените приложение так, чтобы тест обязан был упасть, и подтвердите, что он проверяет именно то, что нужно."
+          ],
+          "doNotReveal": [
+            "Никогда не сообщайте учащемуся, какое из четырёх падений к какой категории относится. Классификация и есть упражнение: сначала требуйте доказательства из трейса, и только потом давайте обратную связь по рассуждению.",
+            "Архетипы — только для вашего ревью: (a) баг продукта — в трейсе приложение устоялось, в консоли нет ошибок, запросы успешны, ассерт в тесте соответствует тому, что продукт обещает, но приложение отдало неверное значение или пропустило состояние; (b) баг теста — в трейсе приложение ведёт себя корректно, а ассерт кодирует ожидание, которого никто не обещал: точный текст интерфейса, внутренний формат ID, локаль-зависимый формат числа или валюты; (c) проблема окружения или данных — падение следует за данными, проходит после чистого засева или на свежем профиле и падает на грязной или общей записи, часто с симптомом дубликата или отсутствующей записи в сетевой строке; (d) зависимость от порядка — зелено при одиночном запуске или с --workers=1, красно при запуске всего файла, потому что более ранний тест меняет состояние, которое читает более поздний.",
+            "Проблема тайминга — это настоящая гонка, а не медленный тест: приложение отрисовывает асинхронную зону с задержкой, а тест проверяет сразу, поэтому увеличенный фиксированный sleep выглядит лечением на быстрой машине. Не говорите этого прямо; если учащийся предлагает больший sleep или лишние retries, спросите, какое доказательство в трейсе показывает, что приложение вообще не устоялось.",
+            "Не пишите за учащегося исправленный код тестов, исправленные ассерты или починенную логику приложения. Смотрите диф и указывайте на строку, которая решает вопрос.",
+            "Не принимайте «перезапуск был зелёным» как диагноз и не позволяйте retries сойти за исправление."
+          ],
+          "reviewFor": [
+            "У каждого из четырёх падений есть категория, и ни одна категория не использована дважды без обоснования.",
+            "Каждая классификация опирается на конкретное доказательство из трейса или терминала: номер шага, состояние снимка, статус-код, строку консоли, строку исходника.",
+            "Баг продукта отделён от бага теста доказательством, а не догадкой: вопрос ревью — устоялось ли приложение и что продукт действительно обещает.",
+            "Падение из-за окружения или данных прослежено до состояния данных или профиля, а не списано на фреймворк.",
+            "Зависимость от порядка подтверждена запуском с --workers=1 или одиночным прогоном, а исправление убирает общее состояние или коллизию данных.",
+            "Падение из-за тайминга исправлено web-first ассертом с опросом, а не более длинным waitForTimeout.",
+            "Каждое исправление проверено намеренной поломкой, и учащийся объясняет, почему тест теперь падает по правильной причине."
+          ],
+          "completionCriteria": [
+            "Четыре падения разнесены по четырём разным категориям, у каждого есть доказательство.",
+            "Исправленный набор проходит на чистом прогоне, и учащийся называет, какая правка починила какое падение.",
+            "Для настоящего бага продукта приложены абзац баг-репорта и экспортированный трейс.",
+            "Для каждой правки намеренная поломка показывает, что тест краснеет по запланированной причине.",
+            "Ни одно исправление не сводится к увеличению фиксированного sleep, добавлению retries или удалению ассерта."
+          ],
+          "hintProgression": [
+            "Попросите учащегося прочитать вслух call log одного падения: нашёл ли локатор элемент и что именно он нашёл?",
+            "Если классификация буксует, задайте по одному сужающему вопросу на падение: устоялось ли приложение до ассерта, упал ли какой-нибудь запрос, следует ли падение за данными, меняется ли оно от порядка тестов?",
+            "Предложите --workers=1 и --repeat-each=5 как два эксперимента, отделяющих эффект порядка от настоящих гонок.",
+            "Если учащийся винит фреймворк, попросите указать шаг в трейсе, где продукт повёл себя неверно.",
+            "Если правка выглядит произвольной, спросите, какое доказательство её опровергло бы, — и пусть учащийся проведёт этот эксперимент."
+          ],
+          "ifLearnerStruggles": [
+            "Сузьте работу до одного падения за раз, начиная с того, чей трейс читается легче.",
+            "Один раз пройдите trace viewer вместе: перейдите к упавшему шагу, откройте снимок Before, откройте сеть, прочитайте консоль.",
+            "Если трассировка не была включена, попросите включить её и перезапустить один падающий тест, прежде чем идти дальше.",
+            "Если непонятно, устоялось ли приложение, попросите сравнить два снимка вокруг упавшего шага.",
+            "Если учащийся тянется к большему sleep или лишним retries, попросите записать вопрос, на который такое исправление не отвечает."
+          ],
+          "afterCompletion": [
+            "Назовите самое сильное доказательство, которое привёл учащийся, и объясните, почему оно решило категорию.",
+            "Подведите привычку: сначала классифицировать по трейсу, чинить на правильном уровне, подтверждать правку намеренной поломкой.",
+            "Предложите следующий шаг: держать трассировку включённой для падений в CI и считать каждый перезапущенный тест открытым дефектом, а не успехом."
+          ]
+        }
+      }
+    }
+  }
+]

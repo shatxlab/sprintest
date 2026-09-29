@@ -1,0 +1,22 @@
+{
+  "id": "14-glossary",
+  "slug": "14-glossary",
+  "order": 15,
+  "title": {
+    "en": "Glossary",
+    "ru": "Глоссарий"
+  },
+  "summary": {
+    "en": "Compact bilingual QA and IT reference for reading tasks, discussing defects, and working with an AI tutor.",
+    "ru": "Краткий двуязычный справочник QA и IT для чтения задач, обсуждения дефектов и работы с AI-наставником."
+  },
+  "themes": [
+    "qa-vocabulary",
+    "bilingual-reference",
+    "ai-communication"
+  ],
+  "practiceTaskIds": [
+    "14-glossary-practice"
+  ],
+  "updatedAt": "2026-09-25"
+}

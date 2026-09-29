@@ -1,0 +1,246 @@
+[
+  {
+    "id": "09-jira-and-confluence-severity-drill",
+    "moduleId": "09-jira-and-confluence",
+    "kind": "bug-report",
+    "estimatedMinutes": 25,
+    "skillFocus": [
+      "bug-reporting",
+      "severity-priority-reasoning",
+      "risk-thinking"
+    ],
+    "updatedAt": "2026-09-25",
+    "languages": {
+      "en": {
+        "title": "Severity and priority: six calls to make",
+        "learnerBrief": "Six bugs arrive one at a time. For each, commit to a severity and a priority with a one-line justification before the tutor reveals its own assessment.",
+        "context": "You are the QA voice in triage for a consumer web and mobile shop. No code, no logs, no dashboards: each bug arrives as a short description. Your job is the call, not the fix — assign severity (user impact) and priority (fix urgency) and defend each in one line.",
+        "deliverable": "For each of the six bugs: a severity, a priority, and a one-line justification for each. Close with a short reflection on which calls were hardest and why.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Train severity and priority as two separate judgments with reasoning, and build the habit of committing to a call before hearing any assessment.",
+          "presentTaskHow": [
+            "Present the six bugs one at a time, in order. After each, ask for severity, priority, and a one-line justification. Do not move on until the learner commits.",
+            "Scenario 1 (suggested: severity High — a subset of users cannot complete checkout at all on their device; priority High — it blocks revenue for an entire viewport segment): 'On a 320-pixel-wide viewport the checkout button is rendered outside the visible area and cannot be tapped. Other viewport widths work.'",
+            "Scenario 2 (suggested: severity Critical — every purchase during the promotion is double-charged, direct financial harm plus refund and trust costs; priority Highest — money is actively being lost, stop the sale or hotfix immediately): 'For one hour during a flash sale, the payment provider receives two identical charges for every order.'",
+            "Scenario 3 (suggested: severity Low — cosmetic, no functional impact; priority Low — fix in the normal backlog): 'The footer copyright line still shows 2025, although 2026 has shipped.'",
+            "Scenario 4 (suggested: severity Medium — payment and order succeed, but users lack a receipt and support absorbs the confusion; priority Medium — no data or money is lost, schedule within the sprint): 'Payment succeeds and the order is created, but the confirmation email is never sent; the order is visible in account history.'",
+            "Scenario 5 (suggested: severity High — a full crash, the worst kind of failure for anyone hit; priority Medium — confined to roughly 2% of the installed base, batch the fix with the next platform release): 'The app crashes on launch, but only on 32-bit Android devices, roughly 2% of the installed base.'",
+            "Scenario 6 (suggested: severity Medium — users act on outdated data but the feature still works; priority Low — the staleness decays on its own as the index rebuilds, batch with normal work): 'After a cache flush, search returns results up to 24 hours old until the index fully rebuilds.'",
+            "After the learner commits on each bug, compare their call with the suggested assessment. If they differ, ask one probing question about impact versus urgency, let the learner revise or defend, and only then confirm the suggested assessment."
+          ],
+          "doNotReveal": [
+            "Never show the suggested severity or priority for a scenario before the learner commits to their own call.",
+            "Do not state that one severity-priority pair is mandatory; if the learner argues a different pair well, acknowledge the tradeoff without forcing the suggestion.",
+            "Do not invent extra facts (logs, usage statistics, deadlines) beyond what each scenario states."
+          ],
+          "reviewFor": [
+            "Severity reasoning based on user impact and scope, not on personal annoyance.",
+            "Priority reasoning based on urgency, revenue, visibility, and release context.",
+            "Justifications are concrete one-liners, not bare labels.",
+            "The learner keeps the two axes separate on the bugs where they diverge (scenarios 2, 4, 5).",
+            "Weak calls are challenged with a question, not corrected with the answer."
+          ],
+          "completionCriteria": [
+            "All six bugs have a severity, a priority, and a justification for each.",
+            "At least two calls correctly separate impact from urgency (e.g., high severity with lower priority).",
+            "The learner revised at least one call after the tutor's challenge, or defended one convincingly.",
+            "A short closing reflection names the hardest call and why."
+          ],
+          "hintProgression": [
+            "If the learner merges the two axes, ask: 'If fixing this were free, would the harm to users change?'",
+            "Before severity is picked, ask who is affected and how badly.",
+            "Before priority is picked, ask what happens if the fix waits a week versus shipping today.",
+            "If stuck on the 32-bit crash, ask what share of users is affected and what a full crash costs versus a degraded feature."
+          ],
+          "ifLearnerStruggles": [
+            "Offer the two scaffold questions: 'Who is hurt, and how badly?' and 'What happens if the fix waits a week?'",
+            "Walk through one neutral example together (a broken image on a rarely visited page), both axes, then return to the current scenario.",
+            "Split the pass: severity for all six first, then priority as a second pass."
+          ],
+          "afterCompletion": [
+            "Summarize which calls were strong and which were argued well despite differing from the suggestion.",
+            "Name the recurring pattern: severity follows user impact, priority follows business context.",
+            "Point to the evidence-report task in this module as the next step: writing the full report, not only the call."
+          ]
+        }
+      },
+      "ru": {
+        "title": "Severity и priority: шесть решений",
+        "learnerBrief": "Шесть багов приходят по одному. Для каждого зафиксируйте severity и priority с обоснованием в одну строку до того, как наставник раскроет свою оценку.",
+        "context": "Вы — голос QA на triage в потребительском веб- и мобильном магазине. Ни кода, ни логов, ни дашбордов: каждый баг приходит коротким описанием. Ваша работа — решение, а не исправление: назначьте severity (влияние на пользователя) и priority (срочность исправления) и защитите каждую одной строкой.",
+        "deliverable": "Для каждого из шести багов: severity, priority и обоснование в одну строку для каждого. В конце — короткая рефлексия, какие решения были самыми трудными и почему.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Тренировать severity и priority как два отдельных суждения с обоснованием и привычку фиксировать решение до того, как услышана оценка.",
+          "presentTaskHow": [
+            "Представляйте шесть багов по одному, по порядку. После каждого просите severity, priority и обоснование в одну строку. Не переходите дальше, пока ученик не зафиксировал решение.",
+            "Сценарий 1 (рекомендация: severity High — часть пользователей вообще не может оформить заказ на своём устройстве; priority High — блокирует выручку целого сегмента viewport): 'На viewport шириной 320 пикселей кнопка оформления заказа рендерится за пределами видимой области, тапнуть по ней нельзя. Другие ширины работают.'",
+            "Сценарий 2 (рекомендация: severity Critical — каждая покупка во время акции двойная, прямой финансовый ущерб плюс издержки на возвраты и доверие; priority Highest — деньги теряются прямо сейчас, остановить распродажу или hotfix немедленно): 'В течение часа флеш-распродажи платёжный провайдер получает два одинаковых списания за каждый заказ.'",
+            "Сценарий 3 (рекомендация: severity Low — косметика, функционального влияния нет; priority Low — обычный backlog): 'Строка copyright в футере показывает 2025 вместо 2026.'",
+            "Сценарий 4 (рекомендация: severity Medium — оплата и заказ проходят, но у пользователя нет чека, а support тонет в обращениях; priority Medium — данные и деньги не потеряны, запланировать в рамках спринта): 'Оплата проходит и заказ создаётся, но письмо-подтверждение не отправляется; заказ виден в истории аккаунта.'",
+            "Сценарий 5 (рекомендация: severity High — полный crash, худший тип сбоя для попавшего; priority Medium — затронуто около 2% установленной базы, batching с ближайшим платформенным релизом): 'Приложение падает на запуске, но только на 32-битных Android-устройствах, около 2% установленной базы.'",
+            "Сценарий 6 (рекомендация: severity Medium — пользователи действуют по устаревшим данным, но фича работает; priority Low — свежесть восстанавливается сама по мере перестройки индекса, в обычный поток): 'После сброса кэша поиск возвращает результаты до 24 часов давности, пока индекс полностью не перестроится.'",
+            "После фиксации решения ученика по каждому багу сравните его решение с рекомендацией. Если они расходятся, задайте один зондирующий вопрос про влияние versus срочность, дайте ученику скорректировать или защитить решение, и только затем подтвердите рекомендацию."
+          ],
+          "doNotReveal": [
+            "Никогда не показывайте рекомендованные severity и priority до того, как ученик зафиксировал собственное решение.",
+            "Не утверждайте, что существует единственно верная пара; если ученик аргументированно предлагает другую, признайте компромисс.",
+            "Не придумывайте дополнительные факты (логи, статистику использования, дедлайны) за пределами сценариев."
+          ],
+          "reviewFor": [
+            "Severity обоснована влиянием на пользователя и масштабом, а не личным раздражением.",
+            "Priority обоснована срочностью, выручкой, видимостью и релизным контекстом.",
+            "Обоснования — конкретные однострочники, а не голые метки.",
+            "Ученик разделяет две оси там, где они расходятся (сценарии 2, 4, 5).",
+            "Слабые решения оспариваются вопросом, а не исправляются готовым ответом."
+          ],
+          "completionCriteria": [
+            "Все шесть багов имеют severity, priority и обоснование для каждой.",
+            "Минимум два решения корректно разделяют влияние и срочность (например, высокая severity при более низкой priority).",
+            "Ученик скорректировал минимум одно решение после вопроса наставника или убедительно защитил его.",
+            "Короткая финальная рефлексия называет самое трудное решение и почему."
+          ],
+          "hintProgression": [
+            "Если ученик смешивает оси, спросите: «Если бы исправление было бесплатным, изменился бы вред пользователям?»",
+            "Перед выбором severity спросите, кто затронут и насколько сильно.",
+            "Перед выбором priority спросите, что будет, если исправление подождёт неделю.",
+            "Если застрял на 32-битном crash, спросите, какая доля пользователей затронута и что дороже — crash или деградация фичи."
+          ],
+          "ifLearnerStruggles": [
+            "Дайте два наводящих вопроса: «Кому вред и насколько сильно?» и «Что будет, если исправление подождёт неделю?»",
+            "Разберите вместе один нейтральный пример (сломанная картинка на редко посещаемой странице) по обеим осям, затем вернитесь к текущему сценарию.",
+            "Разделите проход: сначала severity для всех шести, затем priority вторым проходом."
+          ],
+          "afterCompletion": [
+            "Кратко отметьте, какие решения были сильными, а какие хорошо аргументированы, хотя и отличались от рекомендации.",
+            "Назовите повторяющийся принцип: severity следует за влиянием на пользователя, priority — за бизнес-контекстом.",
+            "Укажите на задачу evidence-report в этом модуле как следующий шаг: писать полный репорт, а не только решение."
+          ]
+        }
+      }
+    },
+    "pillars": [
+      "bug-reporting"
+    ]
+  },
+  {
+    "id": "09-jira-and-confluence-evidence-report",
+    "moduleId": "09-jira-and-confluence",
+    "kind": "bug-report",
+    "estimatedMinutes": 35,
+    "skillFocus": [
+      "bug-reporting",
+      "evidence-writing",
+      "severity-priority-reasoning"
+    ],
+    "updatedAt": "2026-09-25",
+    "languages": {
+      "en": {
+        "title": "Write the report from the evidence",
+        "learnerBrief": "A described checkout session gives you a failed network request, a console error, and screenshots described in words. Turn the evidence into a complete, reproducible bug report.",
+        "context": "Described session: staging build 2.4.1 of the web shop, Chrome 128 on Windows 11, test account with a saved payment method, cart with two items totaling $84.00. You filled the shipping form and clicked 'Place order'. After about ten seconds a toast says 'Something went wrong, please try again'. Devtools network tab shows POST /api/v1/orders with status 500, response body {\"code\":\"INTERNAL\",\"message\":\"Internal server error\",\"requestId\":\"req-8f31c2a9\"}, request payload containing items and paymentMethodId. The console shows: Uncaught (in promise) Error: Request failed with status 500 at orders.js:214. Screenshots described in words: (1) the cart page before the click, two items and the enabled 'Place order' button; (2) the checkout page right after the failure, the toast visible and the form still filled. Retrying once reproduces the failure. No server logs are available to you.",
+        "deliverable": "A complete bug report containing: a title that names the feature and the failure, environment, preconditions, numbered reproduction steps, expected result, actual result, references to the evidence (the failing network request, the console log, the described screenshots), and severity plus priority, each with a one-line justification.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Produce a complete, reproducible bug report from raw evidence, with honest separation of observed facts, inferences, and missing information.",
+          "presentTaskHow": [
+            "Role-play the described session briefly so the learner sees the flow, then ask for the full report in one artifact.",
+            "State the completeness bar up front: a complete report has (1) a title naming feature + failure, (2) environment, (3) preconditions, (4) numbered steps, (5) expected result, (6) actual result, (7) evidence references, (8) severity and priority, each justified.",
+            "Accept any structured format (field list, table, prose) as long as every required part is present."
+          ],
+          "doNotReveal": [
+            "Do not show a model or finished report until the learner has produced their own complete version.",
+            "Do not fill in missing sections for the learner; name what is missing and let them write it.",
+            "Do not invent server-side details beyond the described evidence — no fake backend stack traces or server logs.",
+            "Suggested assessment, reveal only after the learner commits to theirs: severity Critical — checkout is fully blocked and reproduces on retry, the revenue path is down; priority Highest — it fails on every attempt with no workaround. The orders API service is the likely area, but the report must mark root cause as unknown pending server logs."
+          ],
+          "reviewFor": [
+            "The title names the feature and the failure, not a verdict: 'Checkout: order placement fails with 500 on POST /api/v1/orders'.",
+            "Environment and preconditions are concrete enough to rebuild the session.",
+            "Steps are numbered, executable, and include the retry observation.",
+            "Expected and actual results are stated separately and concretely.",
+            "Evidence references quote the specific network request, requestId, console line, and screenshot descriptions.",
+            "Observed facts are separated from guesses about the cause.",
+            "Severity and priority are justified separately, each in one line."
+          ],
+          "completionCriteria": [
+            "The report contains all eight required parts.",
+            "Another person could reproduce the failure from the steps alone.",
+            "At least two specific evidence references appear (requestId, console line, screenshot descriptions).",
+            "Severity and priority each carry a one-line justification.",
+            "The learner produced the report before seeing any model version."
+          ],
+          "hintProgression": [
+            "If sections are missing, ask what a reader needs before step 1: environment and preconditions.",
+            "If expected or actual is missing, ask what the requirement implied and what was seen instead.",
+            "If severity and priority are merged, ask the impact question and the urgency question separately.",
+            "If evidence references are vague, ask for the exact status code, requestId, and console line."
+          ],
+          "ifLearnerStruggles": [
+            "Ask for the numbered steps first, then build the remaining sections around them.",
+            "Provide a skeleton of section names without any content.",
+            "Let them draft the actual result from the toast, then upgrade it with the network excerpt and console line."
+          ],
+          "afterCompletion": [
+            "Only now show the model report and compare it field by field with the learner's version.",
+            "Name the strongest section and one section to improve next time.",
+            "Connect the report to the Jira fields from the module text: the report is the ticket body before it enters the tracker."
+          ]
+        }
+      },
+      "ru": {
+        "title": "Напишите репорт по доказательствам",
+        "learnerBrief": "Описанная checkout-сессия даёт вам неудачный сетевой запрос, ошибку в консоли и скриншоты, описанные словами. Превратите доказательства в полный воспроизводимый баг-репорт.",
+        "context": "Описанная сессия: staging-сборка 2.4.1 веб-магазина, Chrome 128 на Windows 11, тестовый аккаунт с сохранённым способом оплаты, корзина с двумя позициями на $84.00. Вы заполнили форму доставки и нажали «Place order». Через примерно десять секунд появляется toast «Something went wrong, please try again». Devtools network tab показывает POST /api/v1/orders со статусом 500, тело ответа {\"code\":\"INTERNAL\",\"message\":\"Internal server error\",\"requestId\":\"req-8f31c2a9\"}, request payload содержит items и paymentMethodId. Консоль показывает: Uncaught (in promise) Error: Request failed with status 500 at orders.js:214. Скриншоты словами: (1) страница корзины до нажатия, две позиции и активная кнопка «Place order»; (2) страница checkout сразу после сбоя, виден toast, форма всё ещё заполнена. Повторная попытка воспроизводит сбой. Серверные логи вам недоступны.",
+        "deliverable": "Полный баг-репорт, содержащий: title, называющий фичу и сбой, environment, preconditions, нумерованные шаги воспроизведения, expected result, actual result, ссылки на доказательства (неудавшийся сетевой запрос, лог консоли, описанные скриншоты), а также severity и priority с обоснованием в одну строку каждое.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Получить полный воспроизводимый баг-репорт из сырых доказательств с честным разделением наблюдаемых фактов, предположений и недостающей информации.",
+          "presentTaskHow": [
+            "Коротко проиграйте описанную сессию, чтобы ученик увидел поток, затем попросите полный репорт одним артефактом.",
+            "Сразу обозначьте планку полноты: полный репорт содержит (1) title с фичей и сбоем, (2) environment, (3) preconditions, (4) нумерованные шаги, (5) expected result, (6) actual result, (7) ссылки на доказательства, (8) severity и priority с обоснованием.",
+            "Принимайте любой структурированный формат (список полей, таблица, проза), пока все обязательные части присутствуют."
+          ],
+          "doNotReveal": [
+            "Не показывайте образец или готовый репорт, пока ученик не написал свою полную версию.",
+            "Не заполняйте пропущенные секции за ученика; назовите, чего не хватает, и пусть напишет сам.",
+            "Не придумывайте серверные детали за пределами описанных доказательств — никаких выдуманных серверных stack trace или логов.",
+            "Рекомендуемая оценка, раскрыть только после решения ученика: severity Critical — checkout полностью заблокирован и воспроизводится, путь выручки не работает; priority Highest — сбой на каждой попытке без обхода. Вероятная область — сервис orders API, но репорт должен пометить root cause как неизвестный до серверных логов."
+          ],
+          "reviewFor": [
+            "Title называет фичу и сбой, а не выносит вердикт: «Checkout: оформление заказа падает с 500 на POST /api/v1/orders».",
+            "Environment и preconditions конкретны настолько, чтобы воссоздать сессию.",
+            "Шаги нумерованные, выполнимые, включают наблюдение про повторную попытку.",
+            "Expected и actual results сформулированы отдельно и конкретно.",
+            "Ссылки на доказательства цитируют конкретный сетевой запрос, requestId, строку консоли и описания скриншотов.",
+            "Наблюдаемые факты отделены от догадок о причине.",
+            "Severity и priority обоснованы отдельно, каждое в одну строку."
+          ],
+          "completionCriteria": [
+            "Репорт содержит все восемь обязательных частей.",
+            "Другой человек сможет воспроизвести сбой только по шагам.",
+            "Есть минимум две конкретные ссылки на доказательства (requestId, строка консоли, описания скриншотов).",
+            "Severity и priority каждое имеют обоснование в одну строку.",
+            "Ученик написал репорт до показа любой модели."
+          ],
+          "hintProgression": [
+            "Если секции пропущены, спросите, что читателю нужно до шага 1: environment и preconditions.",
+            "Если нет expected или actual, спросите, что должно было произойти и что видно вместо этого.",
+            "Если severity и priority смешаны, задайте вопрос про влияние и вопрос про срочность отдельно.",
+            "Если ссылки на доказательства расплывчаты, попросите точный статус-код, requestId и строку консоли."
+          ],
+          "ifLearnerStruggles": [
+            "Попросите сначала нумерованные шаги, затем достройте остальные секции вокруг них.",
+            "Дайте скелет из названий секций без содержания.",
+            "Пусть напишет actual result по toast, затем усилит его сетевым фрагментом и строкой консоли."
+          ],
+          "afterCompletion": [
+            "Только теперь покажите образец репорта и сравните его с версией ученика поле за полем.",
+            "Назовите самую сильную секцию и одну для улучшения.",
+            "Свяжите репорт с полями Jira из текста модуля: репорт — это тело тикета до попадания в трекер."
+          ]
+        }
+      }
+    },
+    "pillars": [
+      "bug-reporting"
+    ]
+  }
+]

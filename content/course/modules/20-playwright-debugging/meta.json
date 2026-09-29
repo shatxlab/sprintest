@@ -1,0 +1,23 @@
+{
+  "id": "20-playwright-debugging",
+  "slug": "20-playwright-debugging",
+  "order": 20,
+  "title": {
+    "en": "Debugging and Flaky Tests",
+    "ru": "Отладка и flaky-тесты"
+  },
+  "summary": {
+    "en": "Read a failing Playwright test as evidence: use the Inspector and the trace viewer to classify each failure as a product bug, a test bug, an environment problem, or a flake.",
+    "ru": "Читаем падающий тест Playwright как доказательство: через Inspector и trace viewer определяем, что перед нами — баг продукта, баг теста, проблема окружения или flaky-падение."
+  },
+  "themes": [
+    "playwright",
+    "trace-viewer",
+    "flakiness",
+    "test-debugging"
+  ],
+  "practiceTaskIds": [
+    "20-playwright-debugging-flaky-triage"
+  ],
+  "updatedAt": "2026-09-25"
+}

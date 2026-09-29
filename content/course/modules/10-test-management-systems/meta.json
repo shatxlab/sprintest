@@ -1,0 +1,24 @@
+{
+  "id": "10-test-management-systems",
+  "slug": "10-test-management-systems",
+  "order": 11,
+  "title": {
+    "en": "Test Management Systems",
+    "ru": "Системы управления тестированием"
+  },
+  "summary": {
+    "en": "How QA teams organize test cases, runs, results, reports, and requirement traceability in a TMS.",
+    "ru": "Как QA-команды организуют тест-кейсы, прогоны, результаты, отчёты и трассировку требований в TMS."
+  },
+  "themes": [
+    "tms",
+    "test-cases",
+    "test-runs",
+    "traceability",
+    "reporting"
+  ],
+  "practiceTaskIds": [
+    "10-test-management-systems-practice"
+  ],
+  "updatedAt": "2026-09-25"
+}

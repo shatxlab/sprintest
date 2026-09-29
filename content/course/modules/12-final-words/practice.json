@@ -1,0 +1,245 @@
+[
+  {
+    "id": "12-final-words-practice",
+    "moduleId": "12-final-words",
+    "kind": "interview-practice",
+    "estimatedMinutes": 30,
+    "skillFocus": [
+      "qa-reflection",
+      "bug-reporting",
+      "career-growth",
+      "ai-collaboration"
+    ],
+    "updatedAt": "2026-09-25",
+    "languages": {
+      "en": {
+        "title": "Create a QA growth note with AI review",
+        "learnerBrief": "Reflect on your QA maturity and turn course work into a practical career-growth artifact.",
+        "context": "Imagine you are preparing for a mentor review or junior QA interview. You need one concise note that shows how you think about defects, evidence, communication, and future growth. You may refer to any previous course artifact or create a realistic example from memory.",
+        "deliverable": "Write a one-page QA growth note with five sections: one bug-report lesson, one communication lesson, one example of evidence-based reasoning, a 30-day practice plan, and your personal rules for using AI responsibly in QA work.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Help the learner consolidate QA communication, bug-report quality, and career reflection without turning the exercise into a generic motivational essay.",
+          "presentTaskHow": [
+            "Ask the learner to draft the note in their own voice first.",
+            "Invite concrete examples from previous modules or realistic study practice.",
+            "Explain that the note is useful for mentor review, portfolio work, and interview preparation."
+          ],
+          "doNotReveal": [
+            "Do not write a complete polished note before the learner attempts it.",
+            "Do not invent work experience the learner has not claimed.",
+            "Do not provide private hiring scripts, hidden scoring rubrics, or secret interview answers."
+          ],
+          "reviewFor": [
+            "The note includes specific evidence, not only broad claims.",
+            "The bug-report lesson names what improved in clarity, reproducibility, severity reasoning, or evidence.",
+            "The communication lesson shows audience awareness for developers, managers, analysts, or users.",
+            "The 30-day plan is realistic and measurable.",
+            "The AI rules keep accountability with the learner."
+          ],
+          "completionCriteria": [
+            "The artifact has all five requested sections.",
+            "At least two sections include concrete examples.",
+            "The 30-day plan contains three measurable actions.",
+            "The learner can explain how AI helped and where human judgment remains necessary.",
+            "The completion artifact is created only after the learner passes the final interview."
+          ],
+          "hintProgression": [
+            "Ask the learner to choose one artifact or exercise they remember clearly.",
+            "Prompt for before-and-after improvement: what changed after review?",
+            "Suggest splitting the plan into weekly practice blocks.",
+            "Offer sentence starters only after the learner shares rough notes."
+          ],
+          "ifLearnerStruggles": [
+            "Start with one bug report: title, evidence, expected result, and impact.",
+            "Ask what feedback they received or would ask from a mentor.",
+            "Turn vague goals into measurable actions, such as writing two reports or reviewing three examples."
+          ],
+          "afterCompletion": [
+            "Run a final interview before promising anything. If the learner passes, create the course completion artifact: a PDF if the agent can produce one, otherwise a polished Markdown or HTML document. It must contain: the learner's name as they want it spelled, the course title (Sprintest QA Course), the completion date, the list of completed modules, and a short summary of the capstone and interview performance. Create the artifact only after a pass.",
+            "If the learner does not pass the interview, do NOT create any completion artifact. Name the specific gaps, agree on a short practice plan, and offer a retry."
+          ]
+        }
+      },
+      "ru": {
+        "title": "QA-заметка о росте с AI-ревью",
+        "learnerBrief": "Осмыслите свою QA-зрелость и превратите работу курса в практичный карьерный артефакт.",
+        "context": "Представьте, что готовитесь к ревью с наставником или собеседованию на junior QA. Нужна короткая заметка, которая показывает, как вы думаете о дефектах, доказательствах, коммуникации и дальнейшем росте. Можно сослаться на любой прошлый артефакт курса или создать реалистичный пример по памяти.",
+        "deliverable": "Напишите одностраничную QA-заметку о росте с пятью разделами: один урок по баг-репортам, один урок по коммуникации, один пример рассуждения от доказательств, план практики на 30 дней и личные правила ответственного использования AI в QA-работе.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Помочь ученику собрать воедино QA-коммуникацию, качество баг-репортов и карьерную рефлексию, не превращая упражнение в общий мотивационный текст.",
+          "presentTaskHow": [
+            "Попросите ученика сначала написать заметку своим голосом.",
+            "Предложите конкретные примеры из прошлых модулей или реалистичной учебной практики.",
+            "Объясните, что заметка пригодится для ревью с наставником, портфолио и подготовки к интервью."
+          ],
+          "doNotReveal": [
+            "Не пишите полностью отполированную заметку до попытки ученика.",
+            "Не придумывайте рабочий опыт, о котором ученик не говорил.",
+            "Не давайте приватные hiring-скрипты, скрытые рубрики оценки или секретные ответы для интервью."
+          ],
+          "reviewFor": [
+            "В заметке есть конкретные доказательства, а не только общие утверждения.",
+            "Урок по баг-репортам называет улучшение в ясности, воспроизводимости, reasoning по severity или доказательствах.",
+            "Урок по коммуникации показывает учёт аудитории: разработчиков, менеджеров, аналитиков или пользователей.",
+            "План на 30 дней реалистичен и измерим.",
+            "Правила работы с AI оставляют ответственность за учеником."
+          ],
+          "completionCriteria": [
+            "В артефакте есть все пять запрошенных разделов.",
+            "Минимум два раздела содержат конкретные примеры.",
+            "План на 30 дней содержит три измеримых действия.",
+            "Ученик может объяснить, как AI помог и где необходимо человеческое суждение.",
+            "Артефакт завершения создаётся только после того, как учащийся прошёл финальное интервью."
+          ],
+          "hintProgression": [
+            "Попросите выбрать один артефакт или упражнение, которое ученик хорошо помнит.",
+            "Подскажите формат до/после: что изменилось после ревью?",
+            "Предложите разбить план на недельные блоки практики.",
+            "Давайте зачины фраз только после черновых заметок ученика."
+          ],
+          "ifLearnerStruggles": [
+            "Начните с одного баг-репорта: заголовок, доказательства, ожидаемый результат и влияние.",
+            "Спросите, какую обратную связь ученик получил или попросил бы у наставника.",
+            "Превратите расплывчатые цели в измеримые действия: например, написать два репорта или разобрать три примера."
+          ],
+          "afterCompletion": [
+            "Проведите финальное интервью, прежде чем обещать что-либо. Если учащийся проходит интервью, создайте артефакт завершения курса: PDF, если агент умеет, иначе аккуратный документ в Markdown или HTML. В нём должны быть: имя учащегося (как он хочет его видеть), название курса (Sprintest QA Course), дата завершения, список пройденных модулей и краткое резюме капстоууна и интервью. Создавайте артефакт только после успешного прохождения.",
+            "Если учащийся не проходит интервью, НЕ создавайте артефакт завершения. Назовите конкретные пробелы, договоритесь о коротком плане практики и предложите повторить попытку."
+          ]
+        }
+      }
+    },
+    "pillars": [
+      "career-soft"
+    ]
+  },
+  {
+    "id": "12-final-words-capstone-release",
+    "moduleId": "12-final-words",
+    "kind": "release-simulation",
+    "estimatedMinutes": 45,
+    "skillFocus": [
+      "release-risk",
+      "rest-api",
+      "sql-select",
+      "bug-reporting",
+      "qa-evidence"
+    ],
+    "updatedAt": "2026-09-25",
+    "languages": {
+      "en": {
+        "title": "Capstone: ship the order API change",
+        "learnerBrief": "Apply the full course skill set to a release: read a change note, design checks across API contract and data, run them against a simulated system, and write one complete, evidence-backed bug report.",
+        "context": "A small order API is getting a release. The change note says: POST /orders now accepts an optional discount field (a whole-number percent from 0 to 30) and returns the discounted total; the GET /orders/{id} response now includes discount and the discounted total alongside the existing fields (id, customerId, status, subtotal); and the SQL table orders (id, customerId, status, subtotal, orders_total) has an orders_total column that the release was supposed to keep in sync with the discounted total. Your AI agent plays the system: when you ask it to run a check, it simulates realistic API responses and SQL query results. Your job is to decide what to check, record what comes back, and judge whether the release is safe to ship.",
+        "deliverable": "Three artifacts: (1) a check design covering the API contract (POST /orders with and without discount, GET /orders/{id}) and the data layer (SELECT on the orders table); (2) observations from the simulated runs — exact request, simulated response or query result, and what you expected; (3) one complete bug report with title, endpoint context, repro steps, expected vs actual with evidence from BOTH the API and the data layer, severity and priority with reasoning, and a suggested next step.",
+        "aiTutorInstructions": {
+          "teachingGoal": "This is the course capstone. Verify the learner can plan a release check across API contract and data layers, execute it through simulation, notice the planted API-versus-data inconsistency, and produce one professional bug report that ties both evidence streams together. At the end, review all three artifacts together and summarize the learner's growth across the whole course.",
+          "presentTaskHow": [
+            "Present the change note from the context as the only starting information. Do not hint that anything is broken.",
+            "Ask the learner to design checks BEFORE running anything: API contract checks (POST /orders with and without discount, GET /orders/{id}) and data checks (SELECT id, subtotal, orders_total FROM orders).",
+            "When the learner asks to run a check, simulate the system exactly per the planted bug: POST /orders with discount 10 on subtotal 150.00 returns 201 with total 135.00 and discount 10; GET /orders/{id} returns the same discounted values; SELECT on that same order returns orders_total 150.00 — the stale, undiscounted subtotal (the orders_total UPDATE from the change note was never implemented). For orders created without discount, orders_total matches subtotal normally.",
+            "Simulate only the checks the learner designed; record each simulated result verbatim for their observations.",
+            "After the learner has run their checks and found the mismatch (or asked for help), move them to writing ONE bug report."
+          ],
+          "doNotReveal": [
+            "Do not reveal the planted bug (the missing orders_total UPDATE) before the learner's own checks have run.",
+            "Do not design the check list for the learner or hand over a ready test plan.",
+            "Do not simulate spoiler results — simulate honestly per the planted bug once checks are designed.",
+            "Do not show the model bug report before the learner submits their own.",
+            "Do not claim the simulated system is a real service or invent endpoints beyond the scenario."
+          ],
+          "reviewFor": [
+            "Check design covers both layers: API contract checks and at least one SELECT against the orders table.",
+            "Observations record exact simulated values, not vague impressions.",
+            "The bug report connects the API evidence (discounted total in the response) with the data evidence (stale orders_total) as one defect, not two.",
+            "Severity and priority are stated with reasoning about user and business impact.",
+            "Repro steps are complete enough for a developer to reproduce the bug from scratch."
+          ],
+          "completionCriteria": [
+            "The check design includes both API checks and SQL checks.",
+            "Observations include at least one simulated POST/GET response and one simulated SELECT result.",
+            "The bug report cites both the API evidence and the data evidence and explicitly connects them.",
+            "The report has a title, repro steps, expected vs actual, and severity AND priority with justification.",
+            "The learner can say in one sentence why an API-only check would have missed this bug."
+          ],
+          "hintProgression": [
+            "If the check design is API-only, ask: 'The change note mentions an orders_total column — what does your plan check about the data?'",
+            "If checks are designed but not run, prompt: pick the two highest-risk checks and run those first.",
+            "After the mismatch is visible, ask: what one sentence would convince a developer this is one bug, not two?",
+            "If severity feels arbitrary, ask: 'Who notices this, when, and what does it cost?'"
+          ],
+          "ifLearnerStruggles": [
+            "Suggest starting with one happy-path pair: POST an order with discount 10, then SELECT that row.",
+            "Give a report skeleton (title / repro / expected / actual / evidence / severity / priority) without filling it in.",
+            "Reduce scope: two API checks plus one SQL check is enough to start; expand afterwards."
+          ],
+          "afterCompletion": [
+            "Review all three artifacts together — check design, observations, bug report — and praise the specific chain of reasoning.",
+            "Model bug report to compare against: 'Title: orders_total not updated when discount is applied (API and DB diverge). Repro: POST /orders {customerId, items with subtotal 150.00, discount 10} returns 201 with total 135.00; GET /orders/{id} confirms discount 10 and total 135.00. SELECT id, subtotal, orders_total FROM orders WHERE id = <created id> returns orders_total 150.00. Expected: orders_total 135.00 (the change note says the column stays in sync with the discounted total). Severity: Major — finance and reporting consume orders_total, so revenue totals overstate actual revenue for every discounted order. Priority: High — fix before release, no workaround. Suggested next step: add the missing UPDATE to the order-creation path plus a regression check comparing the API total with orders_total.'",
+            "Summarize the learner's growth across the course: name the module skills you saw applied here (contract reading, risk-based design, data-layer checks, evidence writing) and one skill still to strengthen.",
+            "Congratulate the learner on finishing the course capstone and suggest saving the report as a portfolio artifact."
+          ]
+        }
+      },
+      "ru": {
+        "title": "Капстон: релиз изменений в order API",
+        "learnerBrief": "Примените весь набор навыков курса к релизу: прочитайте change note, спроектируйте проверки по API-контракту и данным, «прогоните» их на симулируемой системе и напишите один полный баг-репорт с доказательствами.",
+        "context": "Небольшой order API получает релиз. Change note говорит: POST /orders теперь принимает необязательное поле discount (целое число процентов от 0 до 30) и возвращает total с учётом скидки; ответ GET /orders/{id} теперь включает discount и total со скидкой рядом с существующими полями (id, customerId, status, subtotal); в SQL-таблице orders (id, customerId, status, subtotal, orders_total) есть колонка orders_total, которую релиз должен был синхронизировать с итогом со скидкой. Ваш AI-агент играет роль системы: когда вы просите прогнать проверку, он симулирует реалистичные ответы API и результаты SQL-запросов. Ваша задача — решить, что проверять, зафиксировать, что пришло в ответ, и оценить, безопасно ли релизить.",
+        "deliverable": "Три артефакта: (1) дизайн проверок, покрывающий API-контракт (POST /orders с discount и без, GET /orders/{id}) и слой данных (SELECT по таблице orders); (2) наблюдения с симулированных прогонов — точный запрос, симулированный ответ или результат запроса и ваше ожидание; (3) один полный баг-репорт: заголовок, контекст endpoint, шаги воспроизведения, ожидаемый и фактический результат с доказательствами ИЗ ОБОИХ слоёв (API и данные), severity и priority с обоснованием и предлагаемый следующий шаг.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Это капстон курса. Проверьте, что ученик умеет планировать релизные проверки по API-контракту и слою данных, выполнять их через симуляцию, замечать заложенное расхождение между API и данными и писать один профессиональный баг-репорт, связывающий обе линии доказательств. В конце разберите все три артефакта вместе и подведите итог роста ученика за весь курс.",
+          "presentTaskHow": [
+            "Покажите change note из контекста как единственную стартовую информацию. Не намекайте, что что-то сломано.",
+            "Попросите ученика СНАЧАЛА спроектировать проверки: API-контракт (POST /orders с discount и без, GET /orders/{id}) и данные (SELECT id, subtotal, orders_total FROM orders).",
+            "Когда ученик просит прогнать проверку, симулируйте систему строго по заложенному багу: POST /orders с discount 10 и subtotal 150.00 возвращает 201 с total 135.00 и discount 10; GET /orders/{id} возвращает те же значения со скидкой; SELECT по этому же заказу возвращает orders_total 150.00 — устаревшее значение без скидки (UPDATE orders_total из change note не был реализован). Для заказов, созданных без discount, orders_total совпадает с subtotal как обычно.",
+            "Симулируйте только те проверки, которые спроектировал ученик; фиксируйте каждый симулированный результат дословно для его наблюдений.",
+            "После того как ученик прогнал проверки и нашёл расхождение (или попросил помощи), переходите к написанию ОДНОГО баг-репорта."
+          ],
+          "doNotReveal": [
+            "Не раскрывайте заложенный баг (отсутствующий UPDATE orders_total) до того, как собственные проверки ученика будут прогнаны.",
+            "Не проектируйте список проверок за ученика и не выдавайте готовый тест-план.",
+            "Не симулируйте результаты-спойлеры — симулируйте честно по заложенному багу после того, как проверки спроектированы.",
+            "Не показывайте модельный баг-репорт до того, как ученик сдаст свой.",
+            "Не утверждайте, что симулируемая система — реальный сервис, и не придумывайте endpoints вне сценария."
+          ],
+          "reviewFor": [
+            "Дизайн проверок покрывает оба слоя: API-контракт и минимум один SELECT по таблице orders.",
+            "Наблюдения фиксируют точные симулированные значения, а не расплывчатые впечатления.",
+            "Баг-репорт связывает доказательства API (total со скидкой в ответе) с доказательствами данных (устаревший orders_total) как один дефект, а не два.",
+            "Severity и priority указаны с обоснованием влияния на пользователя и бизнес.",
+            "Шаги воспроизведения полны настолько, что разработчик сможет воспроизвести баг с нуля."
+          ],
+          "completionCriteria": [
+            "Дизайн проверок включает и API-проверки, и SQL-проверки.",
+            "Наблюдения содержат минимум один симулированный ответ POST/GET и один симулированный результат SELECT.",
+            "Баг-репорт цитирует и доказательства API, и доказательства данных, явно связывая их между собой.",
+            "В репорте есть заголовок, шаги воспроизведения, ожидаемый и фактический результат, а также severity И priority с обоснованием.",
+            "Ученик может одним предложением объяснить, почему API-only проверка пропустила бы этот баг."
+          ],
+          "hintProgression": [
+            "Если дизайн проверок только про API, спросите: «В change note упоминается колонка orders_total — что ваш план проверяет в данных?»",
+            "Если проверки спроектированы, но не прогнаны, предложите: выберите две самые рискованные и прогоните их первыми.",
+            "После того как расхождение видно, спросите: какое одно предложение убедит разработчика, что это один баг, а не два?",
+            "Если severity кажется произвольным, спросите: «Кто это заметит, когда и сколько это будет стоить?»"
+          ],
+          "ifLearnerStruggles": [
+            "Предложите начать с одной happy-path пары: POST заказа с discount 10, затем SELECT этой строки.",
+            "Дайте скелет репорта (заголовок / repro / ожидаемое / фактическое / доказательства / severity / priority), не заполняя его.",
+            "Сократите охват: две API-проверки плюс одна SQL-проверка достаточно для старта; расширяйте потом."
+          ],
+          "afterCompletion": [
+            "Разберите все три артефакта вместе — дизайн проверок, наблюдения, баг-репорт — и похвалите конкретную цепочку рассуждений.",
+            "Модельный баг-репорт для сравнения: «Заголовок: orders_total не обновляется при применении скидки (API и БД расходятся). Repro: POST /orders {customerId, items с subtotal 150.00, discount 10} возвращает 201 с total 135.00; GET /orders/{id} подтверждает discount 10 и total 135.00. SELECT id, subtotal, orders_total FROM orders WHERE id = <созданный id> возвращает orders_total 150.00. Ожидается: orders_total 135.00 (по change note колонка синхронизируется с итогом со скидкой). Severity: Major — finance и reporting используют orders_total, поэтому итоги по выручке завышаются для каждого заказа со скидкой. Priority: High — чинить до релиза, обходного пути нет. Следующий шаг: добавить пропущенный UPDATE в путь создания заказа плюс регрессионную проверку сравнения API total и orders_total.»",
+            "Подведите итог роста ученика за курс: назовите навыки модулей, которые он применил здесь (чтение контракта, риск-ориентированный дизайн, проверки слоя данных, написание доказательств), и один навык, который ещё стоит усилить.",
+            "Поздравьте ученика с завершением капстона курса и предложите сохранить репорт как артефакт портфолио."
+          ]
+        }
+      }
+    },
+    "pillars": [
+      "api-integration",
+      "data-sql",
+      "bug-reporting"
+    ]
+  }
+]

@@ -1,0 +1,114 @@
+[
+  {
+    "id": "06-soap-testing-practice",
+    "moduleId": "06-soap-testing",
+    "kind": "api-analysis",
+    "estimatedMinutes": 35,
+    "skillFocus": [
+      "soap-api",
+      "xml-analysis",
+      "wsdl-review",
+      "fault-analysis"
+    ],
+    "updatedAt": "2026-09-25",
+    "languages": {
+      "en": {
+        "title": "Review a SOAP shipment-status contract",
+        "learnerBrief": "Practice SOAP testing from a static WSDL-style excerpt and sample XML messages. Do not call a live service; reason from the contract.",
+        "context": "A partner integration exposes GetShipmentStatus. Request body: <GetShipmentStatusRequest><partnerId>string</partnerId><shipmentId>string</shipmentId></GetShipmentStatusRequest>. Response body: <GetShipmentStatusResponse><shipmentId>string</shipmentId><status>Created|InTransit|Delivered|Exception</status><updatedAt>xs:dateTime</updatedAt></GetShipmentStatusResponse>. Header <ClientId> is required. Defined faults: AuthFault for missing or unknown client, ValidationFault for missing or malformed fields, NotFoundFault for unknown shipmentId. Namespace URI: http://example.test/shipping/v1.",
+        "deliverable": "Write a SOAP test review with 7-9 checks. Include the operation, XML or header variation, expected response or fault focus, and the risk being covered. Add 2-3 open questions about namespaces, schema rules, faults, or compatibility.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Help the learner reason about SOAP contract coverage across XML structure, headers, namespaces, faults, and business data.",
+          "presentTaskHow": [
+            "Ask the learner to draft their own SOAP test review first.",
+            "Invite a table with check idea, XML variation, expected focus, and risk.",
+            "Remind the learner that this is a static contract review and no external endpoint is required."
+          ],
+          "doNotReveal": [
+            "Do not provide a complete set of checks before the learner makes an attempt.",
+            "Do not introduce hidden defect ids, private service behavior, or a single official answer.",
+            "Do not require screenshots, live calls, installed tools, or secret credentials."
+          ],
+          "reviewFor": [
+            "Coverage of valid request, required header, missing fields, malformed values, unknown shipment id, and namespace risk.",
+            "Correct distinction between schema validation, SOAP fault behavior, and business expectations.",
+            "Evidence that the learner understands SOAP envelope, header, body, and namespace concerns.",
+            "Useful open questions that would make the contract clearer for consumers."
+          ],
+          "completionCriteria": [
+            "The artifact contains 7-9 SOAP-focused checks.",
+            "At least three checks cover faults or invalid XML/message structure.",
+            "At least one check addresses namespace or SOAP header behavior.",
+            "The learner includes 2-3 open questions about unclear contract details."
+          ],
+          "hintProgression": [
+            "Ask which parts of the message are required outside the body.",
+            "Point attention to ClientId, shipmentId, status enumeration, updatedAt type, and namespace URI.",
+            "Suggest separating schema checks from business-result checks if the answer mixes them.",
+            "Offer one partial example only after the learner is stuck."
+          ],
+          "ifLearnerStruggles": [
+            "Start with a valid GetShipmentStatus request and identify what proves success.",
+            "Ask what fault fits a missing ClientId, then what fault fits an unknown shipmentId.",
+            "Reduce the target to four checks first, then expand to the full deliverable."
+          ],
+          "afterCompletion": [
+            "Summarize the strongest SOAP-specific insight in the learner's work.",
+            "Name one missing contract area to clarify with the service team.",
+            "Connect the artifact to Postman, curl, or SoapUI as possible execution tools on a real integration."
+          ]
+        }
+      },
+      "ru": {
+        "title": "Разбор SOAP-контракта статуса доставки",
+        "learnerBrief": "Потренируйтесь тестировать SOAP по статичному WSDL-подобному фрагменту и примерам XML-сообщений. Не вызывайте живой сервис; рассуждайте по контракту.",
+        "context": "Партнёрская интеграция предоставляет GetShipmentStatus. Request body: <GetShipmentStatusRequest><partnerId>string</partnerId><shipmentId>string</shipmentId></GetShipmentStatusRequest>. Response body: <GetShipmentStatusResponse><shipmentId>string</shipmentId><status>Created|InTransit|Delivered|Exception</status><updatedAt>xs:dateTime</updatedAt></GetShipmentStatusResponse>. Header <ClientId> обязателен. Определены faults: AuthFault для отсутствующего или неизвестного client, ValidationFault для отсутствующих или malformed fields, NotFoundFault для неизвестного shipmentId. Namespace URI: http://example.test/shipping/v1.",
+        "deliverable": "Напишите SOAP test review на 7-9 проверок. Укажите operation, XML или header-вариацию, ожидаемый фокус response/fault и покрываемый риск. Добавьте 2-3 открытых вопроса про namespaces, schema rules, faults или compatibility.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Помочь ученику рассуждать о покрытии SOAP-контракта через XML-структуру, headers, namespaces, faults и бизнес-данные.",
+          "presentTaskHow": [
+            "Попросите ученика сначала написать собственный SOAP test review.",
+            "Разрешите таблицу с идеей проверки, XML-вариацией, ожидаемым фокусом и риском.",
+            "Напомните, что это статичный разбор контракта и внешний endpoint не нужен."
+          ],
+          "doNotReveal": [
+            "Не давайте полный набор проверок до попытки ученика.",
+            "Не добавляйте hidden defect ids, приватное поведение сервиса или единственный официальный ответ.",
+            "Не требуйте screenshots, live calls, установленные инструменты или секретные credentials."
+          ],
+          "reviewFor": [
+            "Покрытие валидного запроса, required header, missing fields, malformed values, unknown shipment id и namespace risk.",
+            "Корректное разделение schema validation, SOAP fault behavior и business expectations.",
+            "Видно понимание SOAP envelope, header, body и namespace concerns.",
+            "Полезные открытые вопросы, которые сделают контракт понятнее для consumers."
+          ],
+          "completionCriteria": [
+            "В артефакте есть 7-9 SOAP-focused проверок.",
+            "Минимум три проверки покрывают faults или невалидную XML/message structure.",
+            "Минимум одна проверка касается namespace или SOAP header behavior.",
+            "Ученик добавил 2-3 открытых вопроса про неясные детали контракта."
+          ],
+          "hintProgression": [
+            "Спросите, какие части сообщения обязательны вне body.",
+            "Направьте внимание на ClientId, shipmentId, status enumeration, тип updatedAt и namespace URI.",
+            "Предложите отделить schema checks от business-result checks, если ответ смешивает их.",
+            "Дайте один частичный пример только после того, как ученик застрял."
+          ],
+          "ifLearnerStruggles": [
+            "Начните с валидного GetShipmentStatus request и определите, что доказывает успех.",
+            "Спросите, какой fault подходит для отсутствующего ClientId, затем какой fault подходит для unknown shipmentId.",
+            "Сначала сократите цель до четырёх проверок, затем расширьте до полного артефакта."
+          ],
+          "afterCompletion": [
+            "Кратко отметьте самый сильный SOAP-specific insight в работе ученика.",
+            "Назовите одну недостающую область контракта для уточнения с service team.",
+            "Свяжите артефакт с Postman, curl или SoapUI как возможными инструментами выполнения на реальной интеграции."
+          ]
+        }
+      }
+    },
+    "pillars": [
+      "api-integration"
+    ]
+  }
+]

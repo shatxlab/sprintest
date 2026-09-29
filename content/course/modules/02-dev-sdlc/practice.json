@@ -1,0 +1,113 @@
+[
+  {
+    "id": "02-dev-sdlc-practice",
+    "moduleId": "02-dev-sdlc",
+    "kind": "requirements-analysis",
+    "estimatedMinutes": 30,
+    "skillFocus": [
+      "sdlc-thinking",
+      "risk-planning",
+      "environment-awareness"
+    ],
+    "updatedAt": "2026-09-25",
+    "languages": {
+      "en": {
+        "title": "Place QA work across the release timeline",
+        "learnerBrief": "Practice mapping QA activities to SDLC phases and environments for a small product change.",
+        "context": "A team plans to change password reset behavior: reset links expire after 15 minutes, users can request a new link, and support needs fewer account-recovery tickets. The change will move through DEV, STAGE, PRE-PROD, and PROD.",
+        "deliverable": "Create a compact release timeline with QA activities before development, during development, before release, and after release. Include key questions, main risks, environments involved, and evidence the team could review.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Help the learner treat testing as work across the whole life cycle, with environment-aware risk thinking.",
+          "presentTaskHow": [
+            "Ask the learner to draft a timeline before receiving examples.",
+            "Encourage a simple table with columns for phase, QA activity, risk, environment, and evidence.",
+            "Remind the learner that the goal is release confidence, not a perfect process diagram."
+          ],
+          "doNotReveal": [
+            "Do not provide a completed timeline before the learner's attempt.",
+            "Do not name hidden defects, planted traps, or exact expected findings.",
+            "Do not prescribe a single methodology as the only correct choice."
+          ],
+          "reviewFor": [
+            "QA activities spread across multiple SDLC phases, not only final testing.",
+            "Clear environment awareness for DEV, STAGE, PRE-PROD, and PROD.",
+            "Risks connected to users, security, support impact, timing, and communication.",
+            "Evidence ideas that would help a team decide whether to release."
+          ],
+          "completionCriteria": [
+            "The timeline includes at least four moments across the release path.",
+            "The artifact names at least three risks and links them to QA activity.",
+            "The artifact mentions at least two environments and explains their purpose.",
+            "The learner can explain one activity that belongs earlier than final testing."
+          ],
+          "hintProgression": [
+            "Ask what QA can clarify before developers start work.",
+            "Ask which reset-link risks relate to time, identity, security, or support.",
+            "Prompt the learner to map each risk to an environment or release moment.",
+            "Offer one sample row only after the learner has a partial timeline."
+          ],
+          "ifLearnerStruggles": [
+            "Start with three checkpoints: before code, before release, after release.",
+            "Ask the learner to list risks first, then attach activities to them.",
+            "Reduce the scope to link expiration and ask where it can be checked safely."
+          ],
+          "afterCompletion": [
+            "Highlight the strongest phase-to-risk connection.",
+            "Point out one missing environment or stakeholder if relevant.",
+            "Connect the exercise to planning test strategy in later modules."
+          ]
+        }
+      },
+      "ru": {
+        "title": "Разместить QA-работу на релизной линии",
+        "learnerBrief": "Потренируйтесь раскладывать QA-активности по этапам SDLC и окружениям для небольшого продуктового изменения.",
+        "context": "Команда планирует изменить поведение восстановления пароля: ссылки на сброс действуют 15 минут, пользователь может запросить новую ссылку, а поддержка хочет меньше обращений по восстановлению аккаунта. Изменение пройдёт через DEV, STAGE, PRE-PROD и PROD.",
+        "deliverable": "Создайте короткую релизную линию с QA-активностями до разработки, во время разработки, перед релизом и после релиза. Включите ключевые вопросы, основные риски, окружения и доказательства, которые команда сможет обсудить.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Помочь ученику воспринимать тестирование как работу на протяжении всего жизненного цикла, с учётом окружений и рисков.",
+          "presentTaskHow": [
+            "Попросите ученика набросать временную линию до получения примеров.",
+            "Поощряйте простую таблицу с колонками: этап, QA-активность, риск, окружение и доказательства.",
+            "Напомните, что цель — уверенность в релизе, а не идеальная схема процесса."
+          ],
+          "doNotReveal": [
+            "Не давайте готовую временную линию до попытки ученика.",
+            "Не называйте скрытые дефекты, заложенные ловушки или точные ожидаемые находки.",
+            "Не назначайте одну методологию единственно правильной."
+          ],
+          "reviewFor": [
+            "QA-активности распределены по нескольким этапам SDLC, а не только по финальному тестированию.",
+            "Есть понимание окружений DEV, STAGE, PRE-PROD и PROD.",
+            "Риски связаны с пользователями, безопасностью, поддержкой, временем и коммуникацией.",
+            "Идеи доказательств помогают команде принять решение о релизе."
+          ],
+          "completionCriteria": [
+            "В линии есть минимум четыре момента на пути к релизу.",
+            "Артефакт называет минимум три риска и связывает их с QA-активностями.",
+            "Артефакт упоминает минимум два окружения и объясняет их назначение.",
+            "Ученик может объяснить одну активность, которая нужна раньше финального тестирования."
+          ],
+          "hintProgression": [
+            "Спросите, что QA может уточнить до начала разработки.",
+            "Спросите, какие риски ссылки сброса связаны со временем, личностью пользователя, безопасностью или поддержкой.",
+            "Подведите ученика к привязке каждого риска к окружению или релизному моменту.",
+            "Дайте одну примерную строку только после частичной временной линии ученика."
+          ],
+          "ifLearnerStruggles": [
+            "Начните с трёх контрольных точек: до кода, до релиза, после релиза.",
+            "Попросите сначала перечислить риски, а потом прикрепить к ним активности.",
+            "Сузьте объём до срока действия ссылки и спросите, где это безопасно проверить."
+          ],
+          "afterCompletion": [
+            "Отметьте самую сильную связь между этапом и риском.",
+            "Укажите одно недостающее окружение или стейкхолдера, если это уместно.",
+            "Свяжите упражнение с планированием тестовой стратегии в следующих модулях."
+          ]
+        }
+      }
+    },
+    "pillars": [
+      "process-sdlc"
+    ]
+  }
+]

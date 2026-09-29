@@ -1,0 +1,22 @@
+{
+  "id": "07-mq-testing",
+  "slug": "07-mq-testing",
+  "order": 8,
+  "title": {
+    "en": "Message Queue Testing",
+    "ru": "Тестирование очередей сообщений"
+  },
+  "summary": {
+    "en": "How QA tests asynchronous flows, message contracts, retries, dead-letter queues, and operational signals.",
+    "ru": "Как QA проверяет асинхронные потоки, контракты сообщений, повторы, dead-letter queues и операционные сигналы."
+  },
+  "themes": [
+    "message-queues",
+    "asynchronous-systems",
+    "reliability-testing"
+  ],
+  "practiceTaskIds": [
+    "07-mq-testing-practice"
+  ],
+  "updatedAt": "2026-09-25"
+}

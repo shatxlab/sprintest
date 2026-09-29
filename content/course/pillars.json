@@ -1,0 +1,82 @@
+[
+  {
+    "id": "foundations",
+    "label": { "en": "Foundations", "ru": "Основы" },
+    "description": {
+      "en": "QA mindset, curiosity, and the basics of observing software behavior.",
+      "ru": "Мышление QA, любопытство и основы наблюдения за поведением ПО."
+    }
+  },
+  {
+    "id": "process-sdlc",
+    "label": { "en": "Process & SDLC", "ru": "Процесс и SDLC" },
+    "description": {
+      "en": "How teams build software: requirements, delivery stages, documentation, test management.",
+      "ru": "Как команды создают ПО: требования, этапы поставки, документация, управление тестами."
+    }
+  },
+  {
+    "id": "api-integration",
+    "label": { "en": "API & integration", "ru": "API и интеграции" },
+    "description": {
+      "en": "REST, SOAP, message queues, and system architecture from a tester's seat.",
+      "ru": "REST, SOAP, очереди сообщений и архитектура систем глазами тестировщика."
+    }
+  },
+  {
+    "id": "test-design",
+    "label": { "en": "Test design", "ru": "Тест-дизайн" },
+    "description": {
+      "en": "Turning risk and requirements into concrete, prioritized checks.",
+      "ru": "Превращение рисков и требований в конкретные приоритизированные проверки."
+    }
+  },
+  {
+    "id": "bug-reporting",
+    "label": { "en": "Bug reporting", "ru": "Баг-репортинг" },
+    "description": {
+      "en": "Evidence-based defect reports, severity and priority judgment.",
+      "ru": "Отчёты о дефектах на основе доказательств, суждение о серьёзности и приоритете."
+    }
+  },
+  {
+    "id": "data-sql",
+    "label": { "en": "Data & SQL", "ru": "Данные и SQL" },
+    "description": {
+      "en": "Reading and verifying what the database actually stores.",
+      "ru": "Чтение и проверка того, что база данных хранит на самом деле."
+    }
+  },
+  {
+    "id": "tooling-devtools",
+    "label": { "en": "Tooling & devtools", "ru": "Инструменты и devtools" },
+    "description": {
+      "en": "Browser devtools, payloads, and other evidence-gathering tools.",
+      "ru": "Браузерные devtools, payload'ы и другие инструменты сбора доказательств."
+    }
+  },
+  {
+    "id": "automation",
+    "label": { "en": "Automation", "ru": "Автоматизация" },
+    "description": {
+      "en": "Writing and running Playwright tests, triaging failures, and keeping a suite the team can trust.",
+      "ru": "Написание и запуск тестов на Playwright, разбор падений и набор тестов, которому команда доверяет."
+    }
+  },
+  {
+    "id": "career-soft",
+    "label": { "en": "Career & soft skills", "ru": "Карьера и софт-скиллы" },
+    "description": {
+      "en": "Interviews, communication, and the judgment that surrounds testing.",
+      "ru": "Собеседования, коммуникация и суждения, окружающие тестирование."
+    }
+  },
+  {
+    "id": "ai-collaboration",
+    "label": { "en": "AI collaboration", "ru": "Работа с AI" },
+    "description": {
+      "en": "Directing an AI agent: asking, steering, verifying, and reviewing.",
+      "ru": "Управление AI-агентом: вопросы, направления, проверки и ревью."
+    }
+  }
+]

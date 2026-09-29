@@ -1,0 +1,260 @@
+[
+  {
+    "id": "18-playwright-api-request-tests",
+    "moduleId": "18-playwright-api",
+    "kind": "automation-code",
+    "estimatedMinutes": 45,
+    "skillFocus": [
+      "api-request-tests",
+      "http-status-checks",
+      "error-handling"
+    ],
+    "pillars": [
+      "automation",
+      "api-integration"
+    ],
+    "updatedAt": "2026-09-25",
+    "languages": {
+      "en": {
+        "title": "Request-level API tests against a local mock service",
+        "learnerBrief": "Your AI agent scaffolds a tiny accounts and orders mock API inside your own repository; you write the Playwright API tests for it. The testing is your job, not the service: choose the requests worth covering, assert more than a status code, and judge which unexpected responses are real defects.",
+        "context": "The target is a small Node REST service that your agent creates in your own repository: accounts and orders, in-memory storage, no external dependencies. It exposes listing and reading accounts, listing, creating and deleting orders, and one summary endpoint. This is a demo service, not a reference implementation — treat every response as a claim you have to verify. If you cannot get the scaffold running, point the same tests at a public practice API such as jsonplaceholder.typicode.com or httpbin.org and say which target you used. Write the tests with the Playwright request fixture, test and expect; no other HTTP client.",
+        "deliverable": "A Playwright spec file with 5-7 API tests, plus a short findings note. Each test: one request or one small request pair, at least one status assertion, at least one assertion on the response body, and a name that states the behaviour. The note lists every response that looked wrong, with the request you sent, the response you received, and your verdict: defect, test problem, or unclear.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Teach the learner to write API tests with the Playwright request fixture that assert behaviour and not just status codes, and to judge unexpected responses rather than code around them.",
+          "presentTaskHow": [
+            "First have the learner's agent scaffold the small accounts and orders mock API in the learner's own repository with a documented start command; the learner starts it and confirms the base URL before writing any test.",
+            "Ask the learner to draft the list of requests worth covering and the expected result for each one, then write the tests themselves.",
+            "Review the spec file only after the learner has run it.",
+            "Ask for the run output together with the file — a green claim is not evidence."
+          ],
+          "doNotReveal": [
+            "Do not name the planted quirks: creating an order with a negative amount returns 201 and is stored (validation hole), and deleting an order id that does not exist returns 200 with a body carrying an error message (a 200 with an error body).",
+            "Do not write the learner's tests and do not list which endpoints they have to cover.",
+            "Do not say how many defects the mock service contains.",
+            "Do not confirm a defect before the learner shows the request and the response that prove it."
+          ],
+          "reviewFor": [
+            "Tests use the Playwright request fixture or a standalone APIRequestContext, with the base URL coming from config rather than a host repeated in every test.",
+            "Every test asserts the status code and at least one body field with its expected type or value.",
+            "Failure cases assert the error contract: the status the service returns for an unknown id, and the shape of the error body.",
+            "The learner reads the body on success paths too, so a 200 carrying an error message would be caught.",
+            "Findings separate a defect in the service from a wrong expectation in the test.",
+            "Created records are cleaned up or made unique per run, so the suite can be repeated."
+          ],
+          "completionCriteria": [
+            "A runnable spec file exists in the learner's repository and the learner has run it, pasting the real output.",
+            "At least five API tests cover read, create, and failure paths.",
+            "At least one test covers the validation hole: an invalid payload, for example a negative amount, is rejected — or the learner reports that it is accepted as a defect.",
+            "At least one test covers the error contract of a request for a record that does not exist, and the learner notices when the status is 200 with an error body.",
+            "The findings note names each unexpected response with the request and the response text, and gives a verdict for it."
+          ],
+          "hintProgression": [
+            "Start from the happy path: list accounts, read one account, assert two or three body fields.",
+            "Then add one negative case per resource: an id that does not exist, an invalid payload.",
+            "If the learner asserts status codes only, ask what the test would report if the body came back empty.",
+            "If running the suite is unclear, point at npx playwright test and suggest running a single spec while iterating.",
+            "For the validation hole, ask what the API does with the smallest suspicious boundary value — zero, a negative number, an empty string.",
+            "When a test fails, ask whether the failure message describes the service or the test."
+          ],
+          "ifLearnerStruggles": [
+            "Reduce the scope to three tests on one resource, then expand once they pass.",
+            "Give the shape of a request test with the fixture and let the learner fill in path, payload and assertions.",
+            "If the scaffold will not start, help them read the startup error, or switch to a public practice API and continue there.",
+            "For an unexpected response, walk through the question 'what did I expect, what did I get, which one is wrong?' without answering it for them."
+          ],
+          "afterCompletion": [
+            "Name the strongest test the learner wrote and why its assertions are the right ones.",
+            "Point out that the two quirks they found — the accepted invalid payload and the error body on a 200 — are the kind of thing a UI-only suite never sees.",
+            "Suggest the next step: turning a chained flow into its own test and comparing the summary endpoint against the list."
+          ]
+        }
+      },
+      "ru": {
+        "title": "Тесты уровня запроса против локального mock-сервиса",
+        "learnerBrief": "Ваш AI-агент поднимает в вашем репозитории крошечный mock API аккаунтов и заказов, а вы пишете для него API-тесты на Playwright. Тестирование — ваша работа, а не сервиса: выберите запросы, которые стоит покрыть, проверяйте больше статус-кода и решите, какие неожиданные ответы являются настоящими дефектами.",
+        "context": "Цель — небольшой REST-сервис на Node, который ваш агент создаёт в вашем репозитории: аккаунты и заказы, хранение в памяти, без внешних зависимостей. Он отдаёт список аккаунтов и один аккаунт, список заказов, создание и удаление заказа и один эндпоинт-сводку. Это демонстрационный сервис, а не эталонная реализация — считайте каждый ответ утверждением, которое нужно проверить. Если скаффолд не запускается, направьте те же тесты на публичный тренировочный API вроде jsonplaceholder.typicode.com или httpbin.org и укажите, какую цель использовали. Пишите тесты через фикстуру request, test и expect; никаких других HTTP-клиентов.",
+        "deliverable": "Файл спецификации Playwright с 5-7 API-тестами и короткая заметка о находках. Каждый тест: один запрос или одна короткая пара запросов, минимум одна проверка статуса, минимум одна проверка тела ответа и название, описывающее поведение. В заметке перечислите каждый подозрительный ответ, указав отправленный запрос, полученный ответ и ваш вердикт: дефект, проблема теста или неясно.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Научить писать API-тесты через фикстуру request, которые проверяют поведение, а не только статус-код, и оценивать неожиданные ответы, а не обходить их в коде.",
+          "presentTaskHow": [
+            "Сначала агент учащегося поднимает маленький mock API аккаунтов и заказов в его собственном репозитории с описанной командой запуска; учащийся запускает сервис и подтверждает base URL до того, как писать тесты.",
+            "Попросите учащегося сначала набросать список запросов, которые стоит покрыть, и ожидаемый результат для каждого, а потом писать тесты.",
+            "Ревью файла спецификации — только после того, как учащийся его запустил.",
+            "Просите вывод прогона вместе с файлом: заявление «всё зелёное» не является доказательством."
+          ],
+          "doNotReveal": [
+            "Не называйте заложенные особенности: создание заказа с отрицательной суммой возвращает 201 и сохраняет его (дыра в валидации), а удаление несуществующего id заказа возвращает 200 с телом, содержащим сообщение об ошибке (200 с ошибкой внутри).",
+            "Не пишите тесты за учащегося и не перечисляйте, какие эндпоинты он обязан покрыть.",
+            "Не сообщайте, сколько дефектов заложено в mock-сервис.",
+            "Не подтверждайте дефект до того, как учащийся покажет доказывающие запрос и ответ."
+          ],
+          "reviewFor": [
+            "Тесты используют фикстуру request или отдельный APIRequestContext, а base URL берётся из конфига, а не повторяется в каждом тесте.",
+            "Каждый тест проверяет статус-код и минимум одно поле тела с ожидаемым типом или значением.",
+            "Негативные сценарии проверяют контракт ошибки: какой статус сервис возвращает для неизвестного id и как выглядит тело ошибки.",
+            "Учащийся читает тело и на успешных путях, поэтому 200 с сообщением об ошибке внутри будет замечен.",
+            "Находки разделяют дефект сервиса и неверное ожидание в тесте.",
+            "Созданные записи удаляются или делаются уникальными на прогон, поэтому набор тестов можно повторять."
+          ],
+          "completionCriteria": [
+            "В репозитории учащегося есть запускаемый файл спецификации, и он его запускал, вставив реальный вывод.",
+            "Минимум пять API-тестов покрывают чтение, создание и негативные сценарии.",
+            "Минимум один тест покрывает дыру в валидации: невалидный payload, например отрицательная сумма, отклоняется — либо учащийся сообщает, что он принимается, как дефект.",
+            "Минимум один тест покрывает контракт ошибки запроса к несуществующей записи, и учащийся замечает случай 200 с ошибкой внутри.",
+            "В заметке о находках каждый неожиданный ответ указан вместе с запросом и текстом ответа, и по нему дан вердикт."
+          ],
+          "hintProgression": [
+            "Начните со счастливого пути: список аккаунтов, один аккаунт, две-три проверки полей тела.",
+            "Затем добавьте по одному негативному сценарию на ресурс: несуществующий id, невалидный payload.",
+            "Если учащийся проверяет только статусы, спросите, что покажет тест, если тело придёт пустым.",
+            "Если непонятно, как запускать, подскажите npx playwright test и предложите гонять одну спецификацию во время работы.",
+            "Для дыры в валидации спросите, что API делает с самым подозрительным граничным значением — нулём, отрицательным числом, пустой строкой.",
+            "Когда тест падает, спросите, описывает ли сообщение об ошибке сервис или сам тест."
+          ],
+          "ifLearnerStruggles": [
+            "Сузьте объём до трёх тестов на одном ресурсе, а расширяйте после того, как они пройдут.",
+            "Дайте каркас теста с фикстурой и попросите заполнить путь, payload и проверки.",
+            "Если скаффолд не стартует, помогите прочитать ошибку запуска или переключитесь на публичный тренировочный API и продолжайте там.",
+            "При неожиданном ответе пройдите вопрос «что я ожидал, что получил, кто из них неправ?», не отвечая на него за учащегося."
+          ],
+          "afterCompletion": [
+            "Назовите самый сильный тест учащегося и объясните, почему его проверки правильные.",
+            "Отметьте, что две найденные особенности — принятый невалидный payload и ошибка внутри ответа 200 — это то, чего не увидит набор тестов только по интерфейсу.",
+            "Предложите следующий шаг: вынести связанный сценарий в отдельный тест и сравнить эндпоинт-сводку со списком."
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": "18-playwright-api-flow-checks",
+    "moduleId": "18-playwright-api",
+    "kind": "automation-code",
+    "estimatedMinutes": 35,
+    "skillFocus": [
+      "api-chaining",
+      "data-consistency",
+      "state-verification"
+    ],
+    "pillars": [
+      "automation",
+      "api-integration"
+    ],
+    "updatedAt": "2026-09-25",
+    "languages": {
+      "en": {
+        "title": "Chained flow checks and state verification",
+        "learnerBrief": "Chain the endpoints into one business flow — create, read, change, delete — and verify the state of the system after every step. The value is not the chain itself but the checks between the steps: does the list reflect the change, does the summary agree with the list, and is the record really gone afterwards.",
+        "context": "The same small accounts and orders mock API in your own repository that your agent scaffolds, or a public practice API such as jsonplaceholder.typicode.com or httpbin.org if you prefer a read-only variant — say which one you used. Work with the Playwright request fixture, one flow per test, and use test.step so the chain stays readable in the report. Two flows are enough: one order lifecycle and one aggregate check on accounts. Records created during the run must be removed at the end.",
+        "deliverable": "One spec file with at least two flow tests, each built from test.step blocks, plus a short consistency note. For every step, state what state you expected and what you actually verified. The note lists every place where two endpoints disagreed about the same data, quoting both responses, with your verdict on which one is wrong.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Teach the learner to verify state after each step of a chained API flow and to compare two endpoints that describe the same data, so that inconsistencies surface as failing tests rather than as surprises in production.",
+          "presentTaskHow": [
+            "Ask the learner to write the flow as numbered steps in plain language first, with the expected state after each one.",
+            "Then let them write the test with the request fixture and test.step, running it as each step is added.",
+            "Ask for the run output, and for the exact responses they compared when they report an inconsistency.",
+            "Keep the flow short: one resource, one lifecycle, one cleanup."
+          ],
+          "doNotReveal": [
+            "Do not name the planted quirks: the summary endpoint's total does not match the sum of the account balances from the list endpoint (inconsistent aggregate), and an order created with a negative amount is accepted with 201 and shifts that total (validation hole).",
+            "Do not tell the learner which two endpoints disagree or which of the two values is the correct one.",
+            "Do not write the flow test for them.",
+            "Do not confirm an inconsistency before they show both responses."
+          ],
+          "reviewFor": [
+            "Each step asserts the state it changed, not only that a request answered 200: the created record appears in the list, the deleted record is gone from it.",
+            "The test reads the record back after create and after delete, rather than trusting the response of the mutating call alone.",
+            "The learner compares the aggregate endpoint against data taken from the list endpoint and reports the difference in numbers.",
+            "test.step names describe the business action, so a failure points at the step that broke.",
+            "Created data is removed in the same test or in a fixture, and the suite passes twice in a row.",
+            "One behaviour per test: the lifecycle and the aggregate check are separate tests."
+          ],
+          "completionCriteria": [
+            "At least two flow tests run green, each with named steps and a real assertion per step.",
+            "The lifecycle flow proves the created order appears in the list, that its fields match what was sent, and that it is absent from the list after deletion.",
+            "The aggregate check compares a summary value against a value computed from the list response and reports the mismatch as a finding.",
+            "The learner has run the suite twice and can show that the second run is clean.",
+            "The consistency note quotes the two disagreeing responses and states which value the learner believes is wrong."
+          ],
+          "hintProgression": [
+            "Start with create then read, and add delete only after that works.",
+            "If the flow is one long script, suggest wrapping each action in test.step with a business-readable name.",
+            "If the aggregate comparison stalls, ask which endpoint could be recomputed from the list response alone.",
+            "If the suite fails on the second run, ask what the first run left behind.",
+            "For the negative amount, ask what happens to the summary after an order that no user could create.",
+            "If a step has no assertion, ask what a developer would need to see to know this step worked."
+          ],
+          "ifLearnerStruggles": [
+            "Shrink to one flow with three steps and one assertion each.",
+            "Give the skeleton of a test.step block and let the learner fill in the request and the assertion.",
+            "If carrying ids between calls is confusing, store the id from the create response in a variable and print it once.",
+            "If comparing aggregates feels abstract, have them list the accounts, add the balances by hand or with a small helper, and compare against the summary value.",
+            "If cleanup keeps failing, move it into a fixture and check that the list is empty at the end."
+          ],
+          "afterCompletion": [
+            "Name the strongest verification the learner added between steps and why it catches what a status-only test misses.",
+            "Point out that the aggregate mismatch and the accepted negative amount are the same class of problem: two code paths computing the same thing differently.",
+            "Suggest a next practice: making the aggregate check a reusable assertion the team can run after every change to the orders service."
+          ]
+        }
+      },
+      "ru": {
+        "title": "Связанный сценарий и проверка состояния",
+        "learnerBrief": "Свяжите эндпоинты в один бизнес-сценарий — создание, чтение, изменение, удаление — и проверяйте состояние системы после каждого шага. Ценность не в самой цепочке, а в проверках между шагами: отразился ли изменение в списке, сходится ли сводка со списком и действительно ли запись исчезла.",
+        "context": "Тот же небольшой mock API аккаунтов и заказов в вашем репозитории, который поднимает агент, или публичный тренировочный API вроде jsonplaceholder.typicode.com и httpbin.org, если хочется варианта только на чтение — укажите, что использовали. Работайте через фикстуру request, один сценарий на тест, и используйте test.step, чтобы цепочка оставалась читаемой в отчёте. Достаточно двух сценариев: жизненный цикл заказа и проверка агрегата по аккаунтам. Записи, созданные во время прогона, нужно удалить в конце.",
+        "deliverable": "Один файл спецификации с минимум двумя сценарными тестами, каждый из блоков test.step, плюс короткая заметка о согласованности. Для каждого шага укажите, какое состояние вы ожидали и что именно проверили. В заметке перечислите все места, где два эндпоинта разошлись в одних и тех же данных, с цитатами обоих ответов и вашим вердиктом, какое значение неверно.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Научить проверять состояние после каждого шага связанного API-сценария и сравнивать два эндпоинта, описывающих одни и те же данные, чтобы расхождения вылезали падающим тестом, а не сюрпризом в продакшене.",
+          "presentTaskHow": [
+            "Попросите учащегося сначала описать сценарий нумерованными шагами обычным языком, с ожидаемым состоянием после каждого.",
+            "Затем пусть пишет тест через фикстуру request и test.step, запуская его после добавления каждого шага.",
+            "Просите вывод прогона и те самые ответы, которые учащийся сравнивал, когда сообщает о расхождении.",
+            "Держите сценарий коротким: один ресурс, один жизненный цикл, одна уборка."
+          ],
+          "doNotReveal": [
+            "Не называйте заложенные особенности: итог в эндпоинте-сводке не совпадает с суммой балансов аккаунтов из списочного эндпоинта (несогласованный агрегат), а заказ с отрицательной суммой принимается с 201 и сдвигает этот итог (дыра в валидации).",
+            "Не говорите, какие именно два эндпоинта расходятся и какое из значений верное.",
+            "Не пишите сценарный тест за учащегося.",
+            "Не подтверждайте расхождение, пока учащийся не покажет оба ответа."
+          ],
+          "reviewFor": [
+            "Каждый шаг проверяет изменённое им состояние, а не только то, что запрос вернул 200: созданная запись есть в списке, удалённой в нём нет.",
+            "Тест перечитывает запись после создания и после удаления, а не доверяет только ответу изменяющего вызова.",
+            "Учащийся сравнивает агрегатный эндпоинт с данными из списочного и называет расхождение в числах.",
+            "Названия test.step описывают бизнес-действие, поэтому падение указывает на сломавшийся шаг.",
+            "Созданные данные удаляются в том же тесте или в фикстуре, и набор проходит два раза подряд.",
+            "Одно поведение на тест: жизненный цикл и проверка агрегата — разные тесты."
+          ],
+          "completionCriteria": [
+            "Минимум два сценарных теста проходят зелёными, у каждого именованные шаги и реальная проверка на каждом шаге.",
+            "Сценарий жизненного цикла доказывает, что созданный заказ появляется в списке, его поля совпадают с отправленными, а после удаления он в списке отсутствует.",
+            "Проверка агрегата сравнивает значение сводки со значением, посчитанным из ответа списка, и оформляет расхождение как находку.",
+            "Учащийся прогнал набор дважды и может показать, что второй прогон чистый.",
+            "Заметка о согласованности цитирует два расходящихся ответа и указывает, какое значение учащийся считает неверным."
+          ],
+          "hintProgression": [
+            "Начните с создания и чтения, удаление добавьте только после этого.",
+            "Если сценарий превратился в один длинный скрипт, предложите обернуть каждое действие в test.step с понятным бизнес-названием.",
+            "Если сравнение агрегатов буксует, спросите, какой эндпоинт можно пересчитать только из ответа списка.",
+            "Если набор падает на втором прогоне, спросите, что оставил после себя первый.",
+            "Про отрицательную сумму спросите, что произойдёт со сводкой после заказа, который ни один пользователь создать не мог.",
+            "Если у шага нет проверки, спросите, что нужно увидеть разработчику, чтобы понять, что шаг сработал."
+          ],
+          "ifLearnerStruggles": [
+            "Сузьте до одного сценария из трёх шагов с одной проверкой на каждом.",
+            "Дайте каркас блока test.step и попросите заполнить запрос и проверку.",
+            "Если переносить id между вызовами сложно, сохраните id из ответа на создание в переменную и один раз выведите его.",
+            "Если сравнение агрегатов кажется абстрактным, попросите выписать аккаунты, сложить балансы вручную или маленьким хелпером и сравнить со значением сводки.",
+            "Если уборка постоянно падает, перенесите её в фикстуру и проверьте, что в конце список пуст."
+          ],
+          "afterCompletion": [
+            "Назовите самую сильную проверку, которую учащийся добавил между шагами, и объясните, что она ловит по сравнению с тестом только на статусы.",
+            "Отметьте, что расхождение агрегата и принятая отрицательная сумма — проблема одного класса: две ветки кода считают одно и то же по-разному.",
+            "Предложите следующую тренировку: сделать проверку агрегата переиспользуемой проверкой, которую команда запускает после каждого изменения сервиса заказов."
+          ]
+        }
+      }
+    }
+  }
+]

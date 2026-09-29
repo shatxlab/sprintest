@@ -1,0 +1,120 @@
+[
+  {
+    "id": "15-devtools-network-hunt",
+    "moduleId": "15-devtools",
+    "kind": "api-analysis",
+    "estimatedMinutes": 40,
+    "skillFocus": [
+      "network-tab",
+      "status-codes",
+      "dom-inspection",
+      "responsive-mode",
+      "response-overriding"
+    ],
+    "updatedAt": "2026-09-25",
+    "pillars": [
+      "tooling-devtools",
+      "api-integration"
+    ],
+    "languages": {
+      "en": {
+        "title": "Network hunt on a site you use",
+        "learnerBrief": "Open the browser DevTools on a real site you use daily, map what happens behind one core flow, and finish with one documented response-override experiment. A real browser is required.",
+        "context": "Pick any public site you use often \u2014 a marketplace, a news site, a food delivery app, an online bank. Choose ONE core flow only: search, sign-in, adding to cart, or opening an article. You will work with the Network, Console, and Elements panels and the responsive mode.",
+        "deliverable": "A QA note with four parts: (1) a request map for the flow \u2014 method, endpoint, status, and one sentence on what each request does; (2) one hidden behavior the UI does not show \u2014 a background API call, a redirect, a console error, or a cookie/storage write \u2014 with evidence; (3) one response-override experiment: which request you overrode, what you replaced it with, how the UI reacted, and how you would report it; (4) one responsive-mode observation at a phone width with a screenshot.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Help the learner read real browser traffic, connect UI behavior to network requests, and run a controlled response override without confusing simulated and real evidence.",
+          "presentTaskHow": [
+            "Ask the learner to choose the site and flow, then do the hunt themselves before asking for review.",
+            "Remind them to refresh the page with the Network tab open so the full load is captured.",
+            "Explain that screenshots and copied requests are the evidence \u2014 not memory."
+          ],
+          "doNotReveal": [
+            "Do not tell the learner in advance which requests their chosen site will make.",
+            "Do not write the request map or the override steps for them.",
+            "Do not pretend to see their screen \u2014 ask for pasted requests, statuses, or screenshots."
+          ],
+          "reviewFor": [
+            "The request map names real method, endpoint, and status values, not guesses.",
+            "The hidden-behavior finding includes concrete evidence: a pasted request, a status code, a console message, or a storage key.",
+            "The override experiment records the original response, the replacement, and the UI reaction \u2014 and separates simulated from real evidence.",
+            "The responsive observation names the viewport width and a concrete layout finding.",
+            "Overrides are described as a reproduction tool, not as a fix."
+          ],
+          "completionCriteria": [
+            "The request map covers at least four requests from the chosen flow.",
+            "At least one hidden behavior is documented with evidence.",
+            "The override experiment includes the replaced response and the observed UI reaction.",
+            "The note separates real server behavior from simulated behavior."
+          ],
+          "hintProgression": [
+            "Suggest filtering the Network tab to Fetch/XHR to cut the noise.",
+            "Point out that a displayed value can be found by searching inside responses.",
+            "If the override feels hard, offer the smallest one: force a 500 on one request and watch the UI.",
+            "Suggest capturing the state right before and right after the action, not the whole session."
+          ],
+          "ifLearnerStruggles": [
+            "Start with a single request: refresh the page, click the first Fetch/XHR row, read method, status, and response together.",
+            "Ask them to explain one status code from their capture in their own words.",
+            "For the override, walk through the menu path once, then let them do it.",
+            "If the site blocks overrides or caching misleads, suggest trying another site rather than fighting the tooling."
+          ],
+          "afterCompletion": [
+            "Name the strongest observation the learner made.",
+            "Connect the exercise to future API testing and bug-report evidence.",
+            "Remind them to turn off any overrides they left enabled."
+          ]
+        }
+      },
+      "ru": {
+        "title": "Сетевая охота на сайте, которым вы пользуетесь",
+        "learnerBrief": "Откройте DevTools на реальном сайте, которым пользуетесь каждый день, разберите, что происходит за одним ключевым сценарием, и завершите задокументированным экспериментом с подменой ответа. Нужен настоящий браузер.",
+        "context": "Выберите любой публичный сайт, которым часто пользуетесь: маркетплейс, новостной сайт, сервис доставки, онлайн-банк. Выберите ОДИН ключевой сценарий: поиск, вход, добавление в корзину или открытие статьи. Работать будете с панелями Network, Console, Elements и адаптивным режимом.",
+        "deliverable": "QA-заметка из четырёх частей: (1) карта запросов сценария \u2014 метод, эндпоинт, статус и одна фраза о том, что делает каждый запрос; (2) одно скрытое поведение, которого не видно в интерфейсе \u2014 фоновый вызов API, редирект, ошибка в консоли или запись в cookie/storage \u2014 с доказательством; (3) один эксперимент с подменой ответа: какой запрос подменили, чем заменили, как отреагировал интерфейс и как вы оформили бы это в репорте; (4) одно наблюдение из адаптивного режима на ширине телефона со скриншотом.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Помочь учащемуся читать реальный трафик браузера, связывать поведение интерфейса с сетевыми запросами и проводить контролируемую подмену ответа, не смешивая имитацию с реальными данными.",
+          "presentTaskHow": [
+            "Попросите учащегося выбрать сайт и сценарий, а затем самостоятельно провести охоту до запроса ревью.",
+            "Напомните обновить страницу с открытой вкладкой Network, чтобы поймать полную загрузку.",
+            "Объясните, что доказательства \u2014 это скриншоты и скопированные запросы, а не память."
+          ],
+          "doNotReveal": [
+            "Не рассказывайте заранее, какие запросы сделает выбранный сайт.",
+            "Не пишите за учащегося карту запросов или шаги подмены.",
+            "Не делайте вид, что видите их экран \u2014 просите вставить запросы, статусы или скриншоты."
+          ],
+          "reviewFor": [
+            "Карта запросов называет реальные метод, эндпоинт и статус, а не догадки.",
+            "Находка скрытого поведения подкреплена доказательством: вставленным запросом, статус-кодом, сообщением консоли или ключом storage.",
+            "Эксперимент с подменой фиксирует исходный ответ, замену и реакцию интерфейса \u2014 и отделяет имитацию от реальности.",
+            "Наблюдение в адаптивном режиме называет ширину вьюпорта и конкретную находку раскладки.",
+            "Overrides описаны как инструмент воспроизведения, а не как исправление."
+          ],
+          "completionCriteria": [
+            "Карта запросов покрывает минимум четыре запроса выбранного сценария.",
+            "Минимум одно скрытое поведение задокументировано с доказательством.",
+            "Эксперимент с подменой включает заменённый ответ и наблюдаемую реакцию интерфейса.",
+            "Заметка разделяет реальное поведение сервера и сымитированное."
+          ],
+          "hintProgression": [
+            "Предложите фильтр Fetch/XHR в Network, чтобы убрать шум.",
+            "Подскажите, что показанное значение можно найти поиском внутри ответов.",
+            "Если подмена даётся тяжело, предложите самую простую: форсировать 500 на одном запросе и посмотреть на интерфейс.",
+            "Предложите фиксировать состояние непосредственно до и после действия, а не всю сессию."
+          ],
+          "ifLearnerStruggles": [
+            "Начните с одного запроса: обновите страницу, откройте первую строку Fetch/XHR, прочитайте метод, статус и ответ вместе.",
+            "Попросите своими словами объяснить один статус-код из их захвата.",
+            "Для подмены один раз проведите по пути в меню, затем пусть учащийся сделает сам.",
+            "Если сайт блокирует overrides или кеш путает, предложите попробовать другой сайт, а не бороться с инструментом."
+          ],
+          "afterCompletion": [
+            "Назовите самое сильное наблюдение учащегося.",
+            "Свяжите упражнение с будущим тестированием API и доказательной базой баг-репортов.",
+            "Напомните выключить оставленные overrides."
+          ]
+        }
+      }
+    }
+  }
+]

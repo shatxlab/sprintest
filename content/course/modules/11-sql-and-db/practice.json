@@ -1,0 +1,241 @@
+[
+  {
+    "id": "11-sql-and-db-practice",
+    "moduleId": "11-sql-and-db",
+    "kind": "sql-analysis",
+    "estimatedMinutes": 35,
+    "skillFocus": [
+      "sql-select",
+      "joins",
+      "data-consistency",
+      "qa-evidence"
+    ],
+    "updatedAt": "2026-09-25",
+    "languages": {
+      "en": {
+        "title": "Investigate a small banking dataset with SQL reasoning",
+        "learnerBrief": "Practice writing read-only SQL checks and explaining what the result would prove for QA.",
+        "context": "Use this static dataset, not a live database. Tables: accounts(account_id, owner_name, status, balance); transactions(transaction_id, account_id, type, amount, status, created_at, balance_after); cards(card_id, account_id, status, expires_on). Rows: accounts: A-100 Mira active 250.00; A-101 Daniil active 80.00; A-102 Noor closed 0.00; A-103 Chen active 500.00. Transactions: T-001 A-100 credit 300.00 posted 2026-09-01 300.00; T-002 A-100 debit 50.00 posted 2026-09-02 250.00; T-003 A-101 debit 20.00 posted 2026-09-02 80.00; T-004 A-102 credit 25.00 posted 2026-09-03 25.00; T-005 A-999 debit 10.00 posted 2026-09-03 10.00; T-006 A-103 debit 70.00 failed 2026-09-04 430.00. Cards: C-10 A-100 active 2028-01-31; C-11 A-102 active 2028-02-28; C-12 A-103 blocked 2027-06-30.",
+        "deliverable": "Write 4-6 SQL checks. For each check include the QA question, query text, expected columns, and a short observation about the rows you expect to inspect. Cover at least one JOIN, one aggregate or grouped check, one NULL or missing-record check, and one status-consistency check.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Help the learner connect SQL syntax to QA investigation and evidence quality.",
+          "presentTaskHow": [
+            "Ask the learner to draft the checks before receiving query-level feedback.",
+            "Encourage a compact table with question, SQL, expected columns, and observation.",
+            "Keep the exercise focused on read-only reasoning over the public dataset."
+          ],
+          "doNotReveal": [
+            "Do not provide complete query text before the learner drafts a query.",
+            "Do not label specific rows as findings before the learner points to evidence.",
+            "Do not introduce private product defects, secret identifiers, or private validation rules."
+          ],
+          "reviewFor": [
+            "Queries use the named tables and columns consistently.",
+            "JOIN logic matches the stated QA question.",
+            "Grouped checks include the fields needed to interpret the count or summary.",
+            "Observations distinguish evidence from assumptions.",
+            "The learner explains why each query would help a team decide what to investigate next."
+          ],
+          "completionCriteria": [
+            "The artifact includes 4-6 read-only SQL checks.",
+            "At least one check uses a JOIN across tables.",
+            "At least one check uses grouping or an aggregate function.",
+            "At least one check investigates missing related records or NULL-style absence.",
+            "The learner writes a short QA observation for every check."
+          ],
+          "hintProgression": [
+            "Ask which business question each query is trying to answer.",
+            "Point to table relationships such as account_id across accounts, transactions, and cards.",
+            "Suggest starting with expected columns before writing the full SQL.",
+            "Offer a partial clause, such as a JOIN condition, only after the learner attempts the query."
+          ],
+          "ifLearnerStruggles": [
+            "Reduce the task to one relationship: transactions linked to accounts.",
+            "Ask the learner to write plain English for the check first.",
+            "Review one query shape, then ask the learner to adapt it for another table."
+          ],
+          "afterCompletion": [
+            "Summarize the strongest query and why it is useful evidence.",
+            "Name one SQL concept for the learner to practice next.",
+            "Connect the work to real QA database checks in controlled environments."
+          ]
+        }
+      },
+      "ru": {
+        "title": "Исследование маленького банковского набора данных через SQL-мышление",
+        "learnerBrief": "Потренируйтесь писать SQL-проверки только на чтение и объяснять, что результат доказывает для QA.",
+        "context": "Используйте этот статический набор данных, а не живую базу. Таблицы: accounts(account_id, owner_name, status, balance); transactions(transaction_id, account_id, type, amount, status, created_at, balance_after); cards(card_id, account_id, status, expires_on). Строки: accounts: A-100 Mira active 250.00; A-101 Daniil active 80.00; A-102 Noor closed 0.00; A-103 Chen active 500.00. Transactions: T-001 A-100 credit 300.00 posted 2026-09-01 300.00; T-002 A-100 debit 50.00 posted 2026-09-02 250.00; T-003 A-101 debit 20.00 posted 2026-09-02 80.00; T-004 A-102 credit 25.00 posted 2026-09-03 25.00; T-005 A-999 debit 10.00 posted 2026-09-03 10.00; T-006 A-103 debit 70.00 failed 2026-09-04 430.00. Cards: C-10 A-100 active 2028-01-31; C-11 A-102 active 2028-02-28; C-12 A-103 blocked 2027-06-30.",
+        "deliverable": "Напишите 4-6 SQL-проверок. Для каждой укажите QA-вопрос, текст запроса, ожидаемые столбцы и короткое наблюдение о строках, которые нужно изучить. Покройте минимум один JOIN, одну агрегатную или групповую проверку, одну проверку отсутствующих связанных данных или NULL-логики и одну проверку согласованности статусов.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Помочь ученику связать синтаксис SQL с QA-расследованием и качеством доказательств.",
+          "presentTaskHow": [
+            "Попросите ученика сначала набросать проверки, а затем давайте обратную связь по запросам.",
+            "Предложите компактную таблицу: вопрос, SQL, ожидаемые столбцы, наблюдение.",
+            "Держите упражнение в рамках чтения публичного набора данных."
+          ],
+          "doNotReveal": [
+            "Не давайте полный текст запросов до попытки ученика.",
+            "Не называйте конкретные строки находками до того, как ученик сам укажет доказательство.",
+            "Не добавляйте приватные дефекты продукта, секретные идентификаторы или приватные правила проверки."
+          ],
+          "reviewFor": [
+            "Запросы последовательно используют названные таблицы и столбцы.",
+            "Логика JOIN соответствует заявленному QA-вопросу.",
+            "Групповые проверки содержат поля, нужные для понимания количества или сводки.",
+            "Наблюдения отделяют доказательства от предположений.",
+            "Ученик объясняет, как каждый запрос помогает команде решить, что исследовать дальше."
+          ],
+          "completionCriteria": [
+            "В артефакте есть 4-6 SQL-проверок только на чтение.",
+            "Минимум одна проверка использует JOIN между таблицами.",
+            "Минимум одна проверка использует группировку или агрегатную функцию.",
+            "Минимум одна проверка исследует отсутствующие связанные записи или логику отсутствия значения.",
+            "Для каждой проверки написано короткое QA-наблюдение."
+          ],
+          "hintProgression": [
+            "Спросите, на какой бизнес-вопрос отвечает каждый запрос.",
+            "Направьте внимание на связи по account_id между accounts, transactions и cards.",
+            "Предложите сначала определить ожидаемые столбцы, а потом писать SQL целиком.",
+            "Дайте часть конструкции, например условие JOIN, только после попытки ученика."
+          ],
+          "ifLearnerStruggles": [
+            "Сузьте задачу до одной связи: transactions с accounts.",
+            "Попросите сначала написать проверку обычным языком.",
+            "Разберите одну форму запроса, затем попросите адаптировать её для другой таблицы."
+          ],
+          "afterCompletion": [
+            "Кратко отметьте самый сильный запрос и почему он даёт полезное доказательство.",
+            "Назовите одну SQL-тему для следующей тренировки.",
+            "Свяжите работу с реальными QA-проверками базы в контролируемых средах."
+          ]
+        }
+      }
+    },
+    "pillars": [
+      "data-sql"
+    ]
+  },
+  {
+    "id": "11-sql-and-db-data-read",
+    "moduleId": "11-sql-and-db",
+    "kind": "sql-analysis",
+    "estimatedMinutes": 25,
+    "skillFocus": [
+      "sql-select",
+      "joins",
+      "data-consistency"
+    ],
+    "updatedAt": "2026-09-25",
+    "languages": {
+      "en": {
+        "title": "Read the data before you judge it",
+        "learnerBrief": "A warm-up with a tiny orders and customers dataset. Write simple SELECT queries: filter by status, join orders to customers, count orders per customer — and look for one data anomaly while you read the results. When you want to run a query, ask the tutor to simulate it; the tutor will show a plausible result set.",
+        "context": "A static snapshot from an e-commerce staging database — no live connection needed. Schema: customers(customer_id INTEGER, name TEXT, city TEXT, signup_date DATE); orders(order_id INTEGER, customer_id INTEGER, status TEXT, total NUMERIC, created_at DATE). Customers: (101, 'Anna', 'Berlin', '2026-01-10'), (102, 'Boris', 'Hamburg', '2026-01-15'), (103, 'Chen', 'Munich', '2026-02-02'), (104, 'Dana', 'Berlin', '2026-02-20'), (105, 'Elin', 'Oslo', '2026-03-05'). Orders: (1001, 101, 'shipped', 120.00, '2026-03-01'), (1002, 101, 'delivered', 45.50, '2026-03-04'), (1003, 102, 'pending', 89.00, '2026-03-06'), (1004, 103, 'delivered', 230.00, '2026-03-08'), (1005, 104, 'cancelled', 60.00, '2026-03-10'), (1006, 999, 'shipped', 15.00, '2026-03-11'), (1007, 102, 'delivered', 12.00, '2026-03-12'), (1008, 105, 'pending', 75.25, '2026-03-14'). Read-only work only: no INSERT, UPDATE, or DELETE.",
+        "deliverable": "Four SELECT queries plus a closing finding: (1) filter the orders by one status of your choice, (2) a JOIN of orders to customers that shows who ordered what, (3) an aggregate counting orders per customer, and (4) any query that helps you check whether every order points to a real customer. For each query give the QA question, the SQL, and the rows you expect. End with the anomaly you found and the SQL that proves it.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Give the learner an easy win on SELECT fundamentals and teach them to read query results critically enough to spot a referential-integrity anomaly.",
+          "presentTaskHow": [
+            "Let the learner write the first query before offering any SQL; this is a warm-up, so keep the tone light.",
+            "When the learner asks to run a query, simulate a realistic result set for that exact query — correct column names, plausible row order — rather than dumping the full tables.",
+            "Simulated results must be faithful to the dataset in the context; do not invent extra rows or hide rows.",
+            "After the fourth query, prompt the learner: did anything in the results look off?"
+          ],
+          "doNotReveal": [
+            "Do not name the anomaly (order 1006 with customer_id 999) or show a proving query until the learner has either spotted it or exhausted the four planned queries.",
+            "Do not reveal that exactly one anomaly exists before the learner starts reading results.",
+            "Do not write complete queries for the learner before they attempt each one.",
+            "Do not invent rows that are not in the context dataset when simulating results."
+          ],
+          "reviewFor": [
+            "Status filter uses a WHERE clause on orders.status and matches the stated question.",
+            "The JOIN connects orders.customer_id to customers.customer_id and selects columns from both tables.",
+            "The aggregate groups by the customer and counts orders, with the count column labeled or explained.",
+            "When the learner asks to run a query, the simulated result set is consistent with the dataset: pending orders 1003 and 1008; Anna 2 orders, Boris 2, Chen 1, Dana 1, Elin 1.",
+            "An INNER JOIN quietly drops order 1006; a LEFT JOIN shows it with NULL customer columns — accept either, but check the learner notices the difference when they report results."
+          ],
+          "completionCriteria": [
+            "One query filters orders by status and the learner interprets the expected rows correctly (e.g. pending: orders 1003 and 1008).",
+            "One working JOIN between orders and customers appears in the artifact.",
+            "One aggregate counts orders per customer, and the learner notices a customer or row count that does not fit.",
+            "The learner spots the anomaly — an order referencing a customer id that has no matching customer — and includes SQL that proves it, e.g. a LEFT JOIN with WHERE c.customer_id IS NULL or a NOT EXISTS / NOT IN check.",
+            "All four queries are read-only SELECTs."
+          ],
+          "hintProgression": [
+            "If the learner picks filtering first, ask what business question 'orders with status X' answers for the team.",
+            "If the JOIN is missing, point at the shared column name customer_id across the two tables.",
+            "If the aggregate is stalling, suggest GROUP BY on the customer column and COUNT(*), with a readable alias.",
+            "If the anomaly is still hidden after the four queries, ask: how many orders did your aggregate count in total, and how many rows does the orders table have?",
+            "Only after the learner reports the odd row, confirm it and ask for the SQL that proves the referenced customer does not exist."
+          ],
+          "ifLearnerStruggles": [
+            "Narrow to one query at a time and start from the simplest: SELECT everything from orders.",
+            "If JOIN syntax is fuzzy, offer the shape 'FROM orders JOIN customers ON ...' and let the learner fill in columns.",
+            "If aggregates intimidate, show COUNT(*) over the whole table first, then ask to group it.",
+            "Reduce the anomaly hunt to a concrete question: 'write SQL that lists orders whose customer never appears in customers'."
+          ],
+          "afterCompletion": [
+            "Summarize how the anomaly was caught by reading data rather than trusting row counts, and name the concept: referential integrity.",
+            "Connect the skill to real QA work: orphaned foreign keys in staging are exactly how testers find broken deletion flows and sync bugs.",
+            "Suggest a next practice: writing the same checks as reusable SQL the team can run after every migration."
+          ]
+        }
+      },
+      "ru": {
+        "title": "Прочитай данные, прежде чем судить",
+        "learnerBrief": "Разминка на маленьком наборе данных orders и customers. Напишите простые SELECT-запросы: фильтр по статусу, JOIN orders к customers, подсчёт заказов на клиента — и, читая результаты, поищите одну аномалию в данных. Когда захотите выполнить запрос, попросите tutor его «запустить» — он покажет правдоподобный результат.",
+        "context": "Статический срез из staging-базы e-commerce проекта — живое подключение не нужно. Схема: customers(customer_id INTEGER, name TEXT, city TEXT, signup_date DATE); orders(order_id INTEGER, customer_id INTEGER, status TEXT, total NUMERIC, created_at DATE). Customers: (101, 'Anna', 'Berlin', '2026-01-10'), (102, 'Boris', 'Hamburg', '2026-01-15'), (103, 'Chen', 'Munich', '2026-02-02'), (104, 'Dana', 'Berlin', '2026-02-20'), (105, 'Elin', 'Oslo', '2026-03-05'). Orders: (1001, 101, 'shipped', 120.00, '2026-03-01'), (1002, 101, 'delivered', 45.50, '2026-03-04'), (1003, 102, 'pending', 89.00, '2026-03-06'), (1004, 103, 'delivered', 230.00, '2026-03-08'), (1005, 104, 'cancelled', 60.00, '2026-03-10'), (1006, 999, 'shipped', 15.00, '2026-03-11'), (1007, 102, 'delivered', 12.00, '2026-03-12'), (1008, 105, 'pending', 75.25, '2026-03-14'). Работаем только на чтение: никаких INSERT, UPDATE или DELETE.",
+        "deliverable": "Четыре SELECT-запроса плюс финальная находка: (1) фильтр заказов по одному статусу на ваш выбор, (2) JOIN orders к customers, показывающий, кто что заказал, (3) агрегат с подсчётом заказов на клиента, и (4) любой запрос, который помогает проверить, что каждый заказ ссылается на реального клиента. Для каждого запроса укажите QA-вопрос, SQL и ожидаемые строки. В конце — найденная аномалия и SQL, который её доказывает.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Дать ученику лёгкую победу на основах SELECT и научить критически читать результаты запросов, чтобы заметить аномалию ссылочной целостности.",
+          "presentTaskHow": [
+            "Пусть ученик сначала напишет запросы; это разминка — держите лёгкий тон.",
+            "Когда ученик просит «запустить» запрос, симулируйте правдоподобный результат именно для этого запроса — корректные названия столбцов, естественный порядок строк — вместо выгрузки всех таблиц сразу.",
+            "Симулируемые результаты должны точно соответствовать набору данных из контекста; не придумывайте строки и не прячьте существующие.",
+            "После четвёртого запроса спросите ученика: не показалось ли что-то в результатах странным?"
+          ],
+          "doNotReveal": [
+            "Не называйте аномалию (заказ 1006 с customer_id 999) и не показывайте доказывающий запрос, пока ученик сам её не заметил или не выполнил четыре запланированных запроса.",
+            "Не раскрывайте, что аномалия ровно одна, пока ученик не начал читать результаты.",
+            "Не пишите за ученика полные запросы до его собственной попытки.",
+            "Не выдумывайте строки, которых нет в наборе данных из контекста, при симуляции результатов."
+          ],
+          "reviewFor": [
+            "Фильтр по статусу использует WHERE для orders.status и соответствует заявленному вопросу.",
+            "JOIN связывает orders.customer_id с customers.customer_id и выбирает столбцы из обеих таблиц.",
+            "Агрегат группирует по клиенту и считает заказы, столбец с количеством назван или объяснён.",
+            "При симуляции запроса результат согласован с набором данных: pending — заказы 1003 и 1008; у Anna 2 заказа, у Boris 2, у Chen 1, у Dana 1, у Elin 1.",
+            "INNER JOIN молча отбрасывает заказ 1006; LEFT JOIN показывает его с NULL — принимайте любой вариант, но проверьте, заметил ли ученик разницу, когда описывает результат."
+          ],
+          "completionCriteria": [
+            "Один запрос фильтрует заказы по статусу, и ученик верно интерпретирует ожидаемые строки (например, pending: заказы 1003 и 1008).",
+            "В артефакте есть один работающий JOIN между orders и customers.",
+            "Один агрегат считает заказы на клиента, и ученик замечает клиента или число строк, которые не сходятся.",
+            "Ученик находит аномалию — заказ со ссылкой на customer_id, которого нет в customers, — и приводит SQL, который это доказывает, например LEFT JOIN с WHERE c.customer_id IS NULL или проверку NOT EXISTS / NOT IN.",
+            "Все четыре запроса — SELECT только на чтение."
+          ],
+          "hintProgression": [
+            "Если ученик начинает с фильтра, спросите, на какой бизнес-вопрос команды отвечает «заказы со статусом X».",
+            "Если JOIN отсутствует, направьте внимание на общее имя столбца customer_id в двух таблицах.",
+            "Если агрегат буксует, предложите GROUP BY по столбцу клиента и COUNT с понятным алиасом.",
+            "Если аномалия так и не видна после четырёх запросов, спросите: сколько заказов насчитал ваш агрегат суммарно и сколько строк в таблице orders?",
+            "Только после того как ученик сообщил о странной строке, подтвердите её и попросите SQL, доказывающий, что указанного клиента не существует."
+          ],
+          "ifLearnerStruggles": [
+            "Сузьте работу до одного запроса за раз и начните с простейшего: SELECT всех строк из orders.",
+            "Если синтаксис JOIN туманен, дайте каркас «FROM orders JOIN customers ON ...» и попросите заполнить столбцы.",
+            "Если агрегаты пугают, сначала покажите COUNT(*) по всей таблице, затем попросите сгруппировать.",
+            "Сведите поиск аномалии к конкретному вопросу: «напиши SQL, который выводит заказы, чей клиент ни разу не встречается в customers»."
+          ],
+          "afterCompletion": [
+            "Подведите итог: аномалию поймали чтением данных, а не доверием количеству строк, и назовите концепцию — ссылочная целостность.",
+            "Свяжите навык с реальной QA-работой: «осиротевшие» внешние ключи в staging — именно так тестировщики находят сломанные сценарии удаления и баги синхронизации.",
+            "Предложите следующую тренировку: оформить те же проверки как переиспользуемый SQL, который команда запускает после каждой миграции."
+          ]
+        }
+      }
+    },
+    "pillars": [
+      "data-sql"
+    ]
+  }
+]

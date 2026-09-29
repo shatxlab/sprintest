@@ -1,0 +1,23 @@
+{
+  "id": "08-test-design",
+  "slug": "08-test-design",
+  "order": 9,
+  "title": {
+    "en": "Test Design",
+    "ru": "Тест-дизайн"
+  },
+  "summary": {
+    "en": "How to turn requirements and risk into equivalence classes, boundaries, decision tables, state checks, and clear test cases.",
+    "ru": "Как превращать требования и риск в классы эквивалентности, границы, таблицы решений, проверки состояний и ясные тест-кейсы."
+  },
+  "themes": [
+    "test-design",
+    "risk-based-testing",
+    "test-documentation"
+  ],
+  "practiceTaskIds": [
+    "08-test-design-practice",
+    "08-test-design-your-website"
+  ],
+  "updatedAt": "2026-09-25"
+}

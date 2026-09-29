@@ -1,0 +1,146 @@
+[
+  {
+    "id": "19-playwright-architecture-fixtures",
+    "moduleId": "19-playwright-architecture",
+    "kind": "automation-code",
+    "estimatedMinutes": 45,
+    "skillFocus": [
+      "fixtures",
+      "test-isolation",
+      "page-objects"
+    ],
+    "pillars": [
+      "automation",
+      "test-design"
+    ],
+    "updatedAt": "2026-09-25",
+    "languages": {
+      "en": {
+        "title": "Turn a duplicated, order-dependent suite into architecture",
+        "learnerBrief": "Have your AI agent scaffold a small app plus a copy-pasted, order-dependent Playwright suite in your own repository, then rebuild it around fixtures, isolation, and a config that runs it in parallel.",
+        "context": "Work in your own project, not in the course. Ask your AI agent to build a small demo app in the repository: a few pages (a list page, a detail page, a login page) backed by a tiny mock API with its own in-memory data, started by a single script. Ask it to also write a Playwright suite of 6-10 tests against that app in the most ordinary first-draft style it can produce: several tests that each walk through login on their own, setup repeated in the body of almost every test, a couple of tests that only pass when they run after another test, and data with fixed names reused across tests. Run the suite once with a single worker and once with several workers, and note what happens. Then refactor the suite: a custom test built with test.extend that supplies the authenticated page and per-test data with cleanup, an authentication setup project whose saved storage state the browser project reuses, per-test unique data, page objects limited to navigation and repeated multi-step actions, and a playwright.config.ts with fullyParallel, an explicit workers value, low retries, and trace on failure. Do not rewrite the app to make the tests pass — the tests must isolate themselves against the app as it is.",
+        "deliverable": "A refactored suite in your repository plus a short QA note: (1) the config with fullyParallel, workers, retries, and trace explained in two or three sentences each; (2) at least three fixtures or fixtures-plus-page-objects, with a one-line statement of what each supplies and what it cleans up; (3) the before-and-after evidence — the run with one worker, the run with several workers, and a repeated run, each with pass and fail numbers and what changed when the count changed; (4) a list of every place where tests depended on each other's data or on run order, with the line of the refactor that removed each dependence; (5) two or three sentences on which order-dependence or duplication you chose not to fix and why.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Move the learner from writing test bodies to designing a suite: make them see order dependence and duplicated setup as architecture defects, force them to fix those defects with fixtures and per-test data, and make them read run evidence (parallel vs sequential) rather than trusting a green report.",
+          "presentTaskHow": [
+            "Make the learner drive their own AI agent for the scaffold and do the refactor themselves; you review and question, you do not build the app.",
+            "Before any refactoring, insist they run the generated suite with one worker and with several workers and paste both summaries; this is the baseline evidence the whole task hangs on.",
+            "Require them to list the dependencies they found in the generated suite before they change any code, so the fix is deliberate rather than incidental.",
+            "Ask for the fixture graph in the form of 'this fixture receives X and supplies Y to the test' for each fixture.",
+            "Keep them on the app's public surface: no rewriting the app, no test-only endpoints, no mocking away the whole backend."
+          ],
+          "doNotReveal": [
+            "Do not tell the learner in advance what the agent's scaffold will contain. Never reveal which specific tests were made order-dependent, which fixed value is reused across tests, or where the duplicated login blocks are — they must find those by reading the generated code and by running it in parallel.",
+            "Do not name the planted problems: a shared variable written in one test and read in another, a fixed list or entity name reused by several tests, a helper copied into each file, a test that asserts only after another test's data exists, a cleanup placed in a final test, and a sleep or serial block hiding the dependency.",
+            "Do not supply the paragraph-by-paragraph refactor, the final fixture code, or the final config text. Give shapes and questions, not files.",
+            "Do not accept 'it passes now' as evidence: without the parallel-versus-sequential run and the failure list, the work is not done.",
+            "Do not let them present the flakes they observed in the original suite as product bugs. Those are suite defects, and they should be reported as such.",
+            "Do not fabricate a run summary for them if they have not run anything."
+          ],
+          "reviewFor": [
+            "The config states fullyParallel, an explicit workers value, a low retries count, and trace on failure, and the learner can justify each setting in relation to their own run results.",
+            "The custom test extends the base test with test.extend and each fixture has a clear teardown that runs even when the test fails.",
+            "Per-test data is unique per test (generated identifier or timestamp rather than a fixed name), and each test creates the data it needs rather than borrowing it.",
+            "Authentication is created once, saved as browser state, reused by the browser project through a setup dependency, and at least one test still exercises the real login flow.",
+            "Remaining duplication is justified in the note rather than left unexamined, and no test depends on another test having run first.",
+            "Page objects, where present, hold navigation and multi-step actions; assertions stay in the tests.",
+            "The evidence separates the sequential run from the parallel run, and the learner explains what changed between them.",
+            "No test was made green by adding a retry, a sleep, or a serial block."
+          ],
+          "completionCriteria": [
+            "The suite runs green with several workers and again with one worker, and the learner shows both summaries.",
+            "A repeated run of the refactored suite does not change the result, and the learner states the numbers.",
+            "At least three reusable fixtures or fixtures with page objects exist and are used by more than one test.",
+            "No variable declared outside test() is written inside a test.",
+            "Authentication state is created in a setup step and reused; a real login test still exists.",
+            "The note names every order dependence or duplicated setup that was found in the generated suite and maps each to the change that removed it.",
+            "The learner can explain why one remaining piece of duplication is acceptable."
+          ],
+          "hintProgression": [
+            "If they cannot see the dependencies, ask them to run the suite with several workers and to read the failures in that order, then to run it again with a changed file order and compare.",
+            "If they deny that setup is duplicated, ask them to count how many tests repeat the same login steps and to add up those steps across a full run.",
+            "If the fixture idea is not landing, ask a concrete question: which of these tests need the same data, and who should be responsible for creating it?",
+            "If they write a fixture with no teardown, ask who deletes the record it created when the test fails halfway.",
+            "If authentication is still done per test, point at the setup project dependency and ask what would happen if the login page had a bug.",
+            "If assertions end up inside a page object, ask how a reviewer would know what is being checked."
+          ],
+          "ifLearnerStruggles": [
+            "Reduce the scope: pick the two tests with the clearest shared state and rewrite only those, then repeat the pattern.",
+            "Start from the smallest fixture — a request context or a ready page — before attempting authentication or seeded data.",
+            "Ask them to write, in plain sentences, what each test needs before it touches Playwright code.",
+            "If the mock API's data model is unclear, have them read the app's own code or ask their agent to explain the endpoints, then continue.",
+            "If parallel runs are too chaotic, drop to two workers, verify the dependency theory there, and return to higher concurrency afterwards."
+          ],
+          "afterCompletion": [
+            "Name the single change that removed the most risk from the suite.",
+            "Point out that the same fixture and config decisions are what make a suite survive CI and reruns, and connect this to the debugging and CI modules ahead.",
+            "Recommend one small next step: add a per-test unique-data rule to their repository's conventions so the next generated tests inherit isolation by default."
+          ]
+        }
+      },
+      "ru": {
+        "title": "Превратите продублированный набор с зависимостью от порядка в архитектуру",
+        "learnerBrief": "Попросите своего AI-агента создать в вашем репозитории небольшое приложение и набор Playwright-тестов в стиле первого черновика — с копипастой и зависимостью от порядка, — а затем перестройте его на фикстуры, изоляцию и конфиг с параллельным запуском.",
+        "context": "Работайте в собственном проекте, а не в курсе. Попросите AI-агента поднять в репозитории небольшое демо-приложение: несколько страниц (список, карточка, вход) и крошечный mock API со своими данными в памяти, запускаемые одним скриптом. Там же попросите написать набор из 6-10 Playwright-тестов против этого приложения в максимально обычном черновом стиле: несколько тестов сами проходят логин, подготовка дублируется прямо в теле почти каждого теста, пара тестов проходят только после другого теста, а в данных переиспользуются фиксированные имена. Прогоните набор один раз в один воркер и один раз в несколько воркеров и зафиксируйте, что получилось. Затем переделайте набор: свой тест на test.extend, который выдаёт авторизованную страницу и данные с очисткой, проект настройки авторизации, чьё сохранённое состояние браузера переиспользует браузерный проект, уникальные данные на каждый тест, page objects только для навигации и повторяющихся многошаговых действий и playwright.config.ts с fullyParallel, явным workers, низким retries и trace на падениях. Приложение переписывать нельзя — тесты должны изолироваться от него в том виде, в каком оно есть.",
+        "deliverable": "Переработанный набор в вашем репозитории плюс короткая QA-заметка: (1) конфиг с fullyParallel, workers, retries и trace, где каждая настройка объяснена двумя-тремя фразами; (2) минимум три фикстуры или фикстуры вместе с page objects, и по одной строке о том, что каждая выдаёт и что убирает за собой; (3) доказательства «до и после» — прогон в один воркер, прогон в несколько воркеров и повторный прогон, с числами прошедших и упавших тестов и объяснением, что изменилось вместе с числом; (4) список всех мест, где тесты зависели от данных друг друга или от порядка, и той строки рефакторинга, которая эту зависимость убрала; (5) две-три фразы о том, какую зависимость от порядка или дублирование вы решили не трогать и почему.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Перевести учащегося от написания тел тестов к проектированию набора: показать, что зависимости от порядка и дублированная подготовка — это архитектурные дефекты, заставить исправить их фикстурами и данными на каждый тест и научить читать доказательства прогона, а не доверять зелёному отчёту.",
+          "presentTaskHow": [
+            "Пусть учащийся сам управляет своим AI-агентом на этапе каркаса и сам делает рефакторинг; вы задаёте вопросы, а не строите приложение.",
+            "До любого рефакторинга потребуйте прогон сгенерированного набора в один воркер и в несколько воркеров и попросите вставить обе сводки — на этих доказательствах держится вся задача.",
+            "Попросите сначала выписать найденные в сгенерированном наборе зависимости, и только потом менять код: исправление должно быть осознанным.",
+            "Просите описывать граф фикстур в форме «эта фикстура принимает X и выдаёт тесту Y».",
+            "Держите работу на публичной поверхности приложения: без переписывания приложения, без тестовых эндпоинтов и без моков, подменяющих весь бэкенд."
+          ],
+          "doNotReveal": [
+            "Не рассказывайте заранее, что окажется в каркасе от агента. Никогда не раскрывайте, какие именно тесты сделаны зависимыми от порядка, какое фиксированное значение переиспользуется и где находятся дублирующиеся блоки логина — учащийся должен найти это чтением кода и параллельным запуском.",
+            "Не называйте заложенные проблемы: общая переменная, записываемая в одном тесте и читаемая в другом, фиксированное имя сущности, используемое несколькими тестами, хелпер, скопированный в каждый файл, тест, который проверяет только после появления данных из другого теста, очистка, вынесенная в последний тест, и sleep или serial, скрывающие зависимость.",
+            "Не давайте рефакторинг по абзацам, финальный код фикстур или финальный текст конфига. Только формы и вопросы, а не файлы.",
+            "Не принимайте «сейчас всё зелёное» как доказательство: без сравнения параллельного и последовательного прогона и списка падений работа не сделана.",
+            "Не разрешайте выдавать замеченную в исходном наборе нестабильность за баги продукта. Это дефекты набора, и в отчёте их нужно называть именно так.",
+            "Не придумывайте за учащегося сводку прогона, если он ничего не запускал."
+          ],
+          "reviewFor": [
+            "В конфиге указаны fullyParallel, явный workers, низкий retries и trace на падениях, и учащийся обосновывает каждую настройку через результаты своих прогонов.",
+            "Свой тест расширяет базовый через test.extend, и у каждой фикстуры есть очистка, которая выполняется даже при падении теста.",
+            "Данные уникальны для каждого теста (сгенерированный идентификатор или метка времени, а не фиксированное имя), и каждый тест создаёт то, что ему нужно, а не одалживает у другого.",
+            "Авторизация создаётся один раз, сохраняется как состояние браузера, переиспользуется браузерным проектом через зависимость от проекта настройки, и хотя бы один тест всё ещё проходит настоящий вход.",
+            "Оставшееся дублирование обосновано в заметке, а не оставлено без внимания, и ни один тест не зависит от того, что другой уже отработал.",
+            "Page objects, если они есть, содержат навигацию и многошаговые действия; ассерты остаются в тестах.",
+            "В доказательствах отделены последовательный и параллельный прогоны, и учащийся объясняет, что между ними изменилось.",
+            "Ни один тест не сделан зелёным добавлением повтора, sleep или serial."
+          ],
+          "completionCriteria": [
+            "Набор проходит в несколько воркеров и в один воркер, и учащийся показывает обе сводки.",
+            "Повторный прогон переработанного набора не меняет результат, и учащийся называет числа.",
+            "Есть минимум три переиспользуемые фикстуры или фикстуры с page objects, используемые более чем одним тестом.",
+            "Ни одна переменная, объявленная вне test(), не записывается внутри теста.",
+            "Состояние авторизации создаётся на этапе настройки и переиспользуется; тест с настоящим входом сохраняется.",
+            "Заметка называет каждую зависимость от порядка или дублированную подготовку, найденную в сгенерированном наборе, и сопоставляет её с изменением, которое её убрало.",
+            "Учащийся объясняет, почему одно оставшееся дублирование допустимо."
+          ],
+          "hintProgression": [
+            "Если зависимости не видны, попросите прогнать набор в несколько воркеров, прочитать падения в этом порядке, затем изменить порядок файлов и сравнить.",
+            "Если учащийся отрицает дублирование подготовки, попросите посчитать, сколько тестов повторяют одни и те же шаги логина, и сложить эти шаги за полный прогон.",
+            "Если идея фикстур не укладывается, задайте конкретный вопрос: каким из этих тестов нужны одни и те же данные и кто должен их создавать?",
+            "Если фикстура написана без очистки, спросите, кто удалит созданную запись, когда тест упадёт на середине.",
+            "Если авторизация по-прежнему делается в каждом тесте, укажите на зависимость от проекта настройки и спросите, что будет, если на странице входа появится баг.",
+            "Если ассерты переехали в page object, спросите, как ревьюер поймёт, что именно проверяется."
+          ],
+          "ifLearnerStruggles": [
+            "Сузьте объём: возьмите два теста с самым явным общим состоянием, перепишите только их, а затем повторите схему.",
+            "Начните с самой простой фикстуры — контекста запросов или готовой страницы — прежде чем браться за авторизацию и данные.",
+            "Попросите сначала обычными предложениями описать, что нужно каждому тесту, и только потом писать код Playwright.",
+            "Если модель данных mock API непонятна, пусть учащийся прочитает код приложения или попросит своего агента объяснить эндпоинты, и продолжит после этого.",
+            "Если параллельные прогоны слишком хаотичны, снизьте до двух воркеров, подтвердите теорию зависимости там и вернитесь к большей параллельности позже."
+          ],
+          "afterCompletion": [
+            "Назовите единственное изменение, которое убрало больше всего риска из набора.",
+            "Отметьте, что те же решения по фикстурам и конфигу позволяют набору выживать в CI и при повторных запусках, и свяжите это с модулями про отладку и CI впереди.",
+            "Предложите небольшой следующий шаг: добавить правило об уникальных данных на каждый тест в соглашения вашего репозитория, чтобы следующие сгенерированные тесты сразу получали изоляцию."
+          ]
+        }
+      }
+    }
+  }
+]

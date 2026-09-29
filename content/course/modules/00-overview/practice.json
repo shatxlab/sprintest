@@ -1,0 +1,114 @@
+[
+  {
+    "id": "00-overview-qa-mindset",
+    "moduleId": "00-overview",
+    "kind": "discussion",
+    "estimatedMinutes": 20,
+    "skillFocus": [
+      "qa-mindset",
+      "requirements-questioning",
+      "risk-thinking"
+    ],
+    "updatedAt": "2026-09-25",
+    "languages": {
+      "en": {
+        "title": "First QA questions for a profile form",
+        "learnerBrief": "Practice the QA habit of separating facts, assumptions, risks, and first test ideas before a team starts building.",
+        "context": "A product manager says: 'Add a profile form where a learner can edit display name, city, timezone, and a short bio. Save changes and show a success message.' No design or acceptance criteria are attached yet.",
+        "deliverable": "Write a compact QA note with known facts, open questions, risk areas, and 5-7 first test ideas. Keep it practical and readable for a small product team.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Help the learner build the habit of clarifying requirements before listing checks.",
+          "presentTaskHow": [
+            "Ask the learner to draft their own QA note first.",
+            "Invite any format: bullets, table, or short sections.",
+            "Remind them that uncertainty is a normal input for QA work."
+          ],
+          "doNotReveal": [
+            "Do not provide a finished QA note before the learner makes an attempt.",
+            "Do not imply there is one exact correct list.",
+            "Do not invent hidden defects or secret acceptance criteria."
+          ],
+          "reviewFor": [
+            "Clear separation of facts, assumptions, questions, risks, and checks.",
+            "Questions that would help design, backend, frontend, and support make decisions.",
+            "Risk coverage for validation, saving, feedback, localization, privacy, and edge cases.",
+            "Test ideas that are specific enough to execute or discuss."
+          ],
+          "completionCriteria": [
+            "The artifact includes at least three open questions.",
+            "The artifact names at least three meaningful risk areas.",
+            "The artifact lists 5-7 concrete first test ideas.",
+            "The learner can explain which risk they would test first and why."
+          ],
+          "hintProgression": [
+            "Ask what information is missing from the product manager's sentence.",
+            "Point the learner toward fields, save behavior, and user feedback.",
+            "Suggest grouping by facts, questions, risks, and checks if the answer is unstructured.",
+            "Offer one example question only after the learner is stuck."
+          ],
+          "ifLearnerStruggles": [
+            "Reduce the task to one field, such as display name, and ask what can go wrong.",
+            "Ask the learner to turn each uncertainty into a question.",
+            "Ask for three tests first, then expand to the full deliverable."
+          ],
+          "afterCompletion": [
+            "Summarize the learner's strongest QA move.",
+            "Name one gap to watch in future modules.",
+            "Connect the exercise to requirements analysis and test design."
+          ]
+        }
+      },
+      "ru": {
+        "title": "Первые QA-вопросы к форме профиля",
+        "learnerBrief": "Потренируйте QA-привычку отделять факты, предположения, риски и первые идеи проверок до начала разработки.",
+        "context": "Продакт-менеджер говорит: «Добавить форму профиля, где ученик может редактировать отображаемое имя, город, часовой пояс и короткое описание. Сохранять изменения и показывать сообщение об успехе». Дизайна и acceptance criteria пока нет.",
+        "deliverable": "Напишите короткую QA-заметку с известными фактами, открытыми вопросами, зонами риска и 5-7 первыми идеями проверок. Сделайте её практичной и понятной для небольшой продуктовой команды.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Помочь ученику выработать привычку уточнять требования до списка проверок.",
+          "presentTaskHow": [
+            "Сначала попросите ученика написать собственную QA-заметку.",
+            "Разрешите любой формат: списки, таблицу или короткие разделы.",
+            "Напомните, что неопределённость — нормальный вход для QA-работы."
+          ],
+          "doNotReveal": [
+            "Не давайте готовую QA-заметку до попытки ученика.",
+            "Не создавайте ощущение, что существует один точный правильный список.",
+            "Не придумывайте скрытые дефекты или секретные acceptance criteria."
+          ],
+          "reviewFor": [
+            "Чёткое разделение фактов, предположений, вопросов, рисков и проверок.",
+            "Вопросы, которые помогут дизайну, бэкенду, фронтенду и поддержке принять решения.",
+            "Покрытие рисков по валидации, сохранению, обратной связи, локализации, приватности и граничным случаям.",
+            "Идеи проверок достаточно конкретны, чтобы выполнить или обсудить их."
+          ],
+          "completionCriteria": [
+            "В артефакте есть минимум три открытых вопроса.",
+            "В артефакте названы минимум три значимые зоны риска.",
+            "В артефакте есть 5-7 конкретных первых идей проверок.",
+            "Ученик может объяснить, какой риск проверил бы первым и почему."
+          ],
+          "hintProgression": [
+            "Спросите, какой информации не хватает в фразе продакт-менеджера.",
+            "Направьте внимание на поля, сохранение и обратную связь пользователю.",
+            "Предложите сгруппировать ответ по фактам, вопросам, рискам и проверкам, если ответ неструктурирован.",
+            "Дайте один пример вопроса только после того, как ученик застрял."
+          ],
+          "ifLearnerStruggles": [
+            "Сузьте задачу до одного поля, например отображаемого имени, и спросите, что может пойти не так.",
+            "Попросите превратить каждую неопределённость в вопрос.",
+            "Попросите сначала три проверки, затем расширьте до полного артефакта."
+          ],
+          "afterCompletion": [
+            "Кратко отметьте самый сильный QA-шаг ученика.",
+            "Назовите один пробел, за которым стоит следить в следующих модулях.",
+            "Свяжите упражнение с анализом требований и тест-дизайном."
+          ]
+        }
+      }
+    },
+    "pillars": [
+      "foundations",
+      "ai-collaboration"
+    ]
+  }
+]

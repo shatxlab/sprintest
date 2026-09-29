@@ -1,0 +1,22 @@
+{
+  "id": "15-devtools",
+  "slug": "15-devtools",
+  "order": 5,
+  "title": {
+    "en": "Browser DevTools for QA",
+    "ru": "Browser DevTools для QA"
+  },
+  "summary": {
+    "en": "Read what the browser actually does: Network, Console, Elements, responsive mode, and overriding responses to reproduce hidden states.",
+    "ru": "Читаем, что браузер делает на самом деле: Network, Console, Elements, адаптивный режим и подмена ответов для воспроизведения скрытых состояний."
+  },
+  "themes": [
+    "browser-devtools",
+    "client-side-observation",
+    "response-overriding"
+  ],
+  "practiceTaskIds": [
+    "15-devtools-network-hunt"
+  ],
+  "updatedAt": "2026-09-25"
+}

@@ -1,0 +1,125 @@
+{
+  "id": "qa",
+  "title": {
+    "en": "QA",
+    "ru": "QA"
+  },
+  "intent": {
+    "en": "I want to become a QA",
+    "ru": "Хочу стать QA-инженером"
+  },
+  "summary": {
+    "en": "One course, one path: first the core QA craft — test design, bug reporting, test management, SQL, APIs — then Playwright automation the AI-agent way: reviewing tests an agent writes, running the suite in CI, and directing an agent on your own repo.",
+    "ru": "Один курс, один путь: сначала основы QA — дизайн тестов, баг-репорты, тест-менеджмент, SQL, API, — затем автоматизация на Playwright в работе с AI-агентом: ревью тестов, которые пишет агент, запуск набора в CI и управление агентом в своём репозитории."
+  },
+  "highlights": {
+    "en": [
+      "Core craft first: test design, defect reporting, test management and SQL — before any code",
+      "Review and harden Playwright tests an AI agent writes — locators, assertions, honest waiting",
+      "CI runs, reports, and an AI-assisted workflow on your own repo"
+    ],
+    "ru": [
+      "Сначала основы: дизайн тестов, баг-репорты, тест-менеджмент и SQL — ещё до кода",
+      "Ревью и укрепление Playwright-тестов, написанных AI-агентом: локаторы, ассерты, честные ожидания",
+      "Запуски в CI, отчёты и работа с AI-агентом в своём репозитории"
+    ]
+  },
+  "prompt": {
+    "en": "Install the Sprintest skill in your AI agent: run \"npx skills add shatxlab/sprintest\" (or ask your agent to install the skill from github.com/shatxlab/sprintest). Then open a new chat and say: \"Teach me QA — use the Sprintest skill.\"",
+    "ru": "Установите навык Sprintest в свой AI-агент: выполните \"npx skills add shatxlab/sprintest\" (или попросите агента установить навык из github.com/shatxlab/sprintest). Затем откройте новый чат и скажите: «Научи меня QA — используй навык Sprintest»."
+  },
+  "artifact": {
+    "en": "A completion artifact (PDF or polished document): your name, the course title, the date, the modules you completed, and a summary of the capstone and the final interview. Issued only after you pass the final interview.",
+    "ru": "Артефакт завершения (PDF или аккуратный документ): ваше имя, название курса, дата, список пройденных модулей и краткое описание капстоуна и финального интервью. Выдаётся только после успешного финального интервью."
+  },
+  "stages": [
+    {
+      "id": "foundations",
+      "title": {
+        "en": "Foundations",
+        "ru": "Фундамент"
+      },
+      "blurb": {
+        "en": "How QA thinks, where it sits in the SDLC, the types and levels of testing, and how to work with your AI tutor.",
+        "ru": "Как думает QA, где он стоит в жизненном цикле разработки, какие бывают виды и уровни тестирования, и как работать с AI-наставником."
+      },
+      "modules": [
+        "00-overview",
+        "01-qa-introduction",
+        "02-dev-sdlc",
+        "03-qa-types-and-levels"
+      ]
+    },
+    {
+      "id": "systems",
+      "title": {
+        "en": "Systems and APIs",
+        "ru": "Системы и API"
+      },
+      "blurb": {
+        "en": "Architecture, browser devtools, REST, SOAP and message queues — reading the contracts and finding the risks.",
+        "ru": "Архитектура, браузерные devtools, REST, SOAP и очереди сообщений — читаем контракты и находим риски."
+      },
+      "modules": [
+        "04-architecture",
+        "15-devtools",
+        "05-rest-testing",
+        "06-soap-testing",
+        "07-mq-testing"
+      ]
+    },
+    {
+      "id": "craft",
+      "title": {
+        "en": "Test craft",
+        "ru": "Мастерство тестирования"
+      },
+      "blurb": {
+        "en": "Test design, defect reporting, test management and SQL — the daily toolkit.",
+        "ru": "Дизайн тестов, баг-репорты, тест-менеджмент и SQL — повседневный инструментарий."
+      },
+      "modules": [
+        "08-test-design",
+        "09-jira-and-confluence",
+        "10-test-management-systems",
+        "11-sql-and-db"
+      ]
+    },
+    {
+      "id": "automation",
+      "title": {
+        "en": "Playwright automation",
+        "ru": "Автоматизация на Playwright"
+      },
+      "blurb": {
+        "en": "Read and review agent-written tests, test APIs in code, structure the suite, triage failures, run it in CI — and direct an AI agent on your own repo.",
+        "ru": "Читаем и ревьюим тесты от AI-агента, тестируем API кодом, строим структуру набора, разбираем падения, запускаем в CI — и направляем AI-агента в своём репозитории."
+      },
+      "modules": [
+        "16-playwright-foundations",
+        "17-playwright-locators",
+        "18-playwright-api",
+        "19-playwright-architecture",
+        "20-playwright-debugging",
+        "21-playwright-ci",
+        "22-ai-assisted-automation"
+      ]
+    },
+    {
+      "id": "growth",
+      "title": {
+        "en": "Growth",
+        "ru": "Развитие"
+      },
+      "blurb": {
+        "en": "Capstone release, logic practice, a bilingual glossary, and the interview that closes the course.",
+        "ru": "Капстоун-релиз, логические задачи, двуязычный глоссарий и интервью, которое закрывает курс."
+      },
+      "modules": [
+        "13-logic-exercises",
+        "14-glossary",
+        "12-final-words"
+      ]
+    }
+  ]
+}

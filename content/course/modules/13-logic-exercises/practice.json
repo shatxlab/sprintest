@@ -1,0 +1,117 @@
+[
+  {
+    "id": "13-logic-exercises-practice",
+    "moduleId": "13-logic-exercises",
+    "kind": "discussion",
+    "estimatedMinutes": 25,
+    "skillFocus": [
+      "structured-reasoning",
+      "assumption-checking",
+      "ai-hint-control"
+    ],
+    "updatedAt": "2026-09-25",
+    "languages": {
+      "en": {
+        "title": "Reasoning trace for two puzzles",
+        "learnerBrief": "Practice making your thinking inspectable before asking AI for help.",
+        "context": "Choose any two puzzles from the module. Treat them like QA scenarios: there are constraints, possible branches, and a risk of jumping to an unsupported conclusion.",
+        "deliverable": "For each chosen puzzle, write: goal, facts, assumptions, attempted path, branch coverage, final answer or unresolved point, and one question you would ask an AI tutor for review.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Help the learner make reasoning explicit and test it for gaps without turning the exercise into answer copying.",
+          "presentTaskHow": [
+            "Ask the learner to select two puzzles and submit their own reasoning trace first.",
+            "Encourage compact bullets or a small table for each puzzle.",
+            "Explain that an unresolved point is acceptable when the learner names the missing step clearly."
+          ],
+          "doNotReveal": [
+            "Do not give full puzzle answers before the learner shares an attempt.",
+            "Do not provide step-by-step solutions that replace the learner's reasoning.",
+            "Do not treat one valid reasoning format as mandatory.",
+            "Do not invent hidden facts beyond the puzzle text."
+          ],
+          "reviewFor": [
+            "Facts are separated from assumptions.",
+            "The learner checks whether the conditions lead to one answer or several valid answers.",
+            "Branches and edge cases are considered, especially ambiguous or reversible cases.",
+            "The final explanation can be followed by another tester.",
+            "The AI review question asks for critique or a hint, not only the final answer."
+          ],
+          "completionCriteria": [
+            "Two puzzles are covered.",
+            "Each puzzle has goal, facts, assumptions, and attempted path sections.",
+            "At least one branch or alternative path is discussed per puzzle.",
+            "The learner can name one reasoning habit they will reuse in QA work."
+          ],
+          "hintProgression": [
+            "Ask the learner to restate the goal and list constraints.",
+            "Point to one missing branch or unchecked assumption.",
+            "Offer a small nudge about state tracking, elimination, or ambiguity depending on the puzzle.",
+            "Only after a serious attempt, discuss why a candidate answer holds or fails."
+          ],
+          "ifLearnerStruggles": [
+            "Reduce the task to one puzzle and one section: facts only.",
+            "Ask the learner to draw a small table of possible states or options.",
+            "Invite them to mark uncertainty with question marks rather than forcing a conclusion."
+          ],
+          "afterCompletion": [
+            "Summarize the strongest reasoning move.",
+            "Name one gap to watch for in future test-design work.",
+            "Connect the exercise to requirements ambiguity, branch coverage, and evidence-based bug reports."
+          ]
+        }
+      },
+      "ru": {
+        "title": "Трасса рассуждения для двух задач",
+        "learnerBrief": "Потренируйтесь делать своё мышление проверяемым до обращения к AI за помощью.",
+        "context": "Выберите любые две задачи из модуля. Отнеситесь к ним как к QA-сценариям: есть ограничения, возможные ветки и риск слишком рано перейти к неподтверждённому выводу.",
+        "deliverable": "Для каждой выбранной задачи напишите: цель, факты, предположения, пробный путь, покрытие веток, финальный ответ или нерешённый пункт, и один вопрос к AI-наставнику для ревью.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Помочь ученику явно оформить рассуждение и проверить его на пробелы, не превращая упражнение в копирование ответов.",
+          "presentTaskHow": [
+            "Попросите ученика выбрать две задачи и сначала прислать собственную трассу рассуждения.",
+            "Поощряйте короткие списки или маленькую таблицу для каждой задачи.",
+            "Объясните, что нерешённый пункт допустим, если ученик ясно назвал недостающий шаг."
+          ],
+          "doNotReveal": [
+            "Не давайте полные ответы на задачи до попытки ученика.",
+            "Не давайте пошаговые решения, которые заменяют рассуждение ученика.",
+            "Не представляйте один формат рассуждения как обязательный.",
+            "Не добавляйте скрытые факты вне текста задачи."
+          ],
+          "reviewFor": [
+            "Факты отделены от предположений.",
+            "Ученик проверяет, приводят ли условия к одному ответу или к нескольким валидным ответам.",
+            "Рассмотрены ветки и граничные случаи, особенно неоднозначные или обратимые ситуации.",
+            "Финальное объяснение понятно другому тестировщику.",
+            "Вопрос к AI просит критику или подсказку, а не только финальный ответ."
+          ],
+          "completionCriteria": [
+            "Разобраны две задачи.",
+            "Для каждой задачи есть цель, факты, предположения и пробный путь.",
+            "В каждой задаче обсуждена минимум одна ветка или альтернативный путь.",
+            "Ученик может назвать одну привычку рассуждения, которую перенесёт в QA-работу."
+          ],
+          "hintProgression": [
+            "Попросите ученика переформулировать цель и перечислить ограничения.",
+            "Укажите на одну пропущенную ветку или непроверенное предположение.",
+            "Дайте небольшой намёк про отслеживание состояния, исключение вариантов или неоднозначность — в зависимости от задачи.",
+            "Только после серьёзной попытки обсудите, почему вариант ответа держится или ломается."
+          ],
+          "ifLearnerStruggles": [
+            "Сузьте работу до одной задачи и одного раздела: только факты.",
+            "Попросите ученика нарисовать маленькую таблицу состояний или вариантов.",
+            "Предложите отмечать неопределённость вопросительными знаками, а не выжимать вывод любой ценой."
+          ],
+          "afterCompletion": [
+            "Кратко отметьте самый сильный шаг рассуждения.",
+            "Назовите один пробел, за которым стоит следить в будущей работе по тест-дизайну.",
+            "Свяжите упражнение с неоднозначностью требований, покрытием веток и доказательными баг-репортами."
+          ]
+        }
+      }
+    },
+    "pillars": [
+      "career-soft"
+    ]
+  }
+]

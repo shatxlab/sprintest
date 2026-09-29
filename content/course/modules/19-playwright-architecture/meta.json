@@ -1,0 +1,23 @@
+{
+  "id": "19-playwright-architecture",
+  "slug": "19-playwright-architecture",
+  "order": 19,
+  "title": {
+    "en": "Test Architecture: Fixtures and Isolation",
+    "ru": "Архитектура тестов: фикстуры и изоляция"
+  },
+  "summary": {
+    "en": "Design a Playwright suite that survives parallelism and reruns: custom fixtures, authenticated storage state, per-test data, and a config that gives every test its own clean world.",
+    "ru": "Проектируем набор Playwright-тестов, который выдерживает параллельный запуск и повторы: свои фикстуры, сохранённое состояние авторизации, данные на каждый тест и конфиг, дающий каждому тесту собственную чистую среду."
+  },
+  "themes": [
+    "playwright",
+    "fixtures",
+    "isolation",
+    "test-data"
+  ],
+  "practiceTaskIds": [
+    "19-playwright-architecture-fixtures"
+  ],
+  "updatedAt": "2026-09-25"
+}

@@ -1,0 +1,23 @@
+{
+  "id": "18-playwright-api",
+  "slug": "18-playwright-api",
+  "order": 18,
+  "title": {
+    "en": "API Testing with Playwright",
+    "ru": "Тестирование API с Playwright"
+  },
+  "summary": {
+    "en": "Drive REST endpoints with the request fixture: assert status codes, response bodies and error contracts, then chain calls and verify the state they leave behind.",
+    "ru": "Работаем с REST-эндпоинтами через фикстуру request: проверяем статусы, тела ответов и контракт ошибок, а затем связываем вызовы в цепочку и проверяем состояние, которое они оставляют."
+  },
+  "themes": [
+    "playwright",
+    "api-testing",
+    "request-fixture"
+  ],
+  "practiceTaskIds": [
+    "18-playwright-api-request-tests",
+    "18-playwright-api-flow-checks"
+  ],
+  "updatedAt": "2026-09-25"
+}

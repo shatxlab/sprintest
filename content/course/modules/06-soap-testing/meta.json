@@ -1,0 +1,24 @@
+{
+  "id": "06-soap-testing",
+  "slug": "06-soap-testing",
+  "order": 7,
+  "title": {
+    "en": "SOAP API Testing",
+    "ru": "Тестирование SOAP API"
+  },
+  "summary": {
+    "en": "How to review SOAP contracts, XML schemas, WSDL, faults, and static message examples with an AI tutor.",
+    "ru": "Как разбирать SOAP-контракты, XML-схемы, WSDL, faults и статичные примеры сообщений с AI-наставником."
+  },
+  "themes": [
+    "soap-api",
+    "xml",
+    "xsd",
+    "wsdl",
+    "postman"
+  ],
+  "practiceTaskIds": [
+    "06-soap-testing-practice"
+  ],
+  "updatedAt": "2026-09-25"
+}

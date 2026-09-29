@@ -1,0 +1,136 @@
+[
+  {
+    "id": "17-reviewing-ai-tests-seeded-spec",
+    "moduleId": "17-playwright-locators",
+    "kind": "automation-review",
+    "estimatedMinutes": 45,
+    "skillFocus": [
+      "test-review",
+      "mutation-thinking",
+      "locator-strategy"
+    ],
+    "pillars": [
+      "automation",
+      "ai-collaboration"
+    ],
+    "updatedAt": "2026-09-27",
+    "languages": {
+      "en": {
+        "title": "Audit a seeded spec before it merges",
+        "learnerBrief": "Your tutor places a small static page and one Playwright spec, written by an agent, in your own repository. Run the spec, audit it against the review checklist, fix or delete what fails the audit, prove one fixed test fails for the right reason, and write the review comments that would go back to the agent. Node, TypeScript and @playwright/test only.",
+        "context": "The page is a sign-up form with inline validation, a counter with a button, and a filterable list of products. The spec is four tests, and all of them pass. Treat the file as a pull request from a colleague who reported it green. Audit before editing: notes first, code second — the audit is the exercise, and the fixes are its consequence.",
+        "deliverable": "Four things. (1) Audit notes — one line per finding: test name, line, what is wrong, the consequence, and a verdict (fix or delete). (2) The corrected spec — leaner than the original and green in your own run; paste the command and the output. (3) One mutation check — break the behaviour on purpose, paste the red output that shows your fixed test catches it, then restore the page. (4) Two or three review comments phrased for the agent: each names the problem, the consequence, and the requested change.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Train the learner to audit an agent-written Playwright spec as a reviewer: run it first, judge each test against the review checklist — observable assertions, the app over the mock, refactor-proof locators, web-first waiting, new coverage, mutation thinking — then fix or delete, and prove the fixes with a deliberate break.",
+          "presentTaskHow": [
+            "Create in the learner's own repository a small static page — a sign-up form with inline validation, a counter with a button, and a filterable product list — plus one spec file, tests/store.spec.ts, containing exactly the four passing tests and the planted defects listed under doNotReveal. Then tell the learner an agent wrote the spec and reported it green.",
+            "Do not annotate the file, do not number the problems and do not answer 'how many are there'.",
+            "Ask for the audit notes before any edit, so the findings stay the learner's own.",
+            "When they fix a test, ask them to run it; for the mutation check, ask them to break the behaviour on purpose and run it again.",
+            "Finish on the review comments: what they would actually post back to the agent."
+          ],
+          "doNotReveal": [
+            "The spec contains six planted test defects, and the learner must find them without a list. Do not name, count or hint at them before audit notes exist.",
+            "The planted defects, for the tutor's own reference: (1) 'signup page loads' navigates, sleeps 2 seconds, clicks — and asserts nothing; (2) the same test locates the sign-up button with div.card > form > button:nth-child(3), a positional CSS chain; (3) 'counter increments' reads the counter with a one-shot const text = await counter.textContent(); expect(text).toBe(\"1\") — it races the click; (4) 'filter finds the product' asserts exact copy toBe(\"Wireless Mouse 2\") — it passes today and breaks on any wording change; (5) 'email validation message' and 'empty email shows a message' duplicate one behaviour; (6) 'list search works' mocks the search with page.route returning a fixed list and asserts the mocked item renders — the app's real filter is never exercised.",
+            "Model answers, for the tutor's own reference: (1) delete the empty test or give it one meaningful web-first assertion; (2) replace the positional chain with a role or label locator; (3) replace the one-shot read with await expect(...).toHaveText(...); (4) assert on meaning — a regular expression or a substring — not exact copy; (5) keep one test for the behaviour and delete the duplicate; (6) remove the route mock and exercise the app's real filter.",
+            "These are test defects only. The page has no planted product bugs — product-bug hunting belongs to the module 16 task, so do not invent any here.",
+            "Do not edit the file for the learner and do not show a fixed spec before they have produced their own version.",
+            "Do not confirm a fixed test is correct without the learner's own run output, including the red output of the mutation check."
+          ],
+          "reviewFor": [
+            "Audit notes identify each finding by test name and line, with the consequence: this test asserts nothing, this locator breaks on a layout change, this read races the app, this assertion dies on the next wording change, this is one behaviour twice, this mock replaced the subject.",
+            "Every finding carries a verdict — fix or delete — and deletions are real deletions, not renames.",
+            "The corrected spec is leaner: role, label or testid locators; no positional CSS; no waitForTimeout; no one-shot read left anywhere.",
+            "Every surviving test has at least one web-first assertion on observable behaviour, and assertions check meaning rather than exact copy where wording can change.",
+            "The mutation check shows a fixed test going red under a deliberate break of the behaviour, with the red output pasted and the page restored afterwards.",
+            "Review comments name the problem, the consequence and the requested change, and stay about the code rather than the agent."
+          ],
+          "completionCriteria": [
+            "At least five of the six planted defects are identified in the audit notes.",
+            "The corrected spec is green in the learner's own run and leaner than the original; the command and output are pasted.",
+            "No positional CSS, no waitForTimeout and no one-shot read remains in the corrected spec.",
+            "The mutation check produced red output proving a fixed test fails for the right reason, and the page was restored.",
+            "Two or three review comments are written as they would go back to the agent."
+          ],
+          "hintProgression": [
+            "Ask: for each test, what would have to break for this test to fail? Have them write the answer next to it.",
+            "If a test looks fine, ask what its assertion would still pass on — an empty test, a mock, an exact copy.",
+            "If the race in the counter test is hard to see, ask them to run that test alone a few times and watch the first attempt.",
+            "If they call the mocked search test good, ask which part of the application it actually exercised.",
+            "If the audit is a list of symptoms, ask them to add the consequence in one clause for each."
+          ],
+          "ifLearnerStruggles": [
+            "Start with the simplest question: which test has no expect in it at all?",
+            "Then take one test at a time and answer only 'would this fail if the feature broke?'",
+            "Give the priority order once — role, label, placeholder, text, test id, CSS — and ask the learner to place each locator in the spec on it.",
+            "If the fixes cascade, reduce scope: the empty test, the positional chain and the one-shot read first; the duplicate and the mock after that."
+          ],
+          "afterCompletion": [
+            "Name the strongest finding and why it was the strongest — the one-shot read and the mock are usually the hardest to see.",
+            "Model review comments to compare against: 'tests/store.spec.ts:4 — this test has no assertion; it passes on every version of the page. Add one web-first assertion or delete the test.' · 'tests/store.spec.ts:9 — the sign-up button is a positional CSS chain; the next layout change breaks it. Use getByRole with an accessible name.' · 'tests/store.spec.ts:16 — the counter text is read once and compared, so the test races the click. Use await expect(...).toHaveText(...).' · 'tests/store.spec.ts:24 — the route mock replaces the search the app actually performs. Remove the mock and drive the real filter.'",
+            "Model audit summary: one empty test deleted, one locator replaced, one race fixed, one exact-copy assertion loosened to a meaning assertion, one duplicate removed, one mock removed — the file got shorter and stricter at the same time.",
+            "Connect it forward: module 22 audits a whole agent delivery — several files and a config diff at once — with the same checklist."
+          ]
+        }
+      },
+      "ru": {
+        "title": "Аудит заложенного спека до мержа",
+        "learnerBrief": "Ваш тьютор положит в ваш собственный репозиторий маленькую статическую страницу и один Playwright-спек, «написанный агентом». Запустите спек, проведите аудит по чек-листу ревью, исправьте или удалите то, что не проходит аудит, докажите, что один исправленный тест падает по правильной причине, и напишите комментарии, которые ушли бы агенту. Только Node, TypeScript и @playwright/test.",
+        "context": "Страница — форма регистрации со встроенной валидацией, счётчик с кнопкой и фильтруемый список товаров. Спек — четыре теста, и все они проходят. Отнеситесь к файлу как к пул-реквесту от коллеги, который отчитался о зелёном. Сначала аудит, потом правки: сначала заметки, потом код — аудит и есть упражнение, а исправления — его следствие.",
+        "deliverable": "Четыре части. (1) Заметки аудита — по строке на каждую находку: имя теста, строка, что не так, к чему это приводит, вердикт (исправить или удалить). (2) Исправленный спек — короче исходного и зелёный в вашем собственном прогоне; вставьте команду и вывод. (3) Одна мутационная проверка — нарочно сломайте поведение, вставьте красный вывод, показывающий, что ваш исправленный тест это ловит, и верните страницу обратно. (4) Два-три комментария ревью, адресованных агенту: каждый называет проблему, последствие и требуемое изменение.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Научить учащегося аудировать написанный агентом Playwright-спек глазами ревьюера: сначала запустить, затем оценивать каждый тест по чек-листу ревью — наблюдаемые ассерты, приложение вместо мока, устойчивые к рефакторингу локаторы, web-first ожидание, новое покрытие, мутационное мышление — потом исправлять или удалять и доказывать исправления намеренной поломкой.",
+          "presentTaskHow": [
+            "Создайте в собственном репозитории учащегося небольшую статическую страницу — форму регистрации со встроенной валидацией, счётчик с кнопкой и фильтруемый список товаров — и один спек-файл tests/store.spec.ts, содержащий ровно четыре проходящих теста и заложенные дефекты, перечисленные в doNotReveal. Затем скажите учащемуся, что спек написал агент и отчитался о зелёном.",
+            "Не размечайте файл, не нумеруйте проблемы и не отвечайте на вопрос «сколько их там».",
+            "Запросите заметки аудита до любых правок, чтобы находки остались его собственными.",
+            "Когда учащийся исправляет тест, попросите запустить его; для мутационной проверки — нарочно сломать поведение и запустить снова.",
+            "Закончите на комментариях ревью: что именно он отправил бы агенту."
+          ],
+          "doNotReveal": [
+            "В спеке шесть заложенных тестовых дефектов, и учащийся должен найти их без списка. Не называйте, не считайте и не намекайте на них, пока нет заметок аудита.",
+            "Заложенные дефекты, для справки тьютора: (1) «signup page loads» переходит, ждёт 2 секунды, кликает — и ничего не проверяет; (2) в том же тесте кнопка регистрации ищется цепочкой div.card > form > button:nth-child(3) — позиционный CSS; (3) «counter increments» читает счётчик разовым const text = await counter.textContent(); expect(text).toBe(\"1\") — это гонка с кликом; (4) «filter finds the product» проверяет точный текст toBe(\"Wireless Mouse 2\") — сегодня проходит, ломается на любой правке формулировки; (5) «email validation message» и «empty email shows a message» дублируют одно поведение; (6) «list search works» подменяет поиск через page.route фиксированным списком и проверяет, что замокированный товар отрисовался — настоящий фильтр приложения не задействован.",
+            "Модельные ответы, для справки тьютора: (1) удалить пустой тест или дать ему один осмысленный web-first ассерт; (2) заменить позиционную цепочку локатором по роли или label; (3) заменить разовое чтение на await expect(...).toHaveText(...); (4) проверять смысл — регулярное выражение или подстроку, а не точный текст; (5) оставить один тест на поведение и удалить дубликат; (6) убрать route-мок и задействовать настоящий фильтр приложения.",
+            "Это только дефекты тестов. На странице нет заложенных багов продукта — охота за багами продукта остаётся за заданием модуля 16, так что здесь их не придумывайте.",
+            "Не правьте файл за учащегося и не показывайте исправленный спек до того, как он сделает свою версию.",
+            "Не подтверждайте корректность исправленного теста без собственного вывода учащегося, включая красный вывод мутационной проверки."
+          ],
+          "reviewFor": [
+            "Заметки аудита называют каждую находку по имени теста и строке, вместе с последствием: этот тест ничего не проверяет, этот локатор ломается при смене раскладки, это чтение гонится с приложением, этот ассерт умрёт на следующей правке текста, это одно поведение дважды, этот мок заменил предмет проверки.",
+            "У каждой находки есть вердикт — исправить или удалить, — и удаления являются настоящими удалениями, а не переименованиями.",
+            "Исправленный спек короче: локаторы по роли, label или testid; позиционного CSS нет; waitForTimeout нет; разовых чтений нигде не осталось.",
+            "У каждого оставшегося теста есть минимум один web-first ассерт на наблюдаемое поведение, а там, где текст может измениться, ассерты проверяют смысл, а не точную копию.",
+            "Мутационная проверка показывает, как исправленный тест краснеет при намеренной поломке; красный вывод вставлен, страница восстановлена.",
+            "Комментарии ревью называют проблему, последствие и требуемое изменение и говорят о коде, а не об агенте."
+          ],
+          "completionCriteria": [
+            "В заметках аудита найдено минимум пять из шести заложенных дефектов.",
+            "Исправленный спек зелёный в собственном прогоне учащегося и короче исходного; команда и вывод вставлены.",
+            "В исправленном спеке не осталось позиционного CSS, waitForTimeout и разовых чтений.",
+            "Мутационная проверка дала красный вывод, доказывающий, что исправленный тест падает по правильной причине, и страница восстановлена.",
+            "Написаны два-три комментария ревью в том виде, в каком они ушли бы агенту."
+          ],
+          "hintProgression": [
+            "Спросите: что должно сломаться, чтобы этот тест упал? Пусть учащийся напишет ответ рядом с тестом.",
+            "Если тест кажется нормальным, спросите, на чём ещё его ассерт прошёл бы — пустой тест, мок, точный текст.",
+            "Если гонку в тесте счётчика разглядеть тяжело, попросите запустить этот тест отдельно несколько раз и смотреть на первую попытку.",
+            "Если учащийся считает тест с моком поиска хорошим, спросите, какую часть приложения он вообще задействовал.",
+            "Если аудит получился списком симптомов, попросите добавить к каждому последствие одной фразой."
+          ],
+          "ifLearnerStruggles": [
+            "Начните с самого простого вопроса: в каком тесте вообще нет expect?",
+            "Затем берите по одному тесту и отвечайте только на вопрос «упадёт ли он, если фича сломается?»",
+            "Один раз дайте порядок приоритета — роль, label, плейсхолдер, текст, test id, CSS — и попросите расставить на нём локаторы из спека.",
+            "Если правки идут лавиной, сократите охват: сначала пустой тест, позиционная цепочка и разовое чтение; дубликат и мок — после."
+          ],
+          "afterCompletion": [
+            "Назовите самую сильную находку и почему она сильнейшая — разовое чтение и мок обычно видны хуже всего.",
+            "Модельные комментарии ревью для сравнения: «tests/store.spec.ts:4 — в тесте нет ни одного ассерта; он проходит на любой версии страницы. Добавь один web-first ассерт или удали тест.» · «tests/store.spec.ts:9 — кнопка регистрации это позиционная CSS-цепочка; следующая смена раскладки её сломает. Используй getByRole с доступным именем.» · «tests/store.spec.ts:16 — текст счётчика читается один раз и сравнивается, поэтому тест гонится с кликом. Используй await expect(...).toHaveText(...).» · «tests/store.spec.ts:24 — route-мок заменяет поиск, который реально делает приложение. Убери мок и работай с настоящим фильтром.»",
+            "Модельный итог аудита: один пустой тест удалён, один локатор заменён, одна гонка исправлена, один ассерт на точный текст ослаблен до ассерта на смысл, один дубликат удалён, один мок убран — файл стал короче и строже одновременно.",
+            "Свяжите с будущим: в модуле 22 аудит вырастает до целой поставки агента — несколько файлов и дифф конфига разом — с тем же чек-листом."
+          ]
+        }
+      }
+    }
+  }
+]

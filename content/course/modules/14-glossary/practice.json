@@ -1,0 +1,118 @@
+[
+  {
+    "id": "14-glossary-practice",
+    "moduleId": "14-glossary",
+    "kind": "discussion",
+    "estimatedMinutes": 20,
+    "skillFocus": [
+      "qa-vocabulary",
+      "bilingual-communication",
+      "ambiguity-spotting"
+    ],
+    "updatedAt": "2026-09-25",
+    "languages": {
+      "en": {
+        "title": "Build a bilingual mini-glossary for a task",
+        "learnerBrief": "Practice using terminology as a tool for shared understanding, not as decoration.",
+        "context": "A team note says: 'After deploy, users report 500 errors from the profile API. Attach HAR, check logs, create a high-priority bug, and cover regression before rollback is considered.' The team is mixed Russian/English and uses loanwords freely.",
+        "deliverable": "Create a mini-glossary of 8-10 terms from the note. For each term, include English term, Russian/team variant, plain meaning, and one QA question the term raises. Then write 3 ambiguities you would clarify with the team.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Help the learner connect vocabulary to practical QA communication and ambiguity discovery.",
+          "presentTaskHow": [
+            "Ask the learner to extract terms from the team note before consulting the glossary.",
+            "Accept a table, bullets, or short sections.",
+            "Remind the learner that useful terminology makes action clearer for a team."
+          ],
+          "doNotReveal": [
+            "Do not provide a complete mini-glossary before the learner makes an attempt.",
+            "Do not require one exact term list when several reasonable selections exist.",
+            "Do not invent hidden incident facts beyond the team note.",
+            "Do not turn the review into a memorization quiz."
+          ],
+          "reviewFor": [
+            "Selected terms are relevant to the team note.",
+            "English and Russian/team variants are paired clearly.",
+            "Plain meanings are understandable to a junior QA learner.",
+            "QA questions connect terms to evidence, risk, or next action.",
+            "Ambiguities are practical and worth clarifying with a team."
+          ],
+          "completionCriteria": [
+            "The mini-glossary contains 8-10 terms.",
+            "Each term has English, Russian/team variant, plain meaning, and one QA question.",
+            "The learner identifies 3 ambiguities from the note.",
+            "The learner can explain how terminology changes the next QA action."
+          ],
+          "hintProgression": [
+            "Ask which words in the note describe systems, evidence, actions, or urgency.",
+            "Point to one missed term category, such as API, logs, priority, regression, or rollback.",
+            "Suggest rewriting one definition in simpler language.",
+            "After an attempt, compare two terms that learners often mix up."
+          ],
+          "ifLearnerStruggles": [
+            "Start with three obvious terms: deploy, API, and bug.",
+            "Ask what evidence a tester would collect for one term.",
+            "Let the learner write rough Russian first, then map terms to English."
+          ],
+          "afterCompletion": [
+            "Summarize the clearest term-to-action link.",
+            "Name one ambiguity that could affect incident handling.",
+            "Recommend one vocabulary habit for future bug reports and team chats."
+          ]
+        }
+      },
+      "ru": {
+        "title": "Соберите двуязычный мини-глоссарий для задачи",
+        "learnerBrief": "Потренируйтесь использовать терминологию как инструмент общего понимания, а не как украшение текста.",
+        "context": "Заметка команды: «После деплоя пользователи сообщают о 500 errors from the profile API. Attach HAR, check logs, create a high-priority bug, and cover regression before rollback is considered». Команда смешивает русский и английский и свободно использует заимствования.",
+        "deliverable": "Соберите мини-глоссарий из 8-10 терминов из заметки. Для каждого термина укажите English term, русский/командный вариант, простое значение и один QA-вопрос, который термин поднимает. Затем напишите 3 неоднозначности, которые уточнили бы у команды.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Помочь ученику связать словарь с практичной QA-коммуникацией и поиском неоднозначностей.",
+          "presentTaskHow": [
+            "Попросите ученика сначала извлечь термины из заметки команды, а уже потом сверяться с глоссарием.",
+            "Принимайте таблицу, списки или короткие разделы.",
+            "Напомните, что полезная терминология делает действия команды яснее."
+          ],
+          "doNotReveal": [
+            "Не давайте полный мини-глоссарий до попытки ученика.",
+            "Не требуйте один точный список терминов, если есть несколько разумных вариантов.",
+            "Не добавляйте скрытые факты об инциденте вне заметки команды.",
+            "Не превращайте ревью в проверку заучивания."
+          ],
+          "reviewFor": [
+            "Выбранные термины относятся к заметке команды.",
+            "Английские и русские/командные варианты сопоставлены ясно.",
+            "Простые значения понятны junior QA-ученику.",
+            "QA-вопросы связывают термины с доказательствами, риском или следующим действием.",
+            "Неоднозначности практичны и заслуживают уточнения у команды."
+          ],
+          "completionCriteria": [
+            "В мини-глоссарии 8-10 терминов.",
+            "У каждого термина есть English, русский/командный вариант, простое значение и один QA-вопрос.",
+            "Ученик нашёл 3 неоднозначности в заметке.",
+            "Ученик может объяснить, как терминология меняет следующее QA-действие."
+          ],
+          "hintProgression": [
+            "Спросите, какие слова в заметке описывают системы, доказательства, действия или срочность.",
+            "Укажите на одну пропущенную категорию терминов: API, logs, priority, regression или rollback.",
+            "Предложите переписать одно определение более простым языком.",
+            "После попытки сравните два термина, которые ученики часто смешивают."
+          ],
+          "ifLearnerStruggles": [
+            "Начните с трёх очевидных терминов: deploy, API и bug.",
+            "Спросите, какое доказательство тестировщик собрал бы для одного термина.",
+            "Разрешите сначала написать черновик по-русски, затем связать термины с английским."
+          ],
+          "afterCompletion": [
+            "Кратко отметьте самую ясную связь термина с действием.",
+            "Назовите одну неоднозначность, которая может повлиять на работу с инцидентом.",
+            "Посоветуйте одну словарную привычку для будущих баг-репортов и командных чатов."
+          ]
+        }
+      }
+    },
+    "pillars": [
+      "foundations",
+      "ai-collaboration"
+    ]
+  }
+]

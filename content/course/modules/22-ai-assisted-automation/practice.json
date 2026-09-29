@@ -1,0 +1,273 @@
+[
+  {
+    "id": "22-ai-assisted-automation-pairing",
+    "moduleId": "22-ai-assisted-automation",
+    "kind": "automation-workflow",
+    "estimatedMinutes": 45,
+    "skillFocus": [
+      "agent-briefing",
+      "diff-review",
+      "verified-runs"
+    ],
+    "pillars": [
+      "automation",
+      "ai-collaboration"
+    ],
+    "updatedAt": "2026-09-25",
+    "languages": {
+      "en": {
+        "title": "Pair with your agent on one real behaviour",
+        "learnerBrief": "Run the whole loop once on your own Playwright repository: brief the agent with the repo, the config and the constraints, review its diff, run the suite yourself, and finish with conventions written into the repo.",
+        "context": "Work in a Playwright repository you own — the project you built through the earlier modules counts. Pick ONE user-visible behaviour that the suite does not cover yet. Then run a single agent session end to end: hand over the repository, playwright.config.ts, two or three existing specs and the source of truth for the behaviour; state the goal as a verifiable outcome with explicit constraints; and ask for a diff plus the exact command the agent ran and its raw output. Review the diff before you run anything, then run it yourself. Every claim in this task must come from output you produced or read, never from the agent's summary of it.",
+        "deliverable": "Four artifacts: (1) the brief you gave the agent, with the constraints you set and the acceptance criteria for the behaviour; (2) your diff review notes — what you accepted, what you rejected and why, one note per rejected change; (3) your own run output — the command, the reporter summary line, and what you did about every failure; (4) the final green suite plus two or three conventions you wrote into the repository (an AGENTS.md line, a lint rule or a review checklist item) so the next session inherits them.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Get the learner through one complete AI-assisted session on their own repository: briefing with real context and constraints, reviewing the diff as a reviewer, running the suite themselves, and recording the lesson as a durable repository convention.",
+          "presentTaskHow": [
+            "Ask for the repository, the behaviour they chose and its source of truth before any code is written. Confirm the target exists and that the behaviour is not already covered.",
+            "Ask for the brief first and review the brief, not the tests. Point out missing context or missing constraints and let the learner add them.",
+            "Only once the brief is acceptable, either act as the agent and produce a diff or let the learner drive their own agent. Either way the learner owns the review.",
+            "Insist on the raw output of the learner's own run. If they quote the agent's summary, ask for the command line and the reporter output.",
+            "Close by asking which review comments kept repeating and which rule they wrote into the repository."
+          ],
+          "doNotReveal": [
+            "Do not write the brief for the learner — missing context and missing constraints are the lesson.",
+            "Do not hand over finished tests or a ready-made diff unless the learner has an acceptable brief and has asked their agent themselves.",
+            "Do not accept 'the agent says it passes' as evidence, and do not confirm a suite is green without the learner's own run output.",
+            "Do not point out which specific test would or would not survive a refactor; ask the question and let the learner judge.",
+            "Do not name the conventions to record — the learner picks the rules their own session produced."
+          ],
+          "reviewFor": [
+            "The brief hands over the repository, playwright.config.ts, existing specs, the source of truth and explicit constraints, and states a verifiable outcome rather than a topic.",
+            "The constraints include the test-quality rules: role-based locators, no fixed sleeps, no assertions on exact UI copy, the suite stays green, no unrelated tests rewritten.",
+            "The diff review separates behaviour assertions from implementation details, checks locator resilience, and looks for duplicated coverage and unused helpers.",
+            "The learner showed mutation thinking: the new test was demonstrated to fail when the behaviour was broken locally.",
+            "The run output is the learner's own command and reporter output, and every failure was classified rather than retried away.",
+            "The recorded conventions are concrete, written into the repository and phrased as rules."
+          ],
+          "completionCriteria": [
+            "A written brief exists with context, constraints and acceptance criteria.",
+            "Review notes cover at least three findings with a decision on each.",
+            "The learner ran npx playwright test themselves and pasted the summary line.",
+            "One new test was shown red under a deliberate local break of the behaviour, then green again.",
+            "Two or three conventions are written into the repository, not only described in chat.",
+            "The suite is green with the new coverage and no unrelated test was modified."
+          ],
+          "hintProgression": [
+            "If the brief is thin, ask what a new teammate would need to know to write this test on their first day.",
+            "If the goal reads like a topic, ask: what must be true when this is finished, and what counts as failure?",
+            "If the diff was accepted without comment, ask which locator would survive a DOM refactor and which would not.",
+            "If the tests look green, ask the learner to break the behaviour on purpose and report what happened.",
+            "If the session produced no rule, ask which review comment they would not want to write for a fourth time."
+          ],
+          "ifLearnerStruggles": [
+            "Shrink the target: one behaviour, one test, one file.",
+            "Give a brief skeleton (repo / goal / sources of truth / constraints / deliverable) without filling it in.",
+            "Work through the first review question together on one locator, then hand the rest back.",
+            "If their agent produces a huge diff, help them split it and ask for one behaviour at a time."
+          ],
+          "afterCompletion": [
+            "Name the strongest review finding and say why it was the strongest.",
+            "Model brief to compare against: repo and files to read first; the behaviour in one sentence with its acceptance criteria; sources of truth by name; constraints as rules (role locators, no fixed sleeps, no exact-copy assertions, suite stays green, no unrelated files touched); deliverable = diff + exact command + raw output.",
+            "Model conventions to compare against: 'AGENTS.md: locators by role or label, testid only where no role exists'; 'no waitForTimeout in new specs'; 'PR checklist: the new test must be shown red under a deliberate break'.",
+            "Connect the session to the audit task: the same review questions are what the learner will apply to a suite somebody else wrote."
+          ]
+        }
+      },
+      "ru": {
+        "title": "Одна сессия с агентом на реальном поведении",
+        "learnerBrief": "Прогоните весь цикл один раз на своём Playwright-репозитории: дайте агенту репозиторий, конфиг и ограничения, отревьюйте его дифф, запустите сьют сами и закончите конвенциями, записанными в репозиторий.",
+        "context": "Работайте в своём Playwright-репозитории — подойдёт проект, собранный в прошлых модулях. Выберите ОДНО поведение, видимое пользователю, которое сьют пока не покрывает. Затем проведите одну сессию с агентом от начала до конца: отдайте репозиторий, playwright.config.ts, два-три существующих спека и источник истины для этого поведения; сформулируйте цель как проверяемый результат с явными ограничениями; попросите дифф, точную команду запуска и её сырой вывод. Сначала отревьюйте дифф, только потом запускайте. Каждое утверждение в этой задаче должно опираться на вывод, который вы получили или прочитали сами, а не на пересказ агента.",
+        "deliverable": "Четыре артефакта: (1) бриф, который вы дали агенту, с ограничениями и критериями приёмки для поведения; (2) заметки по ревью диффа — что приняли, что отклонили и почему, по одной заметке на каждое отклонение; (3) вывод вашего собственного запуска — команда, итоговая строка репортера и что вы сделали с каждым падением; (4) финальный зелёный сьют и две-три конвенции, записанные в репозиторий (строка в AGENTS.md, правило линтера или пункт чек-листа ревью), чтобы следующая сессия их унаследовала.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Провести учащегося через одну полную сессию с AI на его собственном репозитории: бриф с реальным контекстом и ограничениями, ревью диффа глазами ревьюера, самостоятельный запуск сьюта и фиксация урока как долгоживущей конвенции репозитория.",
+          "presentTaskHow": [
+            "Спросите про репозиторий, выбранное поведение и его источник истины до того, как написан хоть один тест. Убедитесь, что цель существует и поведение ещё не покрыто.",
+            "Сначала запросите бриф и ревьюйте именно бриф, а не тесты. Укажите на нехватку контекста или ограничений и дайте учащемуся их добавить.",
+            "Только когда бриф приемлем, либо сыграйте роль агента и выдайте дифф, либо дайте учащемуся вести своего агента. В любом случае ревью — на учащемся.",
+            "Требуйте сырой вывод собственного запуска. Если учащийся цитирует пересказ агента, попросите командную строку и вывод репортера.",
+            "В конце спросите, какие замечания на ревью повторялись чаще всего и какое правило учащийся записал в репозиторий."
+          ],
+          "doNotReveal": [
+            "Не пишите бриф за учащегося — нехватка контекста и ограничений и есть урок.",
+            "Не выдавайте готовые тесты или готовый дифф, пока у учащегося нет приемлемого брифа и он сам не обратился к агенту.",
+            "Не принимайте «агент говорит, что всё проходит» как доказательство и не подтверждайте зелёный сьют без вывода собственного запуска учащегося.",
+            "Не указывайте, какой именно тест переживёт рефакторинг, а какой нет; задайте вопрос и дайте учащемуся решить самому.",
+            "Не называйте конвенции, которые нужно записать — учащийся сам выбирает правила, которые произвела его сессия."
+          ],
+          "reviewFor": [
+            "Бриф передаёт репозиторий, playwright.config.ts, существующие спеки, источник истины и явные ограничения, а цель сформулирована как проверяемый результат, а не как тема.",
+            "В ограничениях есть правила качества тестов: локаторы по роли, никаких фиксированных пауз, никаких проверок точного текста интерфейса, сьют остаётся зелёным, посторонние тесты не переписываются.",
+            "Ревью диффа отделяет проверки поведения от деталей реализации, оценивает устойчивость локаторов и ищет дублирующее покрытие и неиспользуемые хелперы.",
+            "Учащийся показал мутационное мышление: новый тест продемонстрированно падал при локально сломанном поведении.",
+            "Вывод запуска — это собственная команда и вывод репортера учащегося, а каждое падение было классифицировано, а не «залечено» повтором.",
+            "Записанные конвенции конкретны, внесены в репозиторий и сформулированы как правила."
+          ],
+          "completionCriteria": [
+            "Есть письменный бриф с контекстом, ограничениями и критериями приёмки.",
+            "Заметки по ревью содержат минимум три находки с решением по каждой.",
+            "Учащийся сам запустил npx playwright test и вставил итоговую строку.",
+            "Один новый тест показан красным при намеренной локальной поломке поведения, а затем снова зелёным.",
+            "Две-три конвенции записаны в репозиторий, а не только описаны в чате.",
+            "Сьют зелёный с новым покрытием, и ни один посторонний тест не изменён."
+          ],
+          "hintProgression": [
+            "Если бриф тонкий, спросите: что нужно знать новому человеку в команде, чтобы написать этот тест в первый день?",
+            "Если цель звучит как тема, спросите: что должно быть верно к концу работы и что считается провалом?",
+            "Если дифф принят без замечаний, спросите, какой локатор переживёт перестройку DOM, а какой нет.",
+            "Если тесты выглядят зелёными, попросите нарочно сломать поведение и рассказать, что произошло.",
+            "Если сессия не дала ни одного правила, спросите, какое замечание на ревью не хочется писать в четвёртый раз."
+          ],
+          "ifLearnerStruggles": [
+            "Сузьте цель: одно поведение, один тест, один файл.",
+            "Дайте скелет брифа (репозиторий / цель / источники истины / ограничения / результат), не заполняя его.",
+            "Разберите первый вопрос ревью вместе на одном локаторе, дальше верните инициативу учащемуся.",
+            "Если агент выдал огромный дифф, помогите разделить его и просить по одному поведению за раз."
+          ],
+          "afterCompletion": [
+            "Назовите самую сильную находку ревью и объясните, почему она сильнейшая.",
+            "Модельный бриф для сравнения: репозиторий и файлы для чтения; поведение одним предложением с критериями приёмки; источники истины по именам; ограничения как правила (локаторы по роли, без фиксированных пауз, без проверок точного текста, сьют зелёный, посторонние файлы не трогать); результат = дифф + точная команда + сырой вывод.",
+            "Модельные конвенции для сравнения: «AGENTS.md: локаторы по роли или label, testid только там, где роли нет»; «никаких waitForTimeout в новых спеках»; «чек-лист PR: новый тест должен быть показан красным при намеренной поломке».",
+            "Свяжите сессию с задачей-аудитом: те же вопросы ревью учащийся применит к сьюту, который написал кто-то другой."
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": "22-ai-assisted-automation-audit",
+    "moduleId": "22-ai-assisted-automation",
+    "kind": "automation-review",
+    "estimatedMinutes": 40,
+    "skillFocus": [
+      "test-suite-audit",
+      "mutation-thinking",
+      "review-comments"
+    ],
+    "pillars": [
+      "automation",
+      "ai-collaboration",
+      "bug-reporting"
+    ],
+    "updatedAt": "2026-09-27",
+    "languages": {
+      "en": {
+        "title": "Audit the suite an agent handed over",
+        "learnerBrief": "Audit a whole agent delivery — three spec files, a shared helpers file, and a one-line config change — that an agent reported green: find what is wrong, fix it, write the review comments, and name the convention that would have prevented the worst finding.",
+        "context": "Module 17 audited one file; real handovers are bigger, and the worst problems live in the connections between files: a helper that quietly mocks, a config change that masks a race, a bad abstraction spread through several tests. Your tutor places the delivery — three spec files, a shared helpers file and a one-line config diff — plus the small local checkout app it targets in your own repository, so you can run everything yourself. Treat the delivery as a pull request from a colleague who reported it green: audit across all the files before you edit anything.",
+        "deliverable": "Five artifacts: (1) audit notes per finding — file, line, what is wrong, consequence, verdict (fix or delete); (2) the fixed delivery — green in your own run, leaner than what arrived, with retries back at 0 unless you can justify them; (3) one mutation check — break the behaviour on purpose, paste the red output, restore the app; (4) two or three review comments phrased for the agent: problem, consequence, requested change; (5) one line naming the convention — an AGENTS.md rule, a lint rule or a checklist item — that would have prevented the worst finding.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Train the learner to audit a whole agent delivery the way real handovers arrive — several files at once — judging each file on its own and then the connections between them: a helper that quietly mocks, a config bump that masks a race, a positional abstraction spread through the suite.",
+          "presentTaskHow": [
+            "Create in the learner's own repository a small local checkout app (a cart with items, a discount code field with accept and reject behaviour, an order summary with the total, and an empty-cart state) plus the delivery: three spec files containing exactly the tests listed under doNotReveal, a shared helpers file (helpers/checkout.ts and helpers/ui.ts, shaped as listed there), and a one-line config diff setting retries to 3. Then tell the learner the delivery was handed over by an agent that reported it green.",
+            "Do not annotate the files, do not number the problems and do not answer 'how many are there'. Let the learner work across the whole delivery.",
+            "Ask for the audit notes before any edit, so the findings stay their own.",
+            "When they fix something, ask them to run the delivery, then break the relevant behaviour on purpose and run it again — that run is their mutation check.",
+            "Finish on the review comments and the convention: what they would actually post to the agent, and which rule would have prevented the worst finding."
+          ],
+          "doNotReveal": [
+            "The delivery contains six planted problems and the learner must find them without a list. Do not name, count or hint at them before the learner has produced audit notes.",
+            "The planted problems, for the tutor's own reference: (1) helpers/checkout.ts wraps page.route so the 'apply discount' test asserts a mocked response renders — the mock replaced the subject; (2) the config diff bumps retries from 0 to 3 with a comment about stabilising flaky CI, masking a race in 'order summary totals'; (3) helpers/ui.ts exposes field(row) built on a positional CSS chain, and four tests use it — one bad abstraction spread through the suite; (4) 'order summary totals' reads the total once with textContent and compares with toBe, so it races the request — visible once retries are back at 0; (5) 'discount code rejected' asserts the exact copy toBe('Invalid discount code') and breaks on any wording change; (6) 'empty cart shows empty state' and 'cart renders empty when there are no items' duplicate one behaviour, and a fixture is exported that no test uses — dead weight.",
+            "Model answers for the six, escalated the way a suite-level review is: (1) delete the page.route wrapper and assert the app's own rendering — keep a route only where the mocked state IS the subject, such as an error state, and say so; (2) revert the retries bump to 0 and fix the race at the assertion level, never at the retry level; (3) rebuild field(row) on a scoping or role-based locator so no test depends on positional order, or inline role locators in each test; (4) with retries at 0, replace the one-shot read with await expect(...).toHaveText(...) so the assertion waits for the request; (5) assert meaning rather than copy — the meaningful part of the message or the observable outcome, so rewording cannot break the test; (6) keep one test for the empty-cart behaviour, delete the duplicate, and delete the unused fixture.",
+            "Do not reveal that the retries value in the config diff is part of the problem until the learner has asked why a test passes on the second attempt.",
+            "Do not edit the files for the learner and do not show a fixed delivery before they have produced their own version.",
+            "Do not confirm a fixed test is correct without the learner's own red-then-green run output."
+          ],
+          "reviewFor": [
+            "Audit notes identify each problem by file, test and line, with the consequence: this mock replaced the subject, this retries bump masks a race, this abstraction spreads positional locators across four tests, this one-shot read races the request, this exact-copy assertion breaks on any rewording, this is one behaviour twice plus a fixture nobody uses.",
+            "The fixes leave the delivery leaner: the duplicate and the unused fixture removed rather than renamed, the page.route wrapper deleted.",
+            "Retries are back at 0 unless the learner justified a higher value in writing, and the race is fixed at the assertion level.",
+            "Locators in the fixed files are role, label or testid based — including inside the helpers; no positional CSS chains remain.",
+            "The learner can state, for each surviving test, what would make it fail.",
+            "Review comments name the problem, the consequence and the requested change, and stay about the code rather than the agent; the convention names a concrete prevention, not a sentiment."
+          ],
+          "completionCriteria": [
+            "At least five of the six planted problems are identified in the audit notes, each with file and line.",
+            "The fixed delivery is green in the learner's own run and leaner than what arrived.",
+            "No positional CSS chain, no one-shot read compared with toBe and no dead fixture remain; retries are back at 0 unless justified in writing.",
+            "The mutation check shows a fixed test going red under a deliberate local break, with the red output pasted.",
+            "Two or three review comments are written, plus the one-line convention that would have prevented the worst finding."
+          ],
+          "hintProgression": [
+            "Ask them to read the delivery file by file first, then ask about the connections: who imports the helper, and what does the config change touch? The worst findings hide in the imports and the diff.",
+            "For each test, ask what would have to break for it to fail, and have them write the answer next to it.",
+            "If a test looks fine, ask them to run the delivery alone with retries at 0 and watch the first attempt.",
+            "If they call the route-wrapped test good, ask which part of the application that test exercised.",
+            "If the audit is a list of symptoms, ask them to add the consequence in one clause for each — and then to name the one convention that would have prevented the worst."
+          ],
+          "ifLearnerStruggles": [
+            "Start with one spec file and audit it alone before moving to the helpers and the config diff.",
+            "Then take one test at a time and answer only 'would this fail if the feature broke?'",
+            "If the race is hard to see, suggest running the delivery alone with retries at 0, several times.",
+            "If the helper abstraction is hard to judge, open helpers/ui.ts together and ask: what does field(row) depend on, and what happens to the tests using it when the layout shifts?",
+            "If the fixes cascade, reduce scope: fix the mock, the retries and the race first; the copy assertion, the duplicate and the dead fixture after that."
+          ],
+          "afterCompletion": [
+            "Praise the specific reasoning that connected the retries bump to the masked race — that is the hardest one, and it lives between two files.",
+            "Model review comments to compare against: 'helpers/checkout.ts — the route wrapper replaces the app's response with a fixed list, so the apply-discount test asserts the mock, not the app. Delete the wrapper and assert the rendered result; keep a route only for an error state you can name.' · 'playwright.config.ts — the retries bump from 0 to 3 hides the race in order summary totals behind reruns. Revert to 0 and fix the race with a web-first assertion.' · 'helpers/ui.ts — field(row) is a positional CSS chain; one layout change breaks four tests at once. Rebuild it on a scoping locator or inline role locators.' · 'order summary totals — the total is read once and compared, so the test races the request. Use await expect(...).toHaveText(...) and triage with retries at 0.'",
+            "Model audit summary: one mock removed, one config bump reverted, one abstraction fixed, one race fixed at the assertion level, one exact-copy assertion reworded into meaning, one duplicate and one dead fixture deleted — the delivery got leaner and the suite got honest at the same time.",
+            "Connect it forward: the convention they wrote — no route wrappers around the subject, retries stay at 0, locators never positional — is exactly the rule to record in their own repository so the next agent session inherits it."
+          ]
+        }
+      },
+      "ru": {
+        "title": "Аудит сьюта, который отдал агент",
+        "learnerBrief": "Аудируйте целую поставку агента — три спек-файла, общий файл хелперов и однострочное изменение конфига, — о которой агент отчитался как о зелёной: найдите, что не так, исправьте, напишите комментарии на ревью и назовите конвенцию, которая предотвратила бы самую серьёзную находку.",
+        "context": "В модуле 17 аудит был на один файл; настоящие поставки больше, и самые серьёзные проблемы живут в связях между файлами: хелпер, который тихо мокирует, изменение конфига, маскирующее гонку, плохая абстракция, расползшаяся по нескольким тестам. Ваш тьютор положит поставку — три спек-файла, общий файл хелперов и однострочный дифф конфига — и небольшое локальное приложение оформления заказа, на которое она нацелена, в ваш собственный репозиторий, чтобы вы могли всё запускать сами. Отнеситесь к поставке как к пул-реквесту коллеги, который отчитался о зелёном: аудитируйте все файлы до любых правок.",
+        "deliverable": "Пять артефактов: (1) заметки аудита по каждой находке — файл, строка, что не так, последствие, вердикт (исправить или удалить); (2) исправленная поставка — зелёная в вашем собственном запуске, короче пришедшей, с retries, возвращёнными на 0, если вы не можете их обосновать; (3) одна мутационная проверка — сломайте поведение нарочно, вставьте красный вывод, верните приложение; (4) два-три комментария на ревью, сформулированных для агента: проблема, последствие, требуемое изменение; (5) одна строка с конвенцией — правило в AGENTS.md, правило линтера или пункт чек-листа, — которая предотвратила бы самую серьёзную находку.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Научить учащегося аудитировать целую поставку агента так, как приходят настоящие передачи — сразу несколько файлов, — оценивая каждый файл сам по себе и затем связи между ними: хелпер, который тихо мокирует, поднятие retries, маскирующее гонку, позиционную абстракцию, расползшуюся по сьюту.",
+          "presentTaskHow": [
+            "Создайте в собственном репозитории учащегося небольшое локальное приложение оформления заказа (корзина с товарами, поле промокода с поведением «принят/отклонён», итог заказа с суммой и состояние пустой корзины) плюс поставку: три спек-файла, содержащие ровно те тесты, что перечислены в doNotReveal, общий файл хелперов (helpers/checkout.ts и helpers/ui.ts в форме, указанной там же) и однострочный дифф конфига, поднимающий retries до 3. Затем скажите учащемуся, что поставку отдал агент, отчитавшийся о зелёном.",
+            "Не размечайте файлы, не нумеруйте проблемы и не отвечайте на вопрос «сколько их там». Дайте учащемуся пройти по всей поставке самому.",
+            "Запросите заметки аудита до любых правок, чтобы находки остались его собственными.",
+            "Когда учащийся что-то исправляет, попросите запустить поставку, затем нарочно сломать соответствующее поведение и запустить снова — этот запуск и есть его мутационная проверка.",
+            "Закончите на комментариях ревью и конвенции: что именно он отправил бы агенту и какое правило предотвратило бы самую серьёзную находку."
+          ],
+          "doNotReveal": [
+            "В поставке шесть заложенных проблем, и учащийся должен найти их без списка. Не называйте, не считайте и не намекайте на них до того, как появятся заметки аудита.",
+            "Заложенные проблемы, для справки тьютора: (1) helpers/checkout.ts оборачивает page.route, поэтому тест «apply discount» проверяет отрисовку замокированного ответа — мок заменил предмет проверки; (2) дифф конфига поднимает retries с 0 до 3 с комментарием про стабилизацию нестабильного CI, маскируя гонку в «order summary totals»; (3) helpers/ui.ts отдаёт field(row), построенный на позиционной CSS-цепочке, и четыре теста его используют — одна плохая абстракция расползлась по сьюту; (4) «order summary totals» читает итог одним textContent и сравнивает через toBe, то есть гонится с запросом — это видно, как только retries снова 0; (5) «discount code rejected» проверяет точный текст toBe('Invalid discount code') и ломается при любой перефразировке; (6) «empty cart shows empty state» и «cart renders empty when there are no items» дублируют одно поведение, а фикстура экспортирована, но не используется ни одним тестом — мёртвый груз.",
+            "Модельные ответы на шесть проблем, в стиле сьют-уровневого ревью: (1) удалить обёртку над page.route и проверять отрисовку самого приложения — route оставить только там, где замокированное состояние И ЕСТЬ предмет проверки, например состояние ошибки, и сказать об этом прямо; (2) вернуть retries на 0 и исправить гонку на уровне ассерта, а не на уровне повторов; (3) перестроить field(row) на скоуп- или ролевом локаторе, чтобы ни один тест не зависел от позиционного порядка, либо инлайнить ролевые локаторы в каждом тесте; (4) при retries 0 заменить разовое чтение на await expect(...).toHaveText(...), чтобы ассерт дождался запроса; (5) проверять смысл, а не точный текст — значимую часть сообщения или наблюдаемый исход, чтобы перефразировка не ломала тест; (6) оставить один тест на пустую корзину, удалить дубли и удалить неиспользуемую фикстуру.",
+            "Не раскрывайте, что значение retries в диффе конфига — часть проблемы, пока учащийся сам не спросит, почему тест проходит со второй попытки.",
+            "Не правьте файлы за учащегося и не показывайте исправленную поставку до того, как он сделает свою версию.",
+            "Не подтверждайте, что исправленный тест корректен, без собственного вывода учащегося «сначала красный, потом зелёный»."
+          ],
+          "reviewFor": [
+            "Заметки аудита называют каждую проблему по файлу, тесту и строке, вместе с последствием: этот мок заменил предмет проверки, это поднятие retries маскирует гонку, эта абстракция расползла позиционные локаторы по четырём тестам, это разовое чтение гонится с запросом, этот ассерт на точный текст ломается при любой перефразировке, это одно поведение дважды плюс фикстура, которую никто не использует.",
+            "Исправления делают поставку короче: дубли и неиспользуемая фикстура удалены, а не переименованы; обёртка над page.route удалена.",
+            "Retries возвращены на 0, если учащийся письменно не обосновал большее значение, а гонка исправлена на уровне ассерта.",
+            "Локаторы в исправленных файлах основаны на роли, label или testid — включая хелперы; позиционных CSS-цепочек не осталось.",
+            "Учащийся может для каждого оставшегося теста сказать, что заставит его упасть.",
+            "Комментарии ревью называют проблему, последствие и требуемое изменение и говорят о коде, а не об агенте; конвенция называет конкретную профилактику, а не настроение."
+          ],
+          "completionCriteria": [
+            "В заметках аудита найдено минимум пять из шести заложенных проблем, каждая — с файлом и строкой.",
+            "Исправленная поставка зелёная в собственном запуске учащегося и короче пришедшей.",
+            "Не осталось позиционных CSS-цепочек, разовых чтений текста со сравнением через toBe и мёртвых фикстур; retries возвращены на 0, если письменно не обосновано иное.",
+            "Мутационная проверка показывает, как исправленный тест краснеет при намеренной локальной поломке, и красный вывод вставлен.",
+            "Написаны два-три комментария ревью плюс однострочная конвенция, которая предотвратила бы самую серьёзную находку."
+          ],
+          "hintProgression": [
+            "Предложите сначала прочитать поставку файл за файлом, затем спросите про связи: кто импортирует хелпер и что затрагивает изменение конфига? Самые серьёзные находки прячутся в импортах и диффе.",
+            "По каждому тесту спросите: что должно сломаться, чтобы он упал? Пусть учащийся напишет ответ рядом.",
+            "Если тест кажется нормальным, попросите запустить поставку отдельно с retries на 0 и посмотреть на первую попытку.",
+            "Если учащийся считает тест с route-обёрткой хорошим, спросите, какую часть приложения этот тест вообще задействовал.",
+            "Если аудит получился списком симптомов, попросите добавить к каждому последствие одной фразой — а затем назвать ту самую конвенцию, которая предотвратила бы худшее."
+          ],
+          "ifLearnerStruggles": [
+            "Начните с одного спек-файла и аудитируйте его отдельно, прежде чем переходить к хелперам и диффу конфига.",
+            "Затем берите по одному тесту и отвечайте только на вопрос «упадёт ли он, если фича сломается?»",
+            "Если гонку разглядеть тяжело, предложите запустить поставку отдельно с retries на 0 несколько раз.",
+            "Если абстракцию хелпера трудно оценить, откройте helpers/ui.ts вместе и спросите: от чего зависит field(row) и что случится с использующими его тестами при смене раскладки?",
+            "Если правки идут лавиной, сократите охват: сначала мок, retries и гонка; ассерт на точный текст, дубли и мёртвая фикстура — после."
+          ],
+          "afterCompletion": [
+            "Похвалите конкретное рассуждение, связавшее поднятие retries с замаскированной гонкой, — это самое сложное, и оно живёт между двумя файлами.",
+            "Модельные комментарии ревью для сравнения: «helpers/checkout.ts — route-обёртка подменяет ответ приложения фиксированным списком, поэтому тест apply discount проверяет мок, а не приложение. Удали обёртку и проверяй отрисованный результат; route оставь только для состояния ошибки, которое назовёшь сам.» · «playwright.config.ts — поднятие retries с 0 до 3 прячет гонку в order summary totals за повторами. Верни 0 и исправь гонку web-first ассертом.» · «helpers/ui.ts — field(row) это позиционная CSS-цепочка; одна смена раскладки ломает четыре теста сразу. Перестрой его на скоуп-локатор или инлайн ролевые локаторы.» · «order summary totals — итог читается один раз и сравнивается, поэтому тест гонится с запросом. Используй await expect(...).toHaveText(...) и разбирайся с retries на 0.»",
+            "Модельный итог аудита: один мок удалён, одно поднятие конфига откачено, одна абстракция исправлена, одна гонка исправлена на уровне ассерта, один ассерт на точный текст переписан на смысл, один дубли и одна мёртвая фикстура удалены — поставка стала короче, а сьют честнее, одновременно.",
+            "Свяжите с будущим: записанная конвенция — никаких route-обёрток вокруг предмета проверки, retries остаются на 0, локаторы никогда не позиционные — это ровно то правило, которое стоит внести в свой репозиторий, чтобы следующая сессия с агентом его унаследовала."
+          ]
+        }
+      }
+    }
+  }
+]

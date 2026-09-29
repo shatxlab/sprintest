@@ -1,0 +1,119 @@
+[
+  {
+    "id": "01-qa-introduction-calculator-hunt",
+    "moduleId": "01-qa-introduction",
+    "kind": "bug-hunt",
+    "estimatedMinutes": 25,
+    "skillFocus": [
+      "qa-mindset",
+      "exploratory-testing",
+      "bug-reporting",
+      "observation"
+    ],
+    "updatedAt": "2026-09-25",
+    "languages": {
+      "en": {
+        "title": "Bug hunt: the calculator",
+        "learnerBrief": "You will explore a simple calculator app played by your AI tutor. Interact with it step by step, try normal and slightly unusual usage, and write down anything that behaves differently from what you expected.",
+        "context": "Your AI tutor simulates a basic calculator that supports arithmetic operations (+, -, *, /), percent, and a history of recent calculations. There is no website or installable app in this course: you give inputs in the chat, the tutor plays the app and answers with its output, exactly like a real application. Nothing is guaranteed to work perfectly — that is the point.",
+        "deliverable": "Write a short findings list with 2-4 entries. For each finding record: what you did, what you expected to happen, what actually happened, and whether it looks like a real defect or acceptable behavior. Keep each entry to 2-3 lines, like a lightweight bug report.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Teach the learner a tester's mindset: explore actively, compare actual behavior against an expectation, and capture findings precisely enough for someone else to reproduce them.",
+          "presentTaskHow": [
+            "Role-play the calculator app throughout the task: when the learner gives inputs, respond only with what the app would show, staying in character.",
+            "Ask the learner to state each input before they send it, so they practice thinking about expectations.",
+            "Encourage short sessions of interaction followed by the learner writing down observations in their own words.",
+            "Remind the learner there is no list of known bugs — their job is to discover behavior by using the app."
+          ],
+          "doNotReveal": [
+            "Do not reveal, confirm, deny, or hint at any planted quirk until the learner reports it themselves; if asked 'is this a bug you planted?', stay in character as the app and the tutor.",
+            "The calculator has these planted quirks, which must remain secret until found: percent of a number is computed wrongly after the percent feature is used repeatedly; division by zero returns a strange value or message with no clean error; the result of the last operation leaks into the next operation when history is involved; a very long decimal input is silently truncated without warning.",
+            "Do not provide the learner's findings list or a sample report before the learner attempts the task.",
+            "Do not confirm whether a reported finding matches a planted quirk; ask the learner to justify their own verdict with evidence."
+          ],
+          "reviewFor": [
+            "Each finding has a concrete input, an expectation, an actual result, and a verdict.",
+            "The learner explored beyond the happy path: repeated operations, percent, division edge cases, history, unusual inputs.",
+            "Verdicts are justified by evidence, not guessed.",
+            "Findings are written so another person could reproduce the steps."
+          ],
+          "completionCriteria": [
+            "The learner interacted with the app through at least 10 distinct inputs across arithmetic, percent, history, and division.",
+            "The deliverable contains 2-4 findings, each with did/expected/actual/verdict fields.",
+            "At least one finding is reported with enough precision to reproduce it.",
+            "The learner distinguishes at least one questionable behavior from clearly correct behavior."
+          ],
+          "hintProgression": [
+            "Ask what the learner expects before each input they try.",
+            "Suggest repeating an operation several times and comparing the results.",
+            "Ask what happens with inputs at the edges: zero, very large or very precise numbers.",
+            "Suggest checking whether operations behave the same in a fresh session and after using history."
+          ],
+          "ifLearnerStruggles": [
+            "Narrow the scope: ask them to explore only percent until they can describe its behavior exactly.",
+            "Ask them to write one finding in the four-field format (did/expected/actual/verdict) as a template.",
+            "Offer one safe example of a correct behavior they can contrast with, without pointing at a defect."
+          ],
+          "afterCompletion": [
+            "Highlight the learner's best-evidenced finding and why it would be useful for a developer.",
+            "Point out one area of the calculator they did not explore.",
+            "Connect the exercise to how real bug reports are triaged and why expectation vs. actual matters."
+          ]
+        }
+      },
+      "ru": {
+        "title": "Поиск дефектов: калькулятор",
+        "learnerBrief": "Вы будете исследовать простой калькулятор, который играет ваш AI-тьютор. Взаимодействуйте с ним шаг за шагом, пробуйте обычное и слегка необычное использование и записывайте всё, что ведёт себя не так, как вы ожидали.",
+        "context": "Ваш AI-тьютор имитирует базовый калькулятор, который поддерживает арифметические операции (+, -, *, /), проценты и историю недавних вычислений. В этом курсе нет сайта или устанавливаемого приложения: вы вводите данные в чат, тьютор играет приложение и отвечает его выводом — точно как настоящее приложение. Ничто не гарантированно работает правильно — в этом и смысл задания.",
+        "deliverable": "Напишите короткий список находок из 2-4 записей. Для каждой находки зафиксируйте: что вы сделали, чего ожидали, что произошло на самом деле и похожа ли ситуация на настоящий дефект или это допустимое поведение. Каждая запись — 2-3 строки, как лёгкий баг-репорт.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Научить ученика тестировщицкому мышлению: активно исследовать, сравнивать фактическое поведение с ожиданием и фиксировать находки достаточно точно, чтобы другой человек мог их воспроизвести.",
+          "presentTaskHow": [
+            "Играйте роль приложения-калькулятора на протяжении всего задания: на входы ученика отвечайте только тем, что показало бы приложение, оставаясь в роли.",
+            "Просите ученика формулировать каждое входное значение до того, как он его отправит, чтобы он тренировался думать об ожиданиях.",
+            "Поощряйте короткие сессии взаимодействия, после которых ученик своими словами записывает наблюдения.",
+            "Напомните, что списка известных багов нет — его задача обнаружить поведение, пользуясь приложением."
+          ],
+          "doNotReveal": [
+            "Не раскрывайте, не подтверждайте, не отрицайте и не намекайте ни на один запланированный дефект, пока ученик сам о нём не сообщит; если спросит «это баг, который вы подстроили?» — оставайтесь в роли приложения и тьютора.",
+            "У калькулятора есть эти скрытые особенности, которые нужно держать в секрете до обнаружения: процент от числа вычисляется неверно после повторного использования функции процентов; деление на ноль возвращает странное значение или сообщение вместо понятной ошибки; результат последней операции «протекает» в следующую операцию, когда задействована история; очень длинное десятичное число во вводе молча обрезается без предупреждения.",
+            "Не давайте ученику готовый список находок или пример отчёта до попытки выполнить задание.",
+            "Не подтверждайте, что найденное совпадает с заложенным дефектом; просите ученика обосновать свой вердикт доказательствами."
+          ],
+          "reviewFor": [
+            "У каждой находки есть конкретный ввод, ожидание, фактический результат и вердикт.",
+            "Ученик исследовал не только happy path: повторные операции, проценты, граничные случаи деления, история, необычные вводы.",
+            "Вердикты обоснованы доказательствами, а не догадками.",
+            "Находки записаны так, что другой человек может воспроизвести шаги."
+          ],
+          "completionCriteria": [
+            "Ученик взаимодействовал с приложением минимум через 10 разных вводов по арифметике, процентам, истории и делению.",
+            "В артефакте 2-4 находки, каждая с полями сделал/ожидал/получил/вердикт.",
+            "Минимум одна находка описана достаточно точно для воспроизведения.",
+            "Ученик отличает минимум одно сомнительное поведение от явно корректного."
+          ],
+          "hintProgression": [
+            "Спрашивайте, чего ученик ожидает, перед каждым новым вводом.",
+            "Предложите повторить одну операцию несколько раз и сравнить результаты.",
+            "Спросите, что происходит с вводами на границах: ноль, очень большие или очень точные числа.",
+            "Предложите проверить, одинаково ли ведут себя операции в новой сессии и после использования истории."
+          ],
+          "ifLearnerStruggles": [
+            "Сузьте область: попросите исследовать только проценты, пока их поведение не описано точно.",
+            "Попросите оформить одну находку в формате четырёх полей (сделал/ожидал/получил/вердикт) как шаблон.",
+            "Дайте один безопасный пример корректного поведения для контраста, не указывая на дефект."
+          ],
+          "afterCompletion": [
+            "Отметьте находку ученика с самыми сильными доказательствами и почему она полезна разработчику.",
+            "Укажите одну область калькулятора, которую ученик не исследовал.",
+            "Свяжите упражнение с тем, как в реальных проектах разбирают баг-репорты и почему важно ожидание против факта."
+          ]
+        }
+      }
+    },
+    "pillars": [
+      "foundations",
+      "bug-reporting"
+    ]
+  }
+]

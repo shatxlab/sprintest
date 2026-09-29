@@ -1,0 +1,19 @@
+{
+  "name": "sprintest",
+  "type": "module",
+  "version": "0.2.0",
+  "description": "Sprintest \u2014 AI-native QA course delivered as an installable agent skill",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^5.9.3",
+    "@types/node": "^26.4.1",
+    "vitest": "^5.0.0"
+  }
+}

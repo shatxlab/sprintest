@@ -1,0 +1,25 @@
+{
+  "id": "05-rest-testing",
+  "slug": "05-rest-testing",
+  "order": 6,
+  "title": {
+    "en": "REST API Testing",
+    "ru": "Тестирование REST API"
+  },
+  "summary": {
+    "en": "How to test HTTP API contracts, requests, responses, errors, and evidence with an AI tutor.",
+    "ru": "Как тестировать HTTP API-контракты, запросы, ответы, ошибки и доказательства с AI-наставником."
+  },
+  "themes": [
+    "rest-api",
+    "http",
+    "postman",
+    "curl",
+    "api-contracts"
+  ],
+  "practiceTaskIds": [
+    "05-rest-testing-practice",
+    "05-rest-testing-json-repair"
+  ],
+  "updatedAt": "2026-09-25"
+}

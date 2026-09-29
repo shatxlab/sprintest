@@ -1,0 +1,22 @@
+{
+  "id": "17-playwright-locators",
+  "slug": "17-playwright-locators",
+  "order": 17,
+  "title": {
+    "en": "Reviewing AI-Written Tests",
+    "ru": "Ревью автотестов от AI"
+  },
+  "summary": {
+    "en": "The core skill of AI-era automation: review a Playwright spec an agent wrote — locators, assertions, honest waiting, mutation thinking — and decide, per test, what it proves and what to change.",
+    "ru": "Главный навык автоматизации эпохи AI: ревьюить написанный агентом Playwright-спек — локаторы, ассерты, честные ожидания, мутационное мышление — и решать по каждому тесту, что он доказывает и что в нём менять."
+  },
+  "themes": [
+    "playwright",
+    "locators",
+    "web-first-assertions"
+  ],
+  "practiceTaskIds": [
+    "17-reviewing-ai-tests-seeded-spec"
+  ],
+  "updatedAt": "2026-09-27"
+}

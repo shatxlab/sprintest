@@ -1,0 +1,24 @@
+{
+  "id": "12-final-words",
+  "slug": "12-final-words",
+  "order": 13,
+  "title": {
+    "en": "Final Words: QA Maturity with an AI Tutor",
+    "ru": "Финальные слова: зрелость QA с AI-наставником"
+  },
+  "summary": {
+    "en": "How to turn bug reports, communication, and AI-assisted reflection into long-term QA growth.",
+    "ru": "Как превратить баг-репорты, коммуникацию и AI-рефлексию в долгосрочный рост QA."
+  },
+  "themes": [
+    "bug-reports",
+    "communication",
+    "qa-career",
+    "ai-reflection"
+  ],
+  "practiceTaskIds": [
+    "12-final-words-practice",
+    "12-final-words-capstone-release"
+  ],
+  "updatedAt": "2026-09-25"
+}

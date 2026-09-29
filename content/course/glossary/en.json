@@ -1,0 +1,87 @@
+[
+  {
+    "id": "qa",
+    "term": "QA",
+    "definition": "A discipline focused on product quality, risk, feedback, and confidence in release decisions."
+  },
+  {
+    "id": "bug-report",
+    "term": "Bug report",
+    "definition": "A clear record of a problem, its impact, reproduction path, actual result, expected result, and evidence."
+  },
+  {
+    "id": "test-case",
+    "term": "Test case",
+    "definition": "A documented check with preconditions, actions, expected result, and enough context to repeat it."
+  },
+  {
+    "id": "checklist",
+    "term": "Checklist",
+    "definition": "A compact list of checks used when detailed step-by-step cases are unnecessary or too heavy."
+  },
+  {
+    "id": "sdlc",
+    "term": "SDLC",
+    "definition": "The software development life cycle from idea and analysis to delivery, operation, and change."
+  },
+  {
+    "id": "rest-api",
+    "term": "REST API",
+    "definition": "An HTTP-based interface where resources are accessed through methods, paths, status codes, and payloads."
+  },
+  {
+    "id": "soap-api",
+    "term": "SOAP API",
+    "definition": "A contract-heavy XML-based API style commonly described with WSDL and schemas."
+  },
+  {
+    "id": "message-queue",
+    "term": "Message queue",
+    "definition": "A component that stores messages between producers and consumers so work can happen asynchronously."
+  },
+  {
+    "id": "boundary-value-analysis",
+    "term": "Boundary value analysis",
+    "definition": "A test design technique that focuses on values at and near valid or invalid borders."
+  },
+  {
+    "id": "traceability",
+    "term": "Traceability",
+    "definition": "A link between requirements, tests, results, and defects that helps explain coverage and risk."
+  },
+  {
+    "id": "severity",
+    "term": "Severity",
+    "definition": "The impact of a defect on users, business, data, or system behavior."
+  },
+  {
+    "id": "priority",
+    "term": "Priority",
+    "definition": "The order in which the team should address work based on urgency, value, and constraints."
+  },
+  {
+    "id": "devtools",
+    "term": "DevTools",
+    "definition": "Built-in browser tools for inspecting a page. The Network tab shows every request the page makes: method, URL, status code, size, and timing."
+  },
+  {
+    "id": "preconditions",
+    "term": "Preconditions",
+    "definition": "The state that must be true before a test or bug scenario starts: account, data, environment, configuration."
+  },
+  {
+    "id": "reproduction-steps",
+    "term": "Reproduction steps",
+    "definition": "Numbered actions that reliably recreate the bug. Good steps are minimal, ordered, and leave nothing to guessing."
+  },
+  {
+    "id": "at-least-once",
+    "term": "At-least-once delivery",
+    "definition": "A queue guarantee where a message may be delivered more than once. Consumers stay safe by deduplicating on a stable message id."
+  },
+  {
+    "id": "dead-letter-queue",
+    "term": "Dead-letter queue",
+    "definition": "A separate queue for messages that failed processing after the allowed retries, kept for inspection and reprocessing."
+  }
+]

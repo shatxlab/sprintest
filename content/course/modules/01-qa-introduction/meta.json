@@ -1,0 +1,22 @@
+{
+  "id": "01-qa-introduction",
+  "slug": "01-qa-introduction",
+  "order": 1,
+  "title": {
+    "en": "Introduction to QA",
+    "ru": "Введение в QA"
+  },
+  "summary": {
+    "en": "The role of manual QA, core testing principles, team collaboration, and beginner QA habits.",
+    "ru": "Роль manual QA, базовые принципы тестирования, взаимодействие с командой и привычки новичка."
+  },
+  "themes": [
+    "qa-role",
+    "testing-principles",
+    "team-collaboration"
+  ],
+  "practiceTaskIds": [
+    "01-qa-introduction-calculator-hunt"
+  ],
+  "updatedAt": "2026-09-25"
+}

@@ -1,0 +1,526 @@
+{
+  "version": "2026-09-ai-native-v1",
+  "defaultLanguage": "en",
+  "supportedLanguages": [
+    "en",
+    "ru"
+  ],
+  "title": {
+    "en": "Sprintest QA Course",
+    "ru": "Sprintest: курс QA"
+  },
+  "description": {
+    "en": "AI-native practical QA course for learning through conversation, practice, and review.",
+    "ru": "AI-native практический курс QA для обучения через диалог, практику и ревью."
+  },
+  "tracks": [
+    "qa"
+  ],
+  "modules": [
+    {
+      "id": "00-overview",
+      "slug": "00-overview",
+      "order": 0,
+      "title": {
+        "en": "Course Overview",
+        "ru": "Обзор курса"
+      },
+      "summary": {
+        "en": "How to learn QA with an AI tutor while keeping ownership of your reasoning.",
+        "ru": "Как изучать QA с AI-наставником и сохранять собственное мышление."
+      },
+      "themes": [
+        "qa-mindset",
+        "ai-tutor",
+        "learning-flow"
+      ],
+      "practiceTaskIds": [
+        "00-overview-qa-mindset"
+      ]
+    },
+    {
+      "id": "01-qa-introduction",
+      "slug": "01-qa-introduction",
+      "order": 1,
+      "title": {
+        "en": "Introduction to QA",
+        "ru": "Введение в QA"
+      },
+      "summary": {
+        "en": "The role of manual QA, core testing principles, team collaboration, and beginner QA habits.",
+        "ru": "Роль manual QA, базовые принципы тестирования, взаимодействие с командой и привычки новичка."
+      },
+      "themes": [
+        "qa-role",
+        "testing-principles",
+        "team-collaboration"
+      ],
+      "practiceTaskIds": [
+        "01-qa-introduction-calculator-hunt"
+      ]
+    },
+    {
+      "id": "02-dev-sdlc",
+      "slug": "02-dev-sdlc",
+      "order": 2,
+      "title": {
+        "en": "SDLC and Development Methodologies",
+        "ru": "SDLC и методологии разработки"
+      },
+      "summary": {
+        "en": "How QA fits across the software life cycle, Agile, Scrum, Kanban, Waterfall, CI/CD, and environments.",
+        "ru": "Как QA участвует в жизненном цикле ПО, Agile, Scrum, Kanban, Waterfall, CI/CD и окружениях."
+      },
+      "themes": [
+        "sdlc",
+        "methodologies",
+        "environments",
+        "ci-cd"
+      ],
+      "practiceTaskIds": [
+        "02-dev-sdlc-practice"
+      ]
+    },
+    {
+      "id": "03-qa-types-and-levels",
+      "slug": "03-qa-types-and-levels",
+      "order": 3,
+      "title": {
+        "en": "QA Types and Levels",
+        "ru": "Виды и уровни тестирования"
+      },
+      "summary": {
+        "en": "How to choose functional, non-functional, regression, exploratory, and level-based checks for a concrete risk.",
+        "ru": "Как выбирать функциональные, нефункциональные, регрессионные, исследовательские и уровневые проверки под конкретный риск."
+      },
+      "themes": [
+        "testing-types",
+        "testing-levels",
+        "risk-based-testing"
+      ],
+      "practiceTaskIds": [
+        "03-qa-types-and-levels-input-drill"
+      ]
+    },
+    {
+      "id": "04-architecture",
+      "slug": "04-architecture",
+      "order": 4,
+      "title": {
+        "en": "Architecture for QA",
+        "ru": "Архитектура для QA"
+      },
+      "summary": {
+        "en": "How client-server systems, async work, services, contracts, and network basics shape QA risk analysis.",
+        "ru": "Как клиент-серверные системы, асинхронная работа, сервисы, контракты и сетевые основы влияют на анализ QA-рисков."
+      },
+      "themes": [
+        "architecture",
+        "integration-contracts",
+        "defect-localization"
+      ],
+      "practiceTaskIds": [
+        "04-architecture-practice"
+      ]
+    },
+    {
+      "id": "15-devtools",
+      "slug": "15-devtools",
+      "order": 5,
+      "title": {
+        "en": "Browser DevTools for QA",
+        "ru": "Browser DevTools для QA"
+      },
+      "summary": {
+        "en": "Read what the browser actually does: Network, Console, Elements, responsive mode, and overriding responses to reproduce hidden states.",
+        "ru": "Читаем, что браузер делает на самом деле: Network, Console, Elements, адаптивный режим и подмена ответов для воспроизведения скрытых состояний."
+      },
+      "themes": [
+        "browser-devtools",
+        "client-side-observation",
+        "response-overriding"
+      ],
+      "practiceTaskIds": [
+        "15-devtools-network-hunt"
+      ]
+    },
+    {
+      "id": "05-rest-testing",
+      "slug": "05-rest-testing",
+      "order": 6,
+      "title": {
+        "en": "REST API Testing",
+        "ru": "Тестирование REST API"
+      },
+      "summary": {
+        "en": "How to test HTTP API contracts, requests, responses, errors, and evidence with an AI tutor.",
+        "ru": "Как тестировать HTTP API-контракты, запросы, ответы, ошибки и доказательства с AI-наставником."
+      },
+      "themes": [
+        "rest-api",
+        "http",
+        "postman",
+        "curl",
+        "api-contracts"
+      ],
+      "practiceTaskIds": [
+        "05-rest-testing-practice",
+        "05-rest-testing-json-repair"
+      ]
+    },
+    {
+      "id": "06-soap-testing",
+      "slug": "06-soap-testing",
+      "order": 7,
+      "title": {
+        "en": "SOAP API Testing",
+        "ru": "Тестирование SOAP API"
+      },
+      "summary": {
+        "en": "How to review SOAP contracts, XML schemas, WSDL, faults, and static message examples with an AI tutor.",
+        "ru": "Как разбирать SOAP-контракты, XML-схемы, WSDL, faults и статичные примеры сообщений с AI-наставником."
+      },
+      "themes": [
+        "soap-api",
+        "xml",
+        "xsd",
+        "wsdl",
+        "postman"
+      ],
+      "practiceTaskIds": [
+        "06-soap-testing-practice"
+      ]
+    },
+    {
+      "id": "07-mq-testing",
+      "slug": "07-mq-testing",
+      "order": 8,
+      "title": {
+        "en": "Message Queue Testing",
+        "ru": "Тестирование очередей сообщений"
+      },
+      "summary": {
+        "en": "How QA tests asynchronous flows, message contracts, retries, dead-letter queues, and operational signals.",
+        "ru": "Как QA проверяет асинхронные потоки, контракты сообщений, повторы, dead-letter queues и операционные сигналы."
+      },
+      "themes": [
+        "message-queues",
+        "asynchronous-systems",
+        "reliability-testing"
+      ],
+      "practiceTaskIds": [
+        "07-mq-testing-practice"
+      ]
+    },
+    {
+      "id": "08-test-design",
+      "slug": "08-test-design",
+      "order": 9,
+      "title": {
+        "en": "Test Design",
+        "ru": "Тест-дизайн"
+      },
+      "summary": {
+        "en": "How to turn requirements and risk into equivalence classes, boundaries, decision tables, state checks, and clear test cases.",
+        "ru": "Как превращать требования и риск в классы эквивалентности, границы, таблицы решений, проверки состояний и ясные тест-кейсы."
+      },
+      "themes": [
+        "test-design",
+        "risk-based-testing",
+        "test-documentation"
+      ],
+      "practiceTaskIds": [
+        "08-test-design-practice",
+        "08-test-design-your-website"
+      ]
+    },
+    {
+      "id": "09-jira-and-confluence",
+      "slug": "09-jira-and-confluence",
+      "order": 10,
+      "title": {
+        "en": "Jira and Confluence",
+        "ru": "Jira и Confluence"
+      },
+      "summary": {
+        "en": "How QA uses issue trackers and project knowledge bases to describe work, defects, evidence, and decisions.",
+        "ru": "Как QA использует трекеры задач и базы знаний проекта для описания работы, дефектов, доказательств и решений."
+      },
+      "themes": [
+        "jira",
+        "bug-reports",
+        "jql",
+        "confluence",
+        "defect-localization"
+      ],
+      "practiceTaskIds": [
+        "09-jira-and-confluence-severity-drill",
+        "09-jira-and-confluence-evidence-report"
+      ]
+    },
+    {
+      "id": "10-test-management-systems",
+      "slug": "10-test-management-systems",
+      "order": 11,
+      "title": {
+        "en": "Test Management Systems",
+        "ru": "Системы управления тестированием"
+      },
+      "summary": {
+        "en": "How QA teams organize test cases, runs, results, reports, and requirement traceability in a TMS.",
+        "ru": "Как QA-команды организуют тест-кейсы, прогоны, результаты, отчёты и трассировку требований в TMS."
+      },
+      "themes": [
+        "tms",
+        "test-cases",
+        "test-runs",
+        "traceability",
+        "reporting"
+      ],
+      "practiceTaskIds": [
+        "10-test-management-systems-practice"
+      ]
+    },
+    {
+      "id": "11-sql-and-db",
+      "slug": "11-sql-and-db",
+      "order": 12,
+      "title": {
+        "en": "SQL and Databases for QA",
+        "ru": "SQL и базы данных для QA"
+      },
+      "summary": {
+        "en": "Read relational data, reason about joins and aggregates, and turn query results into QA evidence.",
+        "ru": "Как читать реляционные данные, рассуждать о JOIN и агрегатах и превращать результат запроса в QA-доказательство."
+      },
+      "themes": [
+        "sql",
+        "database-testing",
+        "data-analysis"
+      ],
+      "practiceTaskIds": [
+        "11-sql-and-db-practice",
+        "11-sql-and-db-data-read"
+      ]
+    },
+    {
+      "id": "12-final-words",
+      "slug": "12-final-words",
+      "order": 13,
+      "title": {
+        "en": "Final Words: QA Maturity with an AI Tutor",
+        "ru": "Финальные слова: зрелость QA с AI-наставником"
+      },
+      "summary": {
+        "en": "How to turn bug reports, communication, and AI-assisted reflection into long-term QA growth.",
+        "ru": "Как превратить баг-репорты, коммуникацию и AI-рефлексию в долгосрочный рост QA."
+      },
+      "themes": [
+        "bug-reports",
+        "communication",
+        "qa-career",
+        "ai-reflection"
+      ],
+      "practiceTaskIds": [
+        "12-final-words-practice",
+        "12-final-words-capstone-release"
+      ]
+    },
+    {
+      "id": "13-logic-exercises",
+      "slug": "13-logic-exercises",
+      "order": 14,
+      "title": {
+        "en": "Logic Exercises",
+        "ru": "Логические упражнения"
+      },
+      "summary": {
+        "en": "Practice explicit reasoning, uncertainty checks, and AI-guided hints through classic QA-relevant puzzles.",
+        "ru": "Тренировка явного рассуждения, проверки неопределённости и AI-подсказок на классических задачах, полезных для QA."
+      },
+      "themes": [
+        "reasoning",
+        "ai-guided-practice",
+        "qa-thinking"
+      ],
+      "practiceTaskIds": [
+        "13-logic-exercises-practice"
+      ]
+    },
+    {
+      "id": "14-glossary",
+      "slug": "14-glossary",
+      "order": 15,
+      "title": {
+        "en": "Glossary",
+        "ru": "Глоссарий"
+      },
+      "summary": {
+        "en": "Compact bilingual QA and IT reference for reading tasks, discussing defects, and working with an AI tutor.",
+        "ru": "Краткий двуязычный справочник QA и IT для чтения задач, обсуждения дефектов и работы с AI-наставником."
+      },
+      "themes": [
+        "qa-vocabulary",
+        "bilingual-reference",
+        "ai-communication"
+      ],
+      "practiceTaskIds": [
+        "14-glossary-practice"
+      ]
+    },
+    {
+      "id": "16-playwright-foundations",
+      "slug": "16-playwright-foundations",
+      "order": 16,
+      "title": {
+        "en": "Playwright: Read and Run",
+        "ru": "Playwright: читать и запускать"
+      },
+      "summary": {
+        "en": "Set up a Playwright project, then learn the skill that carries the whole track: reading a test — anatomy, locators, web-first assertions — running it, and reading what the run really says. Your AI agent writes the first draft; you make it run, understand every line, and modify it.",
+        "ru": "Поднимаем проект Playwright и учимся главному навыку трека: читать тест — анатомию, локаторы, web-first ассерты, — запускать его и понимать, что прогон говорит на самом деле. Первый черновик пишет ваш AI-агент; вы заставляете его работать, понимаете каждую строку и вносите изменения."
+      },
+      "themes": [
+        "playwright",
+        "test-automation-basics",
+        "first-test"
+      ],
+      "practiceTaskIds": [
+        "16-playwright-foundations-first-test",
+        "16-playwright-foundations-automate-or-not"
+      ]
+    },
+    {
+      "id": "17-playwright-locators",
+      "slug": "17-playwright-locators",
+      "order": 17,
+      "title": {
+        "en": "Reviewing AI-Written Tests",
+        "ru": "Ревью автотестов от AI"
+      },
+      "summary": {
+        "en": "The core skill of AI-era automation: review a Playwright spec an agent wrote — locators, assertions, honest waiting, mutation thinking — and decide, per test, what it proves and what to change.",
+        "ru": "Главный навык автоматизации эпохи AI: ревьюить написанный агентом Playwright-спек — локаторы, ассерты, честные ожидания, мутационное мышление — и решать по каждому тесту, что он доказывает и что в нём менять."
+      },
+      "themes": [
+        "playwright",
+        "locators",
+        "web-first-assertions"
+      ],
+      "practiceTaskIds": [
+        "17-reviewing-ai-tests-seeded-spec"
+      ]
+    },
+    {
+      "id": "18-playwright-api",
+      "slug": "18-playwright-api",
+      "order": 18,
+      "title": {
+        "en": "API Testing with Playwright",
+        "ru": "Тестирование API с Playwright"
+      },
+      "summary": {
+        "en": "Drive REST endpoints with the request fixture: assert status codes, response bodies and error contracts, then chain calls and verify the state they leave behind.",
+        "ru": "Работаем с REST-эндпоинтами через фикстуру request: проверяем статусы, тела ответов и контракт ошибок, а затем связываем вызовы в цепочку и проверяем состояние, которое они оставляют."
+      },
+      "themes": [
+        "playwright",
+        "api-testing",
+        "request-fixture"
+      ],
+      "practiceTaskIds": [
+        "18-playwright-api-request-tests",
+        "18-playwright-api-flow-checks"
+      ]
+    },
+    {
+      "id": "19-playwright-architecture",
+      "slug": "19-playwright-architecture",
+      "order": 19,
+      "title": {
+        "en": "Test Architecture: Fixtures and Isolation",
+        "ru": "Архитектура тестов: фикстуры и изоляция"
+      },
+      "summary": {
+        "en": "Design a Playwright suite that survives parallelism and reruns: custom fixtures, authenticated storage state, per-test data, and a config that gives every test its own clean world.",
+        "ru": "Проектируем набор Playwright-тестов, который выдерживает параллельный запуск и повторы: свои фикстуры, сохранённое состояние авторизации, данные на каждый тест и конфиг, дающий каждому тесту собственную чистую среду."
+      },
+      "themes": [
+        "playwright",
+        "fixtures",
+        "isolation",
+        "test-data"
+      ],
+      "practiceTaskIds": [
+        "19-playwright-architecture-fixtures"
+      ]
+    },
+    {
+      "id": "20-playwright-debugging",
+      "slug": "20-playwright-debugging",
+      "order": 20,
+      "title": {
+        "en": "Debugging and Flaky Tests",
+        "ru": "Отладка и flaky-тесты"
+      },
+      "summary": {
+        "en": "Read a failing Playwright test as evidence: use the Inspector and the trace viewer to classify each failure as a product bug, a test bug, an environment problem, or a flake.",
+        "ru": "Читаем падающий тест Playwright как доказательство: через Inspector и trace viewer определяем, что перед нами — баг продукта, баг теста, проблема окружения или flaky-падение."
+      },
+      "themes": [
+        "playwright",
+        "trace-viewer",
+        "flakiness",
+        "test-debugging"
+      ],
+      "practiceTaskIds": [
+        "20-playwright-debugging-flaky-triage"
+      ]
+    },
+    {
+      "id": "21-playwright-ci",
+      "slug": "21-playwright-ci",
+      "order": 21,
+      "title": {
+        "en": "Running Tests in CI",
+        "ru": "Запуск тестов в CI"
+      },
+      "summary": {
+        "en": "Move a working Playwright suite onto an unattended runner: clean installs, headless execution, reporters and artifacts that make every failure debuggable.",
+        "ru": "Переносим рабочего набора тестов Playwright на машину без человека: чистая установка, headless-прогон, репортеры и артефакты, по которым любое падение можно разобрать."
+      },
+      "themes": [
+        "playwright",
+        "ci",
+        "headless",
+        "reporting"
+      ],
+      "practiceTaskIds": [
+        "21-playwright-ci-pipeline"
+      ]
+    },
+    {
+      "id": "22-ai-assisted-automation",
+      "slug": "22-ai-assisted-automation",
+      "order": 22,
+      "title": {
+        "en": "AI-Assisted Playwright Workflow",
+        "ru": "Работа с AI при написании автотестов"
+      },
+      "summary": {
+        "en": "Briefing an AI agent on your own repo, reviewing its diff with the module-17 checklist, running the tests yourself, and recording the rules that make the next session better.",
+        "ru": "Работа с AI-агентом в своём репозитории: поставить задачу, отревьюить дифф по чек-листу из модуля 17, самому запустить тесты и зафиксировать правила, которые улучшат следующую сессию."
+      },
+      "themes": [
+        "playwright",
+        "ai-collaboration",
+        "agent-workflow",
+        "code-review"
+      ],
+      "practiceTaskIds": [
+        "22-ai-assisted-automation-pairing",
+        "22-ai-assisted-automation-audit"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "11-sql-and-db",
+  "slug": "11-sql-and-db",
+  "order": 12,
+  "title": {
+    "en": "SQL and Databases for QA",
+    "ru": "SQL и базы данных для QA"
+  },
+  "summary": {
+    "en": "Read relational data, reason about joins and aggregates, and turn query results into QA evidence.",
+    "ru": "Как читать реляционные данные, рассуждать о JOIN и агрегатах и превращать результат запроса в QA-доказательство."
+  },
+  "themes": [
+    "sql",
+    "database-testing",
+    "data-analysis"
+  ],
+  "practiceTaskIds": [
+    "11-sql-and-db-practice",
+    "11-sql-and-db-data-read"
+  ],
+  "updatedAt": "2026-09-25"
+}

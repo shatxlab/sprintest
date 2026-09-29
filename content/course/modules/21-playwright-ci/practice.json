@@ -1,0 +1,140 @@
+[
+  {
+    "id": "21-playwright-ci-pipeline",
+    "moduleId": "21-playwright-ci",
+    "kind": "automation-code",
+    "estimatedMinutes": 35,
+    "skillFocus": [
+      "ci-pipeline",
+      "headless-runs",
+      "test-reporting"
+    ],
+    "updatedAt": "2026-09-25",
+    "pillars": [
+      "automation",
+      "process-sdlc"
+    ],
+    "languages": {
+      "en": {
+        "title": "Put your Playwright suite on the CI path",
+        "learnerBrief": "In your own Playwright repository, write the CI workflow for your suite and prove the pipeline path locally by running it headless exactly the way an unattended runner would: clean install, browser with system dependencies, both reporters, artifacts that survive a failing run. No hosting account is required, and publishing to a real pipeline is optional.",
+        "context": "You already have the suite you built in the previous modules: a config, tests, a base URL, and whatever helpers they use. CI adds a machine that has never seen your project and a person who is not watching. Your job is to make that machine able to run the suite unattended and to leave behind evidence when something fails. Work in your own repository; the tutor only sees what you paste, so paste real commands and real output.",
+        "deliverable": "Four parts. (1) Your workflow file as text: triggers, job, job timeout, Node setup, dependency install from the lockfile, browser install with system dependencies, the test command, and an artifact upload that also runs when tests fail. (2) The CI-related block of your Playwright config with one line of justification per choice. (3) The local proof of the CI path: the exact commands you ran headless, their exit codes, and the artifact paths that appeared on disk, including at least one failing run where both the HTML report and a JUnit XML were produced. (4) A classification of every failure the run surfaced — product bug, test bug, or environment — with what you changed for each.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Teach the learner to run a Playwright suite the way an unattended CI runner does — clean install, headless execution, machine-readable reporting — and to treat the run's artifacts and its failure classification as the real deliverable.",
+          "presentTaskHow": [
+            "Ask for their current config and the exact command they use locally before any workflow file is written.",
+            "Request the workflow draft first and review it as a sequence of steps: does each step exist for a reason, and would the next step survive the previous one failing?",
+            "Keep the learner on the local CI-path proof: clean install, headless run, artifacts written to disk. Publishing to a hosted pipeline is extra credit, never a requirement.",
+            "Ask them to keep the evidence from a failing run, because the upload-on-failure behaviour is the part most people get wrong."
+          ],
+          "doNotReveal": [
+            "Do not hand over a finished workflow file before the learner drafts one.",
+            "Do not name the artifact-upload condition that keeps the upload running after a test failure; let them find out why their failed run produced no report.",
+            "Do not reveal that an auto-opened HTML report can hold a runner until its timeout, or the config option that prevents it.",
+            "Do not give the sharding or repeat-each commands as ready answers before the learner tries to diagnose a slow or unstable run.",
+            "Do not name the four usual CI-only failure causes (environment-based base URL, tight timeouts, missing test data or auth state, fixed sleeps); ask questions that lead there.",
+            "Never claim you ran their suite, saw their report, or watched their pipeline — work only from what they paste."
+          ],
+          "reviewFor": [
+            "The workflow triggers on push and pull request, pins action major versions, and sets a job timeout.",
+            "Dependencies come from the lockfile with `npm ci`, and the browser install includes the operating-system dependencies.",
+            "The artifact upload runs even when tests fail, and the uploaded paths match where the reporters actually write.",
+            "The config separates CI from local: retries, workers, and the HTML report's non-serving mode are conditional, and `forbidOnly` is on in CI.",
+            "Traces or screenshots are retained on failure, so a failure is debuggable from the artifact alone.",
+            "The local proof is real: pasted commands, exit codes, and artifact paths — not a claim that the tests pass.",
+            "Every failure is classified as product bug, test bug, or environment, with the reasoning shown and a follow-up action named."
+          ],
+          "completionCriteria": [
+            "A complete workflow file is present whose steps cover dependency install, browser with system dependencies, the test run, and an artifact upload.",
+            "The config block configures an HTML report and a JUnit XML report, and the JUnit output path matches a path the workflow uploads.",
+            "The learner ran the suite headless locally the way a runner would and shows at least one failing run in which artifacts were still produced.",
+            "The JUnit XML or the HTML report content is quoted or described concretely enough to identify a specific test.",
+            "Every observed failure has a classification and a follow-up action.",
+            "The learner can explain what would break if the same suite ran on a machine with no prior state."
+          ],
+          "hintProgression": [
+            "If the workflow has no test step, ask what the pipeline is supposed to prove.",
+            "If the browser step is missing its system dependencies, ask what a fresh runner lacks that their laptop already had.",
+            "If a failing run uploaded nothing, ask them to read the upload step's condition and to think about what a runner does with the remaining steps after a failure.",
+            "If the run hangs rather than fails, point at the report server behaviour of an auto-opened HTML report.",
+            "If the run is slow, ask which tests could run in parallel and what a shard flag would do to wall-clock time.",
+            "If failures look random, suggest repeating the suite several times locally before touching retries."
+          ],
+          "ifLearnerStruggles": [
+            "Start from the smallest workflow that only runs `npx playwright test` on a clean checkout, then add install, browser, and artifact steps one at a time.",
+            "Have them run the suite once locally with the CI environment variable set and compare the result with a normal local run.",
+            "Ask them to open the HTML report from the artifact and find one failing test's trace, narrating what they see.",
+            "If no failure exists to exercise the artifact path, suggest a deliberately failing assertion in a scratch test and deleting it afterwards.",
+            "Reduce scope to a single browser and a single shard while learning the flow."
+          ],
+          "afterCompletion": [
+            "Name the strongest piece of evidence in their artifact set and why it would save a reviewer time.",
+            "Connect the classification habit to their bug-reporting work: an unattended run still needs a human judgment about what each failure means.",
+            "Suggest the next step: publishing the same workflow to a hosted pipeline and watching the first real run, or adding a scheduled run so the suite is exercised without a push."
+          ]
+        }
+      },
+      "ru": {
+        "title": "Выведите свой набор тестов Playwright на путь CI",
+        "learnerBrief": "В своём репозитории с Playwright напишите CI-workflow для своего набора и докажите путь CI локально, прогнав его headless так, как это сделал бы раннер без человека: чистая установка, браузер с системными зависимостями, оба репортера, артефакты, которые переживают падение. Аккаунт для хостинга не нужен, публикация в реальный пайплайн — по желанию.",
+        "context": "У вас уже есть набор из предыдущих модулей: конфиг, тесты, базовый URL и вспомогательный код, который они используют. CI добавляет машину, которая ваш проект никогда не видела, и человека, который за прогоном не следит. Ваша задача — сделать так, чтобы эта машина могла прогнать набор без присмотра и оставить доказательства, когда что-то упало. Работайте в своём репозитории; tutor видит только то, что вы вставите, поэтому вставляйте настоящие команды и настоящий вывод.",
+        "deliverable": "Четыре части. (1) Ваш файл workflow текстом: триггеры, job, таймаут задачи, установка Node, установка зависимостей из lock-файла, установка браузера с системными зависимостями, команда запуска тестов и выгрузка артефактов, которая выполняется и при падении тестов. (2) Блок конфига Playwright, связанный с CI, с одной строкой обоснования на каждое решение. (3) Локальное доказательство пути CI: точные команды, которые вы прогнали headless, их коды возврата и пути артефактов, появившихся на диске, включая минимум один упавший прогон, в котором появились и HTML-отчёт, и JUnit XML. (4) Классификация каждого падения из прогона — баг продукта, баг теста или окружение — с тем, что вы для каждого изменили.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Научить учащегося запускать набор Playwright так, как это делает раннер CI без человека — чистая установка, headless-прогон, машиночитаемые отчёты — и относиться к артефактам прогона и классификации падений как к настоящему результату работы.",
+          "presentTaskHow": [
+            "Попросите показать текущий конфиг и точную команду локального запуска, прежде чем появится файл workflow.",
+            "Сначала запросите черновик workflow и разбирайте его как последовательность шагов: у каждого есть причина, и переживёт ли следующий шаг падение предыдущего?",
+            "Держите учащегося на локальном доказательстве пути CI: чистая установка, headless-прогон, артефакты на диске. Публикация в хостинговый пайплайн — дополнительный плюс, но не требование.",
+            "Попросите сохранить доказательства упавшего прогона: поведение выгрузки при падении ошибаются чаще всего."
+          ],
+          "doNotReveal": [
+            "Не выдавайте готовый файл workflow, пока учащийся не сделал свой черновик.",
+            "Не называйте условие выгрузки артефактов, которое сохраняет выгрузку после падения тестов; пусть сам выяснит, почему упавший прогон не дал отчёта.",
+            "Не раскрывайте, что автоматически открытый HTML-отчёт может держать раннер до таймаута, и не подсказывайте опцию конфига, которая это предотвращает.",
+            "Не давайте команды шардинга и повторных прогонов как готовый ответ, пока учащийся не попробует разобраться с медленным или нестабильным прогоном.",
+            "Не перечисляйте четыре типичные причины падений «только в CI» (базовый URL из окружения, тесные таймауты, отсутствующие тестовые данные или состояние авторизации, фиксированные паузы); задавайте вопросы, которые к ним ведут.",
+            "Никогда не утверждайте, что вы запускали их набор, видели их отчёт или следили за их пайплайном — работайте только с тем, что они вставили."
+          ],
+          "reviewFor": [
+            "Workflow срабатывает на push и pull request, фиксирует мажорные версии экшенов и задаёт таймаут задачи.",
+            "Зависимости ставятся из lock-файла через `npm ci`, а установка браузера включает системные зависимости.",
+            "Выгрузка артефактов выполняется и при падении тестов, а пути выгрузки совпадают с тем, куда реально пишут репортеры.",
+            "Конфиг разделяет CI и локальную работу: ретраи, воркеры и режим HTML-отчёта без запуска сервера включаются условно, а `forbidOnly` включён в CI.",
+            "Трейсы или скриншоты сохраняются при падении, поэтому падение разбирается по одному артефакту.",
+            "Локальное доказательство настоящее: вставленные команды, коды возврата и пути артефактов, а не утверждение «тесты проходят».",
+            "Каждое падение классифицировано как баг продукта, баг теста или окружение, с показанным рассуждением и названным следующим действием."
+          ],
+          "completionCriteria": [
+            "Есть полный файл workflow, шаги которого покрывают установку зависимостей, браузер с системными зависимостями, прогон тестов и выгрузку артефактов.",
+            "Блок конфига настраивает HTML-отчёт и JUnit XML, а путь JUnit совпадает с путём, который выгружает workflow.",
+            "Учащийся прогнал набор headless локально так, как это сделал бы раннер, и показывает минимум один упавший прогон, в котором артефакты всё равно появились.",
+            "Содержимое JUnit XML или HTML-отчёта приведено или описано достаточно конкретно, чтобы опознать отдельный тест.",
+            "У каждого наблюдённого падения есть классификация и следующее действие.",
+            "Учащийся может объяснить, что сломалось бы, если бы тот же набор запустился на машине без предыстории."
+          ],
+          "hintProgression": [
+            "Если в workflow нет шага с тестами, спросите, что вообще должен доказать пайплайн.",
+            "Если у шага установки браузера нет системных зависимостей, спросите, чего не хватает свежему раннеру по сравнению с их ноутбуком.",
+            "Если упавший прогон ничего не выгрузил, попросите прочитать условие шага выгрузки и подумать, что раннер делает с оставшимися шагами после падения.",
+            "Если прогон зависает, а не падает, направьте к поведению сервера отчёта у автоматически открытого HTML-отчёта.",
+            "Если прогон медленный, спросите, какие тесты можно распараллелить и что даст флаг шардинга для общего времени.",
+            "Если падения выглядят случайными, предложите несколько раз повторить набор локально, прежде чем трогать ретраи."
+          ],
+          "ifLearnerStruggles": [
+            "Начните с минимального workflow, который на чистом клоне делает только `npx playwright test`, а затем добавляйте установку, браузер и артефакты по одному шагу.",
+            "Попросите один раз прогнать набор локально с выставленной переменной окружения CI и сравнить результат с обычным локальным запуском.",
+            "Попросите открыть HTML-отчёт из артефакта и найти трейс одного упавшего теста, проговаривая вслух, что видно.",
+            "Если падения нет и путь артефактов не проверить, предложите временно добавить заведомо падающий ассерт в отдельный тест и потом удалить его.",
+            "Сузьте объём до одного браузера и одного шарда, пока осваивается схема."
+          ],
+          "afterCompletion": [
+            "Назовите самое сильное доказательство в их наборе артефактов и объясните, чем оно экономит время ревьюеру.",
+            "Свяжите привычку классифицировать падения с работой над баг-репортами: прогон без человека всё равно требует человеческого суждения о том, что значит каждое падение.",
+            "Предложите следующий шаг: опубликовать тот же workflow в хостинговом пайплайне и посмотреть первый настоящий прогон или добавить запуск по расписанию, чтобы набор проверялся без пуша."
+          ]
+        }
+      }
+    }
+  }
+]

@@ -1,0 +1,113 @@
+[
+  {
+    "id": "07-mq-testing-practice",
+    "moduleId": "07-mq-testing",
+    "kind": "queue-analysis",
+    "estimatedMinutes": 35,
+    "skillFocus": [
+      "message-contracts",
+      "failure-analysis",
+      "observability"
+    ],
+    "updatedAt": "2026-09-25",
+    "languages": {
+      "en": {
+        "title": "Design checks for an asynchronous receipt flow",
+        "learnerBrief": "Practice analyzing a message-queue flow without needing a live broker. Focus on contracts, delivery risks, retries, and evidence.",
+        "context": "A commerce service publishes an `order.receipt.requested` message after payment succeeds. A receipt worker consumes the message, generates a PDF receipt, emails it to the customer, and writes `receiptSent=true` back to the order record. The team says delivery is at-least-once, retries happen up to 3 times, and messages that still fail go to a dead-letter queue.",
+        "deliverable": "Create a compact QA artifact with: message contract questions, 8-10 test ideas, at least 3 failure or recovery checks, and 4 monitoring signals the team needs before release.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Help the learner reason about asynchronous reliability and observable evidence in a queue-based workflow.",
+          "presentTaskHow": [
+            "Ask the learner to draft the artifact before you review it.",
+            "Invite a checklist, table, or short sections as acceptable formats.",
+            "Remind the learner that no live broker is required for this practice task."
+          ],
+          "doNotReveal": [
+            "Do not provide a finished checklist before the learner attempts the task.",
+            "Do not invent hidden defects, secret logs, or private test data.",
+            "Do not claim there is one exact list of correct checks."
+          ],
+          "reviewFor": [
+            "Coverage of message contract, idempotency, acknowledgement timing, retries, dead-letter handling, and user-visible outcome.",
+            "Clear separation between normal flow, invalid input, and failure recovery checks.",
+            "Evidence statements that explain what the tester would inspect or ask the team to expose.",
+            "Monitoring signals that would help detect stuck or failing processing in production."
+          ],
+          "completionCriteria": [
+            "The artifact asks at least three useful contract or policy questions.",
+            "The artifact lists 8-10 concrete test ideas.",
+            "At least three checks cover failure, retry, or recovery behavior.",
+            "At least four monitoring or supportability signals are named."
+          ],
+          "hintProgression": [
+            "Ask what can happen if the same message is delivered twice.",
+            "Point attention to when the consumer acknowledges the message.",
+            "Ask how a tester would notice that receipts stopped being sent.",
+            "Offer one sample risk category only after the learner is stuck."
+          ],
+          "ifLearnerStruggles": [
+            "Reduce the task to one valid message and one duplicate message.",
+            "Ask the learner to split checks into contract, processing, failure, and monitoring groups.",
+            "Ask for four checks first, then expand to the full deliverable."
+          ],
+          "afterCompletion": [
+            "Summarize the learner's strongest reliability insight.",
+            "Name one missing risk area to revisit in later API or integration testing work.",
+            "Connect the exercise to real release conversations about asynchronous systems."
+          ]
+        }
+      },
+      "ru": {
+        "title": "Спроектировать проверки для асинхронного потока чеков",
+        "learnerBrief": "Потренируйте анализ потока через очередь сообщений без живого брокера. Сфокусируйтесь на контрактах, рисках доставки, повторах и доказательствах.",
+        "context": "Commerce-сервис публикует сообщение `order.receipt.requested` после успешной оплаты. Receipt worker читает сообщение, генерирует PDF-чек, отправляет его клиенту по email и записывает `receiptSent=true` в заказ. Команда говорит, что доставка at-least-once, повторы выполняются до 3 раз, а сообщения, которые всё ещё падают, уходят в dead-letter queue.",
+        "deliverable": "Создайте компактный QA-артефакт: вопросы по контракту сообщения, 8-10 идей проверок, минимум 3 проверки сбоев или восстановления и 4 мониторинговых сигнала, нужных команде до релиза.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Помочь ученику рассуждать об асинхронной надёжности и наблюдаемых доказательствах в queue-based workflow.",
+          "presentTaskHow": [
+            "Сначала попросите ученика написать собственный артефакт.",
+            "Разрешите чек-лист, таблицу или короткие разделы как формат ответа.",
+            "Напомните, что для этой практики не нужен живой брокер."
+          ],
+          "doNotReveal": [
+            "Не давайте готовый чек-лист до попытки ученика.",
+            "Не придумывайте скрытые дефекты, секретные логи или приватные тестовые данные.",
+            "Не создавайте ощущение, что существует один точный список правильных проверок."
+          ],
+          "reviewFor": [
+            "Покрытие контракта сообщения, идемпотентности, момента acknowledgment, повторов, dead-letter handling и пользовательского результата.",
+            "Чёткое разделение нормального потока, невалидного ввода и восстановления после сбоев.",
+            "Формулировки доказательств объясняют, что тестировщик посмотрит или попросит команду показать.",
+            "Мониторинговые сигналы помогают обнаружить застрявшую или падающую обработку в production."
+          ],
+          "completionCriteria": [
+            "В артефакте есть минимум три полезных вопроса по контракту или политике обработки.",
+            "В артефакте перечислены 8-10 конкретных идей проверок.",
+            "Минимум три проверки покрывают сбой, повтор или восстановление.",
+            "Названы минимум четыре мониторинговых или supportability-сигнала."
+          ],
+          "hintProgression": [
+            "Спросите, что произойдёт, если одно сообщение доставят дважды.",
+            "Направьте внимание на момент, когда consumer подтверждает сообщение.",
+            "Спросите, как тестировщик заметит, что чеки перестали отправляться.",
+            "Дайте один пример категории риска только после того, как ученик застрял."
+          ],
+          "ifLearnerStruggles": [
+            "Сузьте задачу до одного валидного сообщения и одного дубликата.",
+            "Попросите разделить проверки на контракт, обработку, сбои и мониторинг.",
+            "Попросите сначала четыре проверки, затем расширьте до полного артефакта."
+          ],
+          "afterCompletion": [
+            "Кратко отметьте самую сильную мысль ученика о надёжности.",
+            "Назовите одну пропущенную зону риска для следующих тем по API или integration testing.",
+            "Свяжите упражнение с реальными release discussions об асинхронных системах."
+          ]
+        }
+      }
+    },
+    "pillars": [
+      "api-integration"
+    ]
+  }
+]

@@ -1,0 +1,23 @@
+{
+  "id": "21-playwright-ci",
+  "slug": "21-playwright-ci",
+  "order": 21,
+  "title": {
+    "en": "Running Tests in CI",
+    "ru": "Запуск тестов в CI"
+  },
+  "summary": {
+    "en": "Move a working Playwright suite onto an unattended runner: clean installs, headless execution, reporters and artifacts that make every failure debuggable.",
+    "ru": "Переносим рабочего набора тестов Playwright на машину без человека: чистая установка, headless-прогон, репортеры и артефакты, по которым любое падение можно разобрать."
+  },
+  "themes": [
+    "playwright",
+    "ci",
+    "headless",
+    "reporting"
+  ],
+  "practiceTaskIds": [
+    "21-playwright-ci-pipeline"
+  ],
+  "updatedAt": "2026-09-25"
+}

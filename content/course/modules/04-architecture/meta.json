@@ -1,0 +1,16 @@
+{
+  "id": "04-architecture",
+  "slug": "04-architecture",
+  "order": 4,
+  "title": {
+    "en": "Architecture for QA",
+    "ru": "Архитектура для QA"
+  },
+  "summary": {
+    "en": "How client-server systems, async work, services, contracts, and network basics shape QA risk analysis.",
+    "ru": "Как клиент-серверные системы, асинхронная работа, сервисы, контракты и сетевые основы влияют на анализ QA-рисков."
+  },
+  "themes": ["architecture", "integration-contracts", "defect-localization"],
+  "practiceTaskIds": ["04-architecture-practice"],
+  "updatedAt": "2026-09-25"
+}

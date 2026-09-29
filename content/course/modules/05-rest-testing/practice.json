@@ -1,0 +1,238 @@
+[
+  {
+    "id": "05-rest-testing-practice",
+    "moduleId": "05-rest-testing",
+    "kind": "api-analysis",
+    "estimatedMinutes": 35,
+    "skillFocus": [
+      "rest-api",
+      "test-design",
+      "error-analysis",
+      "evidence-writing"
+    ],
+    "updatedAt": "2026-09-25",
+    "languages": {
+      "en": {
+        "title": "Review a REST order API scenario",
+        "learnerBrief": "Practice designing API checks from a short contract and static example responses. Do not call a live service; reason from the scenario.",
+        "context": "A team is adding an order API. Contract excerpt: POST /v1/orders creates an order from customerId and items; GET /v1/orders/{orderId} returns the order; PATCH /v1/orders/{orderId} can change shippingAddress while status is draft; POST /v1/orders/{orderId}/cancel cancels draft or confirmed orders. Error bodies use {\"code\": string, \"message\": string, \"requestId\": string}. Static examples: a valid create request returns 201 with id, status draft, total; a missing customerId returns 400; an unknown order id returns 404; patching a shipped order returns 409.",
+        "deliverable": "Write a compact API test note with 8-10 checks. Include method and endpoint, request idea, expected status/body focus, and why the check matters. Add 2-3 open questions for the product or backend team.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Help the learner turn a REST contract into risk-based API checks with clear evidence expectations.",
+          "presentTaskHow": [
+            "Ask the learner to draft the test note before requesting examples.",
+            "Invite a table or bullet list with method, endpoint, request idea, expected result, and risk.",
+            "Remind the learner that the scenario is static and no network call is needed."
+          ],
+          "doNotReveal": [
+            "Do not provide a finished test note before the learner attempts the task.",
+            "Do not claim there is a hidden defect list or a single answer key.",
+            "Do not add live endpoints, private systems, secret tokens, or tool-specific setup steps."
+          ],
+          "reviewFor": [
+            "Coverage across create, read, patch, cancel, and error handling.",
+            "Clear pairing of request idea with expected status and response focus.",
+            "Risk-based choices rather than only happy-path checks.",
+            "Useful open questions about ambiguous contract behavior."
+          ],
+          "completionCriteria": [
+            "The artifact contains 8-10 API checks.",
+            "At least three checks cover negative, boundary, authorization, conflict, or retry risk.",
+            "Each check names the method and endpoint or endpoint pattern.",
+            "The learner includes 2-3 open questions that could improve the contract."
+          ],
+          "hintProgression": [
+            "Ask which state transitions are visible in the scenario.",
+            "Point attention to required fields, unknown ids, and shipped-order conflict behavior.",
+            "Suggest grouping checks by endpoint if the answer is scattered.",
+            "Offer one sample row only after the learner is stuck."
+          ],
+          "ifLearnerStruggles": [
+            "Start with one endpoint, POST /v1/orders, and ask for one positive and one negative check.",
+            "Ask the learner to turn each documented static example into a check.",
+            "Reduce the target to five checks first, then expand to the full deliverable."
+          ],
+          "afterCompletion": [
+            "Summarize the learner's strongest risk choice.",
+            "Name one missing API testing angle to practice next.",
+            "Connect the artifact to Postman or curl as possible ways to execute similar checks on a real project."
+          ]
+        }
+      },
+      "ru": {
+        "title": "Разбор сценария REST API заказов",
+        "learnerBrief": "Потренируйтесь проектировать API-проверки по короткому контракту и статичным примерам ответов. Не вызывайте живой сервис; рассуждайте по сценарию.",
+        "context": "Команда добавляет API заказов. Фрагмент контракта: POST /v1/orders создаёт заказ по customerId и items; GET /v1/orders/{orderId} возвращает заказ; PATCH /v1/orders/{orderId} может изменить shippingAddress, пока статус draft; POST /v1/orders/{orderId}/cancel отменяет заказы в статусах draft или confirmed. Тела ошибок имеют формат {\"code\": string, \"message\": string, \"requestId\": string}. Статичные примеры: валидный create-запрос возвращает 201 с id, status draft и total; отсутствие customerId возвращает 400; неизвестный order id возвращает 404; patch для shipped-заказа возвращает 409.",
+        "deliverable": "Напишите короткую API test note на 8-10 проверок. Укажите метод и endpoint, идею запроса, ожидаемый фокус по status/body и зачем важна проверка. Добавьте 2-3 открытых вопроса для product или backend-команды.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Помочь ученику превратить REST-контракт в риск-ориентированные API-проверки с понятными ожиданиями по доказательствам.",
+          "presentTaskHow": [
+            "Попросите ученика сначала написать собственную test note.",
+            "Разрешите формат таблицы или списка с методом, endpoint, идеей запроса, ожидаемым результатом и риском.",
+            "Напомните, что сценарий статичный и сетевой вызов не нужен."
+          ],
+          "doNotReveal": [
+            "Не давайте готовую test note до попытки ученика.",
+            "Не утверждайте, что есть скрытый список дефектов или единственный answer key.",
+            "Не добавляйте живые endpoints, приватные системы, секретные токены или шаги настройки конкретного инструмента."
+          ],
+          "reviewFor": [
+            "Покрытие create, read, patch, cancel и обработки ошибок.",
+            "Понятная связь идеи запроса с ожидаемым status и фокусом ответа.",
+            "Риск-ориентированный выбор, а не только happy path.",
+            "Полезные открытые вопросы про неоднозначное поведение контракта."
+          ],
+          "completionCriteria": [
+            "В артефакте есть 8-10 API-проверок.",
+            "Минимум три проверки покрывают негативный, граничный, authorization, conflict или retry-риск.",
+            "Каждая проверка называет метод и endpoint или шаблон endpoint.",
+            "Ученик добавил 2-3 открытых вопроса, которые могут улучшить контракт."
+          ],
+          "hintProgression": [
+            "Спросите, какие переходы состояния видны в сценарии.",
+            "Направьте внимание на обязательные поля, неизвестные id и конфликт для shipped-заказа.",
+            "Предложите группировать проверки по endpoint, если ответ разрознен.",
+            "Дайте одну примерную строку только после того, как ученик застрял."
+          ],
+          "ifLearnerStruggles": [
+            "Начните с одного endpoint, POST /v1/orders, и попросите одну позитивную и одну негативную проверку.",
+            "Попросите ученика превратить каждый документированный статичный пример в проверку.",
+            "Сначала сократите цель до пяти проверок, затем расширьте до полного артефакта."
+          ],
+          "afterCompletion": [
+            "Кратко отметьте самый сильный риск-выбор ученика.",
+            "Назовите один недостающий угол API-тестирования для следующей тренировки.",
+            "Свяжите артефакт с Postman или curl как возможными способами выполнять похожие проверки на реальном проекте."
+          ]
+        }
+      }
+    },
+    "pillars": [
+      "api-integration",
+      "test-design"
+    ]
+  },
+  {
+    "id": "05-rest-testing-json-repair",
+    "moduleId": "05-rest-testing",
+    "kind": "json-analysis",
+    "estimatedMinutes": 20,
+    "skillFocus": [
+      "json-analysis",
+      "api-contracts",
+      "error-analysis",
+      "attention-to-detail"
+    ],
+    "updatedAt": "2026-09-25",
+    "languages": {
+      "en": {
+        "title": "Find what's wrong and fix the JSON",
+        "learnerBrief": "You will see five small broken JSON samples one at a time. For each one: name the defect, explain why a strict parser rejects it (and what a real API request would do with it), and repair the JSON. Work at the tutor's pace — do not race ahead to the next sample.",
+        "context": "Five payload fragments from a team's integration notes. Each was meant to be sent to a real REST API, and each has exactly one problem. Sample 1: {\"name\": \"Ivan\", \"role\": \"qa\",} Sample 2: {'status': 'ok', 'count': 2} Sample 3: {userId: 42, \"name\": \"Alia\"} Sample 4: {\"name\": \"Alia\", \"age\": \"thirty\", \"active\": true} — the API contract says age must be an integer. Sample 5: {\"city\": \"MÃ¼nchen\", \"zip\": \"80331\"} — a colleague says this string looks wrong in the sent request. Treat every sample as a strict-JSON parse: no JavaScript leniency, no comments, no trailing commas.",
+        "deliverable": "A per-sample note covering all five samples: (1) the defect you found, (2) why it breaks a strict parser or a real API request, and (3) the corrected JSON. Finish with one sentence on how you would catch this class of bug before sending a request.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Train the learner to spot strict-JSON defects in request payloads, explain their concrete effect on a real API call, and repair them so payloads pass a strict parser.",
+          "presentTaskHow": [
+            "Present the samples one at a time, starting with Sample 1; never show or summarize the full set at once.",
+            "After each sample, wait for the learner's diagnosis and proposed fix before giving any confirmation or moving on.",
+            "Encourage the learner to reason manually about what a strict parser does before suggesting they paste anything into a validator.",
+            "If the learner asks which samples exist, say only that there are five samples with different defect classes, all visible in the task context."
+          ],
+          "doNotReveal": [
+            "Do not reveal which defect a sample contains before the learner has attempted that sample.",
+            "Do not paste corrected payloads or a full answer key before the learner proposes their own fix for that sample.",
+            "Do not hint at the number or type of defects remaining in the unseen samples.",
+            "Do not soften the standard: the JSON must pass a strict parser, not merely look plausible."
+          ],
+          "reviewFor": [
+            "Sample 1 (trailing comma): the learner names the trailing comma after \"role\" and says a strict parser rejects the entire document — a real request would fail with a 400 parse error before business logic runs. Corrected: {\"name\": \"Ivan\", \"role\": \"qa\"}.",
+            "Sample 2 (single quotes): the learner notes that single-quoted strings are JavaScript syntax, not JSON — a strict parser errors immediately, so the API call returns a parse/validation 400. Corrected: {\"status\": \"ok\", \"count\": 2}.",
+            "Sample 3 (unquoted key): the learner spots the bare key userId and explains keys must be double-quoted strings in JSON. Corrected: {\"userId\": 42, \"name\": \"Alia\"}.",
+            "Sample 4 (wrong type): the learner says \"age\": \"thirty\" parses as JSON but violates the contract that age is an integer — the API would reject it with a 400 schema/validation error even though the body is syntactically valid. Corrected: {\"name\": \"Alia\", \"age\": 30, \"active\": true}.",
+            "Sample 5 (mojibake/encoding): the learner recognizes MÃ¼nchen as UTF-8 bytes mis-decoded, e.g. as Latin-1 — the JSON parses fine but the field value is garbage, so downstream systems store or display a corrupted city name. Corrected: {\"city\": \"München\", \"zip\": \"80331\"} written as proper UTF-8.",
+            "Each review confirms the learner names BOTH the defect AND its effect on a real API request, not just the syntax rule."
+          ],
+          "completionCriteria": [
+            "All five samples have a named defect, its effect, and corrected JSON.",
+            "At least three effects are stated in terms of a real API request (parse 400, validation 400, corrupted stored field).",
+            "The corrected samples pass a strict parser: double quotes, quoted keys, no trailing commas, correct types, clean UTF-8.",
+            "The learner adds one sentence on how they would catch this bug class before sending (e.g. strict linter, schema validation, response echo check)."
+          ],
+          "hintProgression": [
+            "Ask: which character or token here would a strict JSON grammar flag first?",
+            "If stuck on Sample 4, ask: does this body parse at all, and does it match the contract's declared types?",
+            "If stuck on Sample 5, ask: compare the bytes a human typed against what a parser would read — what happened to the non-ASCII character?",
+            "If stuck on the effect, ask: what status code does a server return when it cannot even parse the body, versus when the body parses but violates the schema?",
+            "Offer the corrected payload for a sample only after the learner's own fix attempt and one targeted hint."
+          ],
+          "ifLearnerStruggles": [
+            "Walk through Sample 1 together, naming the JSON grammar rules one at a time, then let the learner apply them to Sample 2.",
+            "Reduce the deliverable to defect + fix per sample first, and ask for the API-request effect afterward.",
+            "Contrast strict JSON with the learner's favorite programming language to expose assumptions like single quotes or unquoted keys."
+          ],
+          "afterCompletion": [
+            "Connect the skill to reading API responses: when a request fails with 400 and a message like 'Unexpected token' or 'Expecting property name', the learner can now map that message to the exact defect class they just repaired.",
+            "Point out that the same eye catches corrupted non-ASCII values in GET responses, not just in request bodies.",
+            "Suggest the learner's next step: validating payloads against an API schema before sending, and diffing the sent body against what the server logs."
+          ]
+        }
+      },
+      "ru": {
+        "title": "Найди, что сломано, и почини JSON",
+        "learnerBrief": "Вы увидите пять маленьких ломаных JSON-примеров по одному. Для каждого: назовите дефект, объясните, почему его не примет строгий парсер (и что сделает реальный API-запрос), и почините JSON. Работайте в темпе, который задаёт tutor — не забегайте вперёд к следующему примеру.",
+        "context": "Пять фрагментов payload из интеграционных заметок команды. Каждый предназначался для отправки в реальный REST API, и в каждом ровно одна проблема. Пример 1: {\"name\": \"Ivan\", \"role\": \"qa\",} Пример 2: {'status': 'ok', 'count': 2} Пример 3: {userId: 42, \"name\": \"Alia\"} Пример 4: {\"name\": \"Alia\", \"age\": \"thirty\", \"active\": true} — в контракте API сказано, что age должен быть целым числом. Пример 5: {\"city\": \"MÃ¼nchen\", \"zip\": \"80331\"} — коллега говорит, что эта строка выглядит неправильно в отправленном запросе. Считайте каждый пример строгим JSON: без снисходительности JavaScript, без комментариев, без висячих запятых.",
+        "deliverable": "Заметка по каждому из пяти примеров: (1) найденный дефект, (2) почему он ломает строгий парсер или реальный API-запрос, и (3) исправленный JSON. В конце — одно предложение о том, как вы поймали бы такой класс бага до отправки запроса.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Научить ученика находить дефекты строгого JSON в payload'ах, объяснять их конкретный эффект на реальный API-вызов и исправлять их так, чтобы JSON проходил строгий парсер.",
+          "presentTaskHow": [
+            "Показывайте примеры по одному, начиная с примера 1; никогда не показывайте и не пересказывайте весь набор сразу.",
+            "После каждого примера ждите диагноза и предложенного исправления ученика, прежде чем подтверждать или переходить дальше.",
+            "Побуждайте ученика рассуждать о строгом парсере вручную, прежде чем предлагать вставить текст в валидатор.",
+            "Если ученик спрашивает, какие есть примеры, говорите только: пять примеров с разными классами дефектов, все видны в контексте задачи."
+          ],
+          "doNotReveal": [
+            "Не раскрывайте, какой дефект содержит пример, пока ученик не попытался разобраться с ним сам.",
+            "Не вставляйте исправленные payload'ы и полный answer key, пока ученик не предложил собственное исправление для этого примера.",
+            "Не подсказывайте количество или тип дефектов в ещё не разобранных примерах.",
+            "Не смягчайте стандарт: JSON должен проходить строгий парсер, а не просто выглядеть правдоподобно."
+          ],
+          "reviewFor": [
+            "Пример 1 (висячая запятая): ученик называет запятую после \"role\" и говорит, что строгий парсер отвергает весь документ — реальный запрос упадёт с 400 parse error до любой бизнес-логики. Исправление: {\"name\": \"Ivan\", \"role\": \"qa\"}.",
+            "Пример 2 (одинарные кавычки): ученик отмечает, что одинарные кавычки — синтаксис JavaScript, а не JSON — строгий парсер падает сразу, запрос вернёт 400. Исправление: {\"status\": \"ok\", \"count\": 2}.",
+            "Пример 3 (ключ без кавычек): ученик находит «голый» ключ userId и объясняет, что ключи в JSON — строки в двойных кавычках. Исправление: {\"userId\": 42, \"name\": \"Alia\"}.",
+            "Пример 4 (неправильный тип): ученик говорит, что \"age\": \"thirty\" парсится как JSON, но нарушает контракт, где age — целое число; API отклонит запрос с 400 schema/validation, хотя тело синтаксически корректно. Исправление: {\"name\": \"Alia\", \"age\": 30, \"active\": true}.",
+            "Пример 5 (mojibake/кодировка): ученик распознаёт MÃ¼nchen как байты UTF-8, декодированные в неверной кодировке — JSON парсится нормально, но значение поля испорчено, и вниз по стеку сохранится «битое» название города. Исправление: {\"city\": \"München\", \"zip\": \"80331\"} в корректном UTF-8.",
+            "Каждый раз подтверждайте, что ученик называет И дефект, И его эффект на реальный API-запрос, а не только грамматическое правило."
+          ],
+          "completionCriteria": [
+            "Для всех пяти примеров назван дефект, его эффект и исправленный JSON.",
+            "Минимум три эффекта сформулированы через реальный API-запрос (parse 400, validation 400, испорченное значение в хранилище).",
+            "Исправленные примеры проходят строгий парсер: двойные кавычки, ключи в кавычках, без висячих запятых, корректные типы, чистый UTF-8.",
+            "Ученик добавил одно предложение о том, как он поймал бы такой класс бага до отправки (строгий линтер, валидация по схеме, проверка эха запроса)."
+          ],
+          "hintProgression": [
+            "Спросите: какой символ или токен строгая грамматика JSON пометит первым?",
+            "Если застрял на примере 4, спросите: тело вообще парсится? Совпадает ли с типами, заявленными в контракте?",
+            "Если застрял на примере 5, спросите: сравните байты, которые набрал человек, и байты, которые прочитает парсер — что случилось с не-ASCII символом?",
+            "Если застрял на эффекте, спросите: какой статус вернёт сервер, когда не может распарсить тело, а когда тело парсится, но нарушает схему?",
+            "Давайте исправленный payload для примера только после собственной попытки ученика и одной адресной подсказки."
+          ],
+          "ifLearnerStruggles": [
+            "Разберите пример 1 вместе, называя правила грамматики JSON по одному, затем попросите применить их к примеру 2.",
+            "Сократите артефакт до «дефект + исправление» по каждому примеру, а эффект на API-запрос попросите добавить потом.",
+            "Сопоставьте строгий JSON с любимым языком ученика, чтобы вскрыть привычки вроде одинарных кавычек или ключей без кавычек."
+          ],
+          "afterCompletion": [
+            "Свяжите навык с чтением API-ответов: когда запрос падает с 400 и сообщением вроде 'Unexpected token' или 'Expecting property name', ученик теперь может сопоставить это сообщение с классом дефекта, который он только что чинил.",
+            "Отметьте, что тот же взгляд ловит испорченные не-ASCII значения в GET-ответах, а не только в телах запросов.",
+            "Предложите следующий шаг: валидировать payload по схеме API перед отправкой и сверять отправленное тело с тем, что залогировал сервер."
+          ]
+        }
+      }
+    },
+    "pillars": [
+      "api-integration",
+      "tooling-devtools"
+    ]
+  }
+]

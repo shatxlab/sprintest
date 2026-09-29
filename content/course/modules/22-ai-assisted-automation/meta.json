@@ -1,0 +1,24 @@
+{
+  "id": "22-ai-assisted-automation",
+  "slug": "22-ai-assisted-automation",
+  "order": 22,
+  "title": {
+    "en": "AI-Assisted Playwright Workflow",
+    "ru": "Работа с AI при написании автотестов"
+  },
+  "summary": {
+    "en": "Briefing an AI agent on your own repo, reviewing its diff with the module-17 checklist, running the tests yourself, and recording the rules that make the next session better.",
+    "ru": "Работа с AI-агентом в своём репозитории: поставить задачу, отревьюить дифф по чек-листу из модуля 17, самому запустить тесты и зафиксировать правила, которые улучшат следующую сессию."
+  },
+  "themes": [
+    "playwright",
+    "ai-collaboration",
+    "agent-workflow",
+    "code-review"
+  ],
+  "practiceTaskIds": [
+    "22-ai-assisted-automation-pairing",
+    "22-ai-assisted-automation-audit"
+  ],
+  "updatedAt": "2026-09-25"
+}

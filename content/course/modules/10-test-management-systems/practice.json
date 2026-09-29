@@ -1,0 +1,121 @@
+[
+  {
+    "id": "10-test-management-systems-practice",
+    "moduleId": "10-test-management-systems",
+    "kind": "test-design",
+    "estimatedMinutes": 40,
+    "skillFocus": [
+      "test-case-design",
+      "test-runs",
+      "traceability",
+      "release-risk"
+    ],
+    "updatedAt": "2026-09-25",
+    "languages": {
+      "en": {
+        "title": "Create a small TMS case set with traceability notes",
+        "learnerBrief": "Practice designing test cases, recording run outcomes, and explaining requirement coverage as a release-facing artifact.",
+        "context": "Scenario: A profile feature has three public requirements. REQ-PROFILE-01: A signed-in learner can edit display name, city, timezone, and short bio. REQ-PROFILE-02: Display name is required and must be 2-40 visible characters. REQ-PROFILE-03: After saving valid changes, the profile page shows the saved values and a success message. The release lead asks QA for a compact TMS-style artifact before a release decision. You do not need a real TMS account.",
+        "deliverable": "Create a compact artifact with 3-5 test cases, one run result for each case, and traceability notes. Each case needs title, linked requirement, preconditions, steps, expected result, priority, and tags. Each run result needs environment, status, date or build label, notes, and a defect link or investigation note when status is Failed or Blocked. The traceability notes must state covered requirements, uncovered or weakly covered areas, and one release-risk recommendation.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Help the learner connect test cases, run evidence, and requirement coverage without turning the exercise into tool navigation.",
+          "presentTaskHow": [
+            "Ask the learner to draft the case set and traceability notes before review.",
+            "Accept a table, bullets, or TMS-style field list.",
+            "Encourage the learner to keep cases executable and traceable."
+          ],
+          "doNotReveal": [
+            "Do not provide a complete finished case set before the learner attempts it.",
+            "Do not invent hidden defects, private requirement changes, or secret pass conditions.",
+            "Do not mark one exact run-status mix as required."
+          ],
+          "reviewFor": [
+            "Each case links to at least one public requirement from the scenario.",
+            "Preconditions and data are specific enough for execution.",
+            "Steps are ordered and expected results are observable.",
+            "Priorities reflect risk, not only happy-path order.",
+            "Run notes explain Passed, Failed, Blocked, or Skipped statuses clearly.",
+            "Traceability notes identify coverage, gaps, and release risk."
+          ],
+          "completionCriteria": [
+            "The artifact contains 3-5 test cases.",
+            "Every case includes the requested fields.",
+            "Every case has one run result with environment and status notes.",
+            "Failed or Blocked results include a defect link placeholder or investigation note.",
+            "Traceability notes mention all three public requirements and one release recommendation."
+          ],
+          "hintProgression": [
+            "Ask which requirement is most likely to break if validation is weak.",
+            "Ask the learner to turn one requirement into one positive case and one boundary case.",
+            "Point out any case that lacks a visible expected result.",
+            "If traceability is vague, ask the learner to map each case ID to requirement IDs."
+          ],
+          "ifLearnerStruggles": [
+            "Start with three case titles only: edit valid profile, display-name boundary, save confirmation.",
+            "Have the learner add one requirement link to each title before adding steps.",
+            "Ask for one run note at a time, beginning with environment and status."
+          ],
+          "afterCompletion": [
+            "Summarize which requirement has the strongest coverage.",
+            "Point out the most important remaining coverage gap.",
+            "Connect the artifact to how a QA lead reads TMS data during release review."
+          ]
+        }
+      },
+      "ru": {
+        "title": "Небольшой набор TMS-кейсов с заметками трассировки",
+        "learnerBrief": "Потренируйтесь проектировать тест-кейсы, фиксировать результаты прогонов и объяснять покрытие требований как артефакт для релизного решения.",
+        "context": "Сценарий: у функции профиля есть три публичных требования. REQ-PROFILE-01: авторизованный ученик может редактировать display name, city, timezone и short bio. REQ-PROFILE-02: display name обязателен и должен содержать 2-40 видимых символов. REQ-PROFILE-03: после сохранения валидных изменений страница профиля показывает сохранённые значения и success message. Release lead просит QA подготовить компактный TMS-style артефакт перед релизным решением. Реальный аккаунт TMS не нужен.",
+        "deliverable": "Создайте компактный артефакт: 3-5 тест-кейсов, по одному результату прогона для каждого кейса и заметки трассировки. Для каждого кейса нужны title, linked requirement, preconditions, steps, expected result, priority и tags. Для каждого прогона нужны environment, status, date или build label, notes, а при статусе Failed или Blocked — ссылка-заготовка на defect или заметка расследования. В заметках трассировки укажите покрытые требования, непокрытые или слабо покрытые зоны и одну рекомендацию по релизному риску.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Помочь ученику связать тест-кейсы, доказательства прогона и покрытие требований без превращения упражнения в навигацию по инструменту.",
+          "presentTaskHow": [
+            "Попросите ученика сначала написать набор кейсов и заметки трассировки.",
+            "Принимайте таблицу, списки или TMS-style перечень полей.",
+            "Поощряйте исполнимость и трассируемость кейсов."
+          ],
+          "doNotReveal": [
+            "Не давайте готовый полный набор кейсов до попытки ученика.",
+            "Не придумывайте скрытые дефекты, приватные изменения требований или секретные условия прохождения.",
+            "Не требуйте один точный набор статусов прогона."
+          ],
+          "reviewFor": [
+            "Каждый кейс связан минимум с одним публичным требованием из сценария.",
+            "Предусловия и данные достаточно конкретны для выполнения.",
+            "Шаги упорядочены, а ожидаемые результаты наблюдаемы.",
+            "Priority отражает риск, а не только порядок happy path.",
+            "Заметки прогона ясно объясняют статусы Passed, Failed, Blocked или Skipped.",
+            "Заметки трассировки показывают покрытие, gaps и релизный риск."
+          ],
+          "completionCriteria": [
+            "В артефакте есть 3-5 тест-кейсов.",
+            "Каждый кейс содержит запрошенные поля.",
+            "У каждого кейса есть один результат прогона с environment и status notes.",
+            "Для Failed или Blocked есть defect link placeholder или заметка расследования.",
+            "Заметки трассировки упоминают все три публичных требования и одну release recommendation."
+          ],
+          "hintProgression": [
+            "Спросите, какое требование скорее всего пострадает при слабой валидации.",
+            "Попросите ученика превратить одно требование в один positive case и один boundary case.",
+            "Укажите на кейс, где нет наблюдаемого expected result.",
+            "Если трассировка расплывчатая, попросите сопоставить каждый case ID с requirement ID."
+          ],
+          "ifLearnerStruggles": [
+            "Начните только с трёх названий кейсов: редактирование валидного профиля, граница display name, подтверждение сохранения.",
+            "Попросите добавить по одной ссылке на требование к каждому названию до написания шагов.",
+            "Разберите по одной заметке прогона, начиная с environment и status."
+          ],
+          "afterCompletion": [
+            "Кратко отметьте, какое требование покрыто сильнее всего.",
+            "Назовите самый важный оставшийся gap в покрытии.",
+            "Свяжите артефакт с тем, как QA lead читает данные TMS на release review."
+          ]
+        }
+      }
+    },
+    "pillars": [
+      "process-sdlc",
+      "test-design"
+    ]
+  }
+]

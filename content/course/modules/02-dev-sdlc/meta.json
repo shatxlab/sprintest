@@ -1,0 +1,16 @@
+{
+  "id": "02-dev-sdlc",
+  "slug": "02-dev-sdlc",
+  "order": 2,
+  "title": {
+    "en": "SDLC and Development Methodologies",
+    "ru": "SDLC и методологии разработки"
+  },
+  "summary": {
+    "en": "How QA fits across the software life cycle, Agile, Scrum, Kanban, Waterfall, CI/CD, and environments.",
+    "ru": "Как QA участвует в жизненном цикле ПО, Agile, Scrum, Kanban, Waterfall, CI/CD и окружениях."
+  },
+  "themes": ["sdlc", "methodologies", "environments", "ci-cd"],
+  "practiceTaskIds": ["02-dev-sdlc-practice"],
+  "updatedAt": "2026-09-25"
+}

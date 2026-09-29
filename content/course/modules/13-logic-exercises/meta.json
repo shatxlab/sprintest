@@ -1,0 +1,22 @@
+{
+  "id": "13-logic-exercises",
+  "slug": "13-logic-exercises",
+  "order": 14,
+  "title": {
+    "en": "Logic Exercises",
+    "ru": "Логические упражнения"
+  },
+  "summary": {
+    "en": "Practice explicit reasoning, uncertainty checks, and AI-guided hints through classic QA-relevant puzzles.",
+    "ru": "Тренировка явного рассуждения, проверки неопределённости и AI-подсказок на классических задачах, полезных для QA."
+  },
+  "themes": [
+    "reasoning",
+    "ai-guided-practice",
+    "qa-thinking"
+  ],
+  "practiceTaskIds": [
+    "13-logic-exercises-practice"
+  ],
+  "updatedAt": "2026-09-25"
+}

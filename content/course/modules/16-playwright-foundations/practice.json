@@ -1,0 +1,260 @@
+[
+  {
+    "id": "16-playwright-foundations-first-test",
+    "moduleId": "16-playwright-foundations",
+    "kind": "automation-code",
+    "estimatedMinutes": 40,
+    "skillFocus": [
+      "playwright-setup",
+      "test-anatomy",
+      "reading-code"
+    ],
+    "pillars": [
+      "automation",
+      "tooling-devtools"
+    ],
+    "updatedAt": "2026-09-27",
+    "languages": {
+      "en": {
+        "title": "Run, read, and modify your first suite",
+        "learnerBrief": "Your AI agent scaffolds a small static page and a first Playwright suite against it. Run the suite, read every test line by line, explain what each really checks, and modify the suite in three small ways - one run per modification.",
+        "context": "You work in your own project folder, not in the course. Ask your AI agent to scaffold a small static page served locally, containing exactly three behaviours: (1) a sign-up form with an email field, a password field, a submit button and inline validation messages next to the field that failed; (2) a counter with a button and a displayed value; (3) a list of items with a text input that filters the visible items. The page spec to hand your agent: the password must be at least 8 characters; the form must not submit while validation fails and must show a message for the failing field; the counter starts at 0 and increases by 1 on every click; the filter matches items regardless of letter case. This time the agent writes the page AND a first suite for it - you do not write tests from scratch. Serve the page locally on a fixed port, set up Playwright with npm init playwright@latest and point baseURL at that port, then have the agent draft a suite of at least five tests across the three behaviours. Node, TypeScript, and @playwright/test only. Run the suite headless and read the raw output before touching anything. Then modify the suite in exactly three small ways, one run each: (1) tighten an existing assertion so it checks more than it did; (2) add one missing assertion - a behaviour the agent left unasserted; (3) replace one locator with a more robust one.",
+        "deliverable": "A short automation report with four parts: (1) the commands you ran, plus the raw console output of the first run and of each modification run, pasted as they came; (2) a line-by-line reading of ONE test of your choice: what it does, what it would catch, and what it would miss; (3) the three modifications, each with one sentence on why the new version is stronger; (4) for every failing test: the assertion, what the page actually did, and your classification - product bug, test bug, or environment; plus one bug report for the most severe finding, written as a ticket with steps, expected, actual, and evidence from the run. Do not delete, skip, or soften a failing assertion to get a green run.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Take the learner from zero to a running Playwright project without making them write the first draft, and teach them that the work that matters starts once the agent's suite exists: reading it, running it, and deciding what each test really proves. A red run is information, not a failure to hide.",
+          "presentTaskHow": [
+            "Ask the learner to confirm the scaffolded page and the agent's suite both exist and respond on the port before anything is modified; a test against a page that is not running teaches nothing.",
+            "Demand the raw console output of the FIRST run before any modification is made; the first run is the evidence base for everything after it.",
+            "Ask for the line-by-line reading of one test before the learner modifies anything - the reading is the exercise, not a formality.",
+            "Treat the three modifications as the learner's own work; suggest where to look only after they have made their reading.",
+            "Require the raw output of each modification run in the deliverable, not a summary of it."
+          ],
+          "doNotReveal": [
+            "The scaffolded page will deviate from the spec in three places: a password of 7 characters passes validation, the counter jumps by 2 on the tenth click, and the filter matches case-sensitively on the first character. Never name these, never hint how many there are, and never point at a behaviour.",
+            "Do not tell the learner in advance that the page contains any deviation from the spec, and do not confirm or deny a bug before they present the assertion and the observed value.",
+            "Do not write or fix the tests for the learner; their modifications are the work. Comment on what a change proves, never hand over the code.",
+            "Do not reveal which boundary values matter (7 versus 8 characters, click 10) before the learner chooses their own and explains why."
+          ],
+          "reviewFor": [
+            "The project is a real Playwright project: @playwright/test installed, a config with baseURL pointing at the local port, tests run with npx playwright test.",
+            "The raw output of the first run appears in the report before any modification, and the raw output of every modification run appears too.",
+            "The line-by-line reading names what the test does, what it would catch, and what it would miss - not a paraphrase of the code.",
+            "The three modifications match the brief: one assertion tightened, one missing assertion added, one locator made more robust - each justified in one sentence.",
+            "Assertions are web-first (expect with toHaveText, toHaveCount, toBeVisible and similar) and the suite contains no fixed waits such as waitForTimeout.",
+            "Every failure is classified with the observed value as evidence, and no assertion was weakened to make the run green.",
+            "The bug report ranks severity sensibly - a boundary that lets an invalid password through outranks a counter display quirk."
+          ],
+          "completionCriteria": [
+            "A working Playwright project runs in the learner's own repository with npx playwright test, and the raw output of the first run and of every modification run is in the report.",
+            "A line-by-line reading of one test exists: what it does, what it would catch, what it would miss.",
+            "Exactly three modifications are present - one tightened assertion, one added assertion, one more robust locator - each with a one-sentence justification.",
+            "The learner can explain, for any test in the suite, what it really checks.",
+            "At least one test fails against the scaffolded page and is classified honestly, with the observed value as evidence; the classification matches reality - the three deviations are product bugs against the written spec, not test bugs.",
+            "One ticket-style bug report exists for the most severe finding."
+          ],
+          "hintProgression": [
+            "If the first run's output is missing, stop the task there: ask them to paste the raw output before discussing anything else.",
+            "If the line-by-line reading is a paraphrase, ask what would change in the world if this test failed - and what would go unnoticed if it were deleted.",
+            "If they cannot find an assertion to tighten, ask which test would still pass even if the page broke in the exact place it claims to check.",
+            "If the locator replacement is hard, ask which locator would break first if the layout changed, and what the user actually sees in that place.",
+            "If a modification turns a test red, ask for the assertion and the observed value side by side before any opinion - then: product, test, or environment?"
+          ],
+          "ifLearnerStruggles": [
+            "Reduce to one test: read a single test together, line by line, then run only that test with npx playwright test and read its output.",
+            "If the config blocks them, help with the smallest possible setup: one project, one baseURL, trace retained on failure.",
+            "If await and async are unclear, explain that each browser action returns a promise and the test must wait for it before moving on.",
+            "If modifying feels like overstepping, reframe: the agent wrote a draft; making it stronger is the job, and three small edits are a complete job."
+          ],
+          "afterCompletion": [
+            "Name the strongest observation they made and why it is worth a ticket.",
+            "Reinforce the habit: a red test is a question - product, test, or environment - and the answer comes from evidence, not from the colour.",
+            "Point forward: the next module turns what they just read and modified into a review checklist, and hands them a whole agent-written spec to audit."
+          ]
+        }
+      },
+      "ru": {
+        "title": "Запустите, прочитайте и измените свой первый набор",
+        "learnerBrief": "Ваш AI-агент сгенерирует небольшую статическую страницу и первый набор тестов Playwright к ней. Запустите набор, прочитайте каждый тест построчно, объясните, что он проверяет на самом деле, и внесите три небольшие правки - по одному прогону на каждую правку.",
+        "context": "Вы работаете в своей папке проекта, а не внутри курса. Попросите своего AI-агента сгенерировать небольшую статическую страницу, которая отдаётся локально и содержит ровно три поведения: (1) форма регистрации с полем email, полем пароля, кнопкой отправки и inline-сообщениями валидации рядом с проблемным полем; (2) счётчик с кнопкой и отображаемым значением; (3) список элементов с текстовым полем, которое фильтрует видимые элементы. Спецификация страницы для агента: пароль должен быть не короче 8 символов; форма не должна отправляться, пока валидация не прошла, и обязана показать сообщение для проблемного поля; счётчик начинается с 0 и увеличивается на 1 при каждом клике; фильтр находит элементы независимо от регистра букв. На этот раз агент пишет и страницу, и первый набор тестов к ней - тесты с нуля вы не пишете. Поднимите страницу локально на фиксированном порту, разверните Playwright через npm init playwright@latest и направьте baseURL на этот порт, затем попросите агента набросать набор минимум из пяти тестов на три поведения. Только Node, TypeScript и @playwright/test. Запустите набор headless и прочитайте сырой вывод, прежде чем что-то менять. Затем внесите ровно три небольшие правки, по одному прогону на каждую: (1) усильте один существующий ассерт так, чтобы он проверял больше, чем раньше; (2) добавьте один недостающий ассерт - поведение, которое агент оставил без проверки; (3) замените один локатор на более устойчивый.",
+        "deliverable": "Короткий отчёт об автоматизации из четырёх частей: (1) команды, которые вы выполняли, и сырой вывод консоли первого прогона и каждого прогона после правок в том виде, в каком он пришёл; (2) построчное чтение ОДНОГО теста на ваш выбор: что он делает, что поймал бы и что пропустил бы; (3) три правки, к каждой - одно предложение, почему новая версия сильнее; (4) для каждого упавшего теста: ассерт, что страница сделала на самом деле и ваша классификация - баг продукта, баг теста или проблема окружения; плюс один баг-репорт по самой серьёзной находке в виде тикета: шаги, ожидаемый результат, фактический результат, доказательство из прогона. Не удаляйте, не пропускайте и не ослабляйте падающий ассерт ради зелёного прогона.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Провести учащегося от нуля до работающего проекта Playwright, не заставляя его писать первый черновик, и показать, что настоящая работа начинается, когда набор от агента уже существует: прочитать его, запустить и решить, что каждый тест доказывает на самом деле. Красный прогон - это информация, а не то, что нужно спрятать.",
+          "presentTaskHow": [
+            "Попросите учащегося убедиться, что сгенерированная страница и набор от агента существуют и отвечают на порту, прежде чем что-то менять: тест против незапущенной страницы ничему не учит.",
+            "Требуйте сырой вывод консоли ПЕРВОГО прогона до любых правок; первый прогон - база доказательств для всего остального.",
+            "Попросите построчное чтение одного теста до того, как учащийся начнёт что-то менять, - чтение и есть упражнение, а не формальность.",
+            "Считайте три правки работой самого учащегося; подсказывайте, куда смотреть, только после того, как чтение сделано.",
+            "Требуйте в отчёте сырой вывод каждого прогона после правок, а не его пересказ."
+          ],
+          "doNotReveal": [
+            "Сгенерированная страница отойдёт от спецификации в трёх местах: пароль из 7 символов проходит валидацию, счётчик на десятом клике прыгает через единицу, а фильтр сравнивает регистр первой буквы. Никогда не называйте это, не намекайте, сколько таких мест, и не указывайте на поведение.",
+            "Не сообщайте учащемуся заранее, что страница где-то расходится со спецификацией, и не подтверждайте и не отрицайте баг до того, как он покажет ассерт и наблюдаемое значение.",
+            "Не пишите и не чините тесты за учащегося; его правки - это и есть работа. Комментируйте, что доказывает изменение, но не выдавайте готовый код.",
+            "Не раскрывайте, какие граничные значения важны (7 против 8 символов, десятый клик), пока учащийся не выберет свои и не объяснит, почему именно их."
+          ],
+          "reviewFor": [
+            "Это настоящий проект Playwright: установлен @playwright/test, в конфиге есть baseURL на локальный порт, тесты запускаются через npx playwright test.",
+            "Сырой вывод первого прогона есть в отчёте до любых правок, и сырой вывод каждого прогона после правок тоже есть.",
+            "Построчное чтение называет, что тест делает, что поймал бы и что пропустил бы, - а не пересказ кода.",
+            "Три правки соответствуют заданию: один ассерт усилен, один добавлен, один локатор стал устойчивее - у каждой правки одно предложение обоснования.",
+            "Ассерты web-first (expect с toHaveText, toHaveCount, toBeVisible и подобными), в наборе нет фиксированных пауз вроде waitForTimeout.",
+            "Каждое падение классифицировано с наблюдаемым значением как доказательством, и ни один ассерт не ослаблен ради зелёного прогона.",
+            "Баг-репорт расставляет серьёзность разумно: пропущенный невалидный пароль важнее странного отображения счётчика."
+          ],
+          "completionCriteria": [
+            "Рабочий проект Playwright запускается в репозитории учащегося командой npx playwright test, и сырой вывод первого прогона и каждого прогона после правок есть в отчёте.",
+            "Есть построчное чтение одного теста: что он делает, что поймал бы, что пропустил бы.",
+            "Ровно три правки - один усиленный ассерт, один добавленный ассерт, один более устойчивый локатор - у каждой одно предложение обоснования.",
+            "Учащийся может объяснить про любой тест набора, что тот проверяет на самом деле.",
+            "Минимум один тест падает на сгенерированной странице и классифицирован честно, с наблюдаемым значением как доказательством; классификация совпадает с реальностью - три расхождения это баги продукта относительно письменной спецификации, а не баги тестов.",
+            "По самой серьёзной находке есть баг-репорт в формате тикета."
+          ],
+          "hintProgression": [
+            "Если сырого вывода первого прогона нет, остановите задание на этом: попросите вставить сырой вывод, прежде чем обсуждать что-либо ещё.",
+            "Если построчное чтение - пересказ, спросите: что изменится в мире, если этот тест упадёт, и что осталось бы незамеченным, если бы его удалили.",
+            "Если учащийся не находит ассерт для усиления, спросите, какой тест прошёл бы даже при поломке страницы ровно в том месте, которое он якобы проверяет.",
+            "Если замена локатора не даётся, спросите, какой локатор сломается первым при изменении вёрстки и что пользователь видит на этом месте.",
+            "Если правка сделала тест красным, попросите ассерт и наблюдаемое значение рядом, прежде чем высказывать мнение, - а потом: продукт, тест или окружение?"
+          ],
+          "ifLearnerStruggles": [
+            "Сузьте до одного теста: прочитайте один тест вместе построчно, затем запустите только его через npx playwright test и прочитайте вывод.",
+            "Если мешает конфиг, помогите минимальной настройкой: один проект, один baseURL, трейс сохраняется при падении.",
+            "Если непонятны await и async, объясните: каждое действие в браузере возвращает промис, и тест обязан дождаться его, прежде чем идти дальше.",
+            "Если менять чужое кажется чрезмерным, переформулируйте: агент написал черновик; сделать его сильнее - это работа, и три небольшие правки - выполненная работа."
+          ],
+          "afterCompletion": [
+            "Назовите самое сильное наблюдение учащегося и объясните, почему оно стоит тикета.",
+            "Закрепите привычку: красный тест - это вопрос (продукт, тест или окружение), а ответ даёт доказательство, а не цвет.",
+            "Перекиньте мостик: следующий модуль превращает то, что учащийся только что прочитал и изменил, в чек-лист ревью и выдаёт целый спек от агента на аудит."
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": "16-playwright-foundations-automate-or-not",
+    "moduleId": "16-playwright-foundations",
+    "kind": "test-design",
+    "estimatedMinutes": 25,
+    "skillFocus": [
+      "automation-decisions",
+      "risk-based-selection",
+      "test-economics"
+    ],
+    "pillars": [
+      "automation",
+      "test-design"
+    ],
+    "updatedAt": "2026-09-25",
+    "languages": {
+      "en": {
+        "title": "What to automate first - and what not to",
+        "learnerBrief": "Given a young product's surface, decide which flows earn an automated browser test now, which wait, and which belong to a different layer entirely - then defend every call.",
+        "context": "A B2B web app, eight months old, one QA, no automation yet, weekly releases. Flows on the surface: sign-up with email confirmation link; login and logout; password reset by email; dashboard with a filterable table of records, a date-range filter and CSV export; a settings page with profile edit and password change; team invites with role assignment; billing with a plan switch that opens a vendor-hosted payment page; an onboarding tour of five tooltip steps; a notification bell with a dropdown; a support chat widget embedded from a vendor; a monthly usage summary sent by email. Context you know from the team: the dashboard table is being redesigned next month, the payment page is hosted by the vendor in an iframe the team cannot modify, and the marketing team edits onboarding tooltip copy roughly every release. Budget: about six hours of automation work per week, and maintenance comes out of the same budget.",
+        "deliverable": "A one-page automation plan: (1) a prioritised list of 8-12 candidate checks, each with its rank and a one-line justification covering frequency, risk if it breaks, stability, and maintenance cost; (2) a separate 'not yet' list of at least three items from the product surface, each with the concrete reason it waits; (3) at least two flows that you would cover outside the browser layer, with the layer you would reach for and why; (4) one written team rule for adding a new automated test, in at most two sentences.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Teach the learner that automation is a budget decision: what to automate first is a judgement about frequency, risk, stability and maintenance cost, not a list of everything the product can do.",
+          "presentTaskHow": [
+            "Ask for the prioritised list first and let the learner justify it in their own words before you react to any single item.",
+            "Keep the discussion anchored to the stated budget: six hours a week includes maintenance, so an unstable test has a price.",
+            "Push for reasons, not adjectives - 'important' is not a justification, 'runs on every build and blocks checkout' is.",
+            "Treat the 'not yet' list as equally important as the prioritised list; a plan without exclusions is not a plan."
+          ],
+          "doNotReveal": [
+            "Do not hand the learner a ranking. A defensible model answer exists - login and the sign-up confirmation happy path, the password reset happy path, the settings password change, and one or two core dashboard filter checks sit at the top, while the vendor payment form, the onboarding tooltips, the chat widget and the monthly email sit at the bottom or outside the browser layer - but the reasoning is what is being assessed, and the learner must produce it first.",
+            "Do not reveal that the vendor-hosted payment page cannot be driven end to end by the team, or that the dashboard redesign makes deep filter permutations a bad investment this month, until the learner raises these points or clearly misses them.",
+            "Do not mark items right or wrong one by one before the learner has justified the whole list.",
+            "Do not write the team rule or the justifications for them."
+          ],
+          "reviewFor": [
+            "Justifications reference frequency, breakage risk, stability, or maintenance cost rather than personal preference.",
+            "The learner accounts for the dashboard redesign and the vendor iframe as real constraints, not as trivia.",
+            "At least two flows are correctly routed away from the browser layer: the confirmation and reset links, and the monthly summary email.",
+            "The 'not yet' list gives a reason that is about economics or ownership, not about difficulty or unwillingness.",
+            "The team rule is actionable - it says when a new test is added and what it must not depend on.",
+            "Every item maps to a flow that exists in the context; nothing is invented."
+          ],
+          "completionCriteria": [
+            "8-12 candidate checks appear in priority order, each with a one-line justification.",
+            "At least three items sit on the 'not yet' list, each with a concrete reason.",
+            "At least two flows are assigned to a non-browser layer, with the layer named.",
+            "One team rule for adding automated tests is written in at most two sentences.",
+            "The learner can answer, for any item they ranked low, what it would take to move it up."
+          ],
+          "hintProgression": [
+            "Ask which single broken flow would hurt the customer most on a Friday release.",
+            "Ask how often each flow changes, and what a test for a screen being redesigned next month costs.",
+            "Ask who owns the vendor widgets and whether the team can modify them.",
+            "Ask which of these flows never really needs a browser to be verified.",
+            "If the ranking stalls, suggest sorting by two questions: how loudly would this fail if broken, and how often will the test run."
+          ],
+          "ifLearnerStruggles": [
+            "Shrink the exercise: pick the five flows worth keeping if the team could only keep five, then defend those.",
+            "Offer a comparison pair to sharpen judgement - login against the onboarding tour - and ask what each one costs to maintain.",
+            "Ask them to price one item in minutes per month, including the time spent fixing it when it flakes.",
+            "Accept a rough order and push on the reasons; the ordering matters less than the reasoning."
+          ],
+          "afterCompletion": [
+            "Name the strongest call the learner made and the reasoning behind it.",
+            "Point out that this plan is the input to the next modules, where their first tests get sturdier selectors and structure.",
+            "Suggest keeping the plan as a living file in the repository, revisited when the dashboard redesign ships."
+          ]
+        }
+      },
+      "ru": {
+        "title": "Что автоматизировать первым — и что не стоит",
+        "learnerBrief": "Перед вами поверхность молодого продукта: решите, какие сценарии заслуживают автотеста в браузере уже сейчас, какие подождут, а какие вообще относятся к другому слою — и защитите каждое решение.",
+        "context": "B2B веб-приложение, восемь месяцев на рынке, один QA, автоматизации пока нет, релизы раз в неделю. Сценарии на поверхности: регистрация со ссылкой подтверждения по email; вход и выход; сброс пароля по email; дашборд с фильтруемой таблицей записей, фильтром по диапазону дат и экспортом в CSV; страница настроек с редактированием профиля и сменой пароля; приглашение коллег с назначением роли; биллинг с переключением тарифа, открывающим платёжную страницу вендора; onboarding-тур из пяти шагов с подсказками; колокольчик уведомлений с выпадающим списком; виджет чата поддержки, встроенный от вендора; ежемесячная сводка использования, которая приходит письмом. Что известно от команды: таблицу дашборда перерисуют в следующем месяце, платёжную страницу вендор держит в iframe, который команда не может менять, а маркетинг правит тексты подсказок onboarding почти каждый релиз. Бюджет: около шести часов работы над автоматизацией в неделю, и поддержка тестов идёт из того же бюджета.",
+        "deliverable": "План автоматизации на одну страницу: (1) приоритизированный список из 8-12 кандидатов, у каждого — место в порядке и обоснование одной строкой: частота, риск при поломке, стабильность, стоимость поддержки; (2) отдельный список «пока нет» минимум из трёх пунктов с конкретной причиной, почему они ждут; (3) минимум два сценария, которые вы покрыли бы вне слоя браузера, с указанием слоя и объяснением; (4) одно письменное правило команды о добавлении нового автотеста, не длиннее двух предложений.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Показать учащемуся, что автоматизация — это решение о бюджете: что автоматизировать первым определяется частотой, риском, стабильностью и стоимостью поддержки, а не списком всего, что умеет продукт.",
+          "presentTaskHow": [
+            "Сначала попросите приоритизированный список и дайте учащемуся обосновать его своими словами, прежде чем реагировать на отдельные пункты.",
+            "Держите обсуждение привязанным к заявленному бюджету: шесть часов в неделю включают поддержку, поэтому нестабильный тест имеет цену.",
+            "Требуйте причин, а не прилагательных: «важно» — не обоснование, «идёт на каждой сборке и блокирует оплату» — обоснование.",
+            "Относитесь к списку «пока нет» так же серьёзно, как к основному: план без исключений — не план."
+          ],
+          "doNotReveal": [
+            "Не давайте учащемуся готовый рейтинг. Защитимая модельная картина есть — вход и успешное подтверждение регистрации, сброс пароля, смена пароля в настройках и одна-две ключевые проверки фильтров дашборда стоят наверху, а платёжная форма вендора, подсказки onboarding, виджет чата и ежемесячное письмо оказываются внизу или вне слоя браузера — но оценивается именно рассуждение, и учащийся должен выдать его первым.",
+            "Не раскрывайте, что платёжную страницу вендора команда не может провести сквозь браузер и что перерисовка дашборда делает глубокие переборы фильтров плохой инвестицией в этом месяце, пока учащийся сам не поднимет эти точки или явно их не пропустит.",
+            "Не отмечайте пункты верными или неверными по одному, пока учащийся не обосновал весь список.",
+            "Не пишите за учащегося правило команды и обоснования."
+          ],
+          "reviewFor": [
+            "Обоснования ссылаются на частоту, риск поломки, стабильность или стоимость поддержки, а не на личные предпочтения.",
+            "Учащийся учитывает перерисовку дашборда и iframe вендора как реальные ограничения, а не как мелочи.",
+            "Минимум два сценария верно отнесены в другой слой: ссылки подтверждения и сброса, а также ежемесячное письмо со сводкой.",
+            "Список «пока нет» даёт причины про экономику или владение, а не про сложность или нежелание.",
+            "Правило команды действенное: говорит, когда тест добавляется и от чего он не должен зависеть.",
+            "Каждый пункт соответствует сценарию из контекста; выдуманных нет."
+          ],
+          "completionCriteria": [
+            "8-12 кандидатов идут в порядке приоритета, у каждого обоснование одной строкой.",
+            "Минимум три пункта в списке «пока нет», у каждого конкретная причина.",
+            "Минимум два сценария отнесены к не-браузерному слою с названием слоя.",
+            "Одно правило команды о добавлении автотестов уложено в два предложения.",
+            "Учащийся может объяснить для любого низко стоящего пункта, что нужно, чтобы он поднялся выше."
+          ],
+          "hintProgression": [
+            "Спросите, какая одна сломанная цепочка больнее всего ударит по клиенту в пятничный релиз.",
+            "Спросите, как часто меняется каждый сценарий и сколько стоит тест на экран, который перерисуют в следующем месяце.",
+            "Спросите, кому принадлежат виджеты вендора и может ли команда их менять.",
+            "Спросите, какие из этих сценариев вообще не требуют браузера для проверки.",
+            "Если рейтинг буксует, предложите сортировать по двум вопросам: насколько громко это сломается и как часто тест будет запускаться."
+          ],
+          "ifLearnerStruggles": [
+            "Сузьте упражнение: выберите пять сценариев, которые оставили бы, если можно оставить только пять, и защитите их.",
+            "Дайте пару для сравнения, чтобы отточить суждение: вход против onboarding-тура — и спросите, сколько стоит поддержка каждого.",
+            "Попросите оценить один пункт в минутах в месяц, включая время на починку при флаке.",
+            "Примите примерный порядок и давите на причины: порядок важен меньше, чем рассуждение."
+          ],
+          "afterCompletion": [
+            "Назовите самое сильное решение учащегося и стоящее за ним рассуждение.",
+            "Покажите, что этот план — вход в следующие модули, где первые тесты получат устойчивые локаторы и структуру.",
+            "Предложите держать план живым файлом в репозитории и вернуться к нему, когда выйдет перерисовка дашборда."
+          ]
+        }
+      }
+    }
+  }
+]

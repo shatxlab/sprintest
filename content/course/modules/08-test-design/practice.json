@@ -1,0 +1,235 @@
+[
+  {
+    "id": "08-test-design-practice",
+    "moduleId": "08-test-design",
+    "kind": "test-design",
+    "estimatedMinutes": 40,
+    "skillFocus": [
+      "equivalence-partitioning",
+      "boundary-value-analysis",
+      "decision-tables",
+      "test-cases"
+    ],
+    "updatedAt": "2026-09-25",
+    "languages": {
+      "en": {
+        "title": "Design tests for a delivery quote feature",
+        "learnerBrief": "Practice applying several test design techniques to a small, fully described feature. No live application is required.",
+        "context": "A checkout service calculates delivery price. Rules: orders under 50 cost 8 for delivery; orders from 50 to 99.99 cost 4; orders of 100 or more have free delivery. Premium customers always get free delivery. Delivery is unavailable for blocked postal codes. The amount field accepts up to two decimal places and must be greater than 0.",
+        "deliverable": "Prepare a QA note with: equivalence classes, boundary values, a decision table, 6-8 test cases with precise expected results, and one short paragraph explaining which checks belong in smoke versus regression coverage.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Help the learner apply test design techniques and write precise expected results from explicit business rules.",
+          "presentTaskHow": [
+            "Ask the learner to draft the QA note before asking for review.",
+            "Accept tables, bullets, or a mixed format.",
+            "Emphasize that the task is based only on the written rules, not on a hidden app."
+          ],
+          "doNotReveal": [
+            "Do not give a complete decision table or full test set before the learner makes an attempt.",
+            "Do not invent hidden defects, secret limits, or extra postal-code rules.",
+            "Do not present one fixed answer as the only valid artifact."
+          ],
+          "reviewFor": [
+            "Equivalence classes cover order amount, premium status, postal-code availability, and decimal precision.",
+            "Boundary values cover 0, values around 50, values around 100, and decimal precision limits.",
+            "The decision table resolves conflicts such as premium customer plus blocked postal code by asking a question or stating an assumption.",
+            "Test cases contain concrete data and precise expected results."
+          ],
+          "completionCriteria": [
+            "The artifact includes at least four meaningful equivalence classes.",
+            "The artifact lists boundary values around every stated threshold.",
+            "The decision table covers premium and blocked-postal-code conditions.",
+            "The artifact includes 6-8 executable test cases with expected results.",
+            "The smoke versus regression paragraph explains prioritization."
+          ],
+          "hintProgression": [
+            "Ask the learner to underline every number and condition in the rules.",
+            "Point attention to values just below and above 50 and 100.",
+            "Ask what happens when a premium customer uses a blocked postal code.",
+            "Offer one example test-case row only after the learner is stuck."
+          ],
+          "ifLearnerStruggles": [
+            "Start with equivalence classes for amount only.",
+            "Ask the learner to convert one pricing rule into one concrete test case.",
+            "Ask for three high-value checks first, then expand to the full deliverable."
+          ],
+          "afterCompletion": [
+            "Summarize the learner's strongest technique choice.",
+            "Identify one unclear rule they handled well or need to clarify.",
+            "Connect the exercise to future API, UI, and regression testing work."
+          ]
+        }
+      },
+      "ru": {
+        "title": "Спроектировать тесты для расчёта доставки",
+        "learnerBrief": "Потренируйте применение нескольких техник тест-дизайна на небольшой полностью описанной feature. Живое приложение не требуется.",
+        "context": "Checkout-сервис рассчитывает стоимость доставки. Правила: для заказов меньше 50 доставка стоит 8; для заказов от 50 до 99.99 доставка стоит 4; для заказов от 100 доставка бесплатна. Premium-клиенты всегда получают бесплатную доставку. Доставка недоступна для заблокированных postal codes. Поле суммы принимает до двух знаков после точки и должно быть больше 0.",
+        "deliverable": "Подготовьте QA-заметку: классы эквивалентности, граничные значения, decision table, 6-8 тест-кейсов с точными expected results и один короткий абзац о том, какие проверки попадут в smoke, а какие — в regression coverage.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Помочь ученику применить техники тест-дизайна и написать точные expected results по явным бизнес-правилам.",
+          "presentTaskHow": [
+            "Попросите ученика сначала написать QA-заметку, а уже потом запрашивать ревью.",
+            "Разрешите таблицы, списки или смешанный формат.",
+            "Подчеркните, что задача основана только на написанных правилах, а не на скрытом приложении."
+          ],
+          "doNotReveal": [
+            "Не давайте полную decision table или полный набор тестов до попытки ученика.",
+            "Не придумывайте скрытые дефекты, секретные лимиты или дополнительные правила postal-code.",
+            "Не представляйте один фиксированный ответ как единственно верный артефакт."
+          ],
+          "reviewFor": [
+            "Классы эквивалентности покрывают сумму заказа, premium status, доступность postal code и точность decimals.",
+            "Граничные значения покрывают 0, значения вокруг 50, значения вокруг 100 и лимиты decimal precision.",
+            "Decision table разбирает конфликты вроде premium customer плюс blocked postal code через вопрос или явное предположение.",
+            "Тест-кейсы содержат конкретные данные и точные expected results."
+          ],
+          "completionCriteria": [
+            "В артефакте есть минимум четыре значимых класса эквивалентности.",
+            "В артефакте перечислены граничные значения вокруг каждого заданного порога.",
+            "Decision table покрывает условия premium и blocked postal code.",
+            "В артефакте есть 6-8 выполнимых тест-кейсов с expected results.",
+            "Абзац про smoke и regression объясняет приоритизацию."
+          ],
+          "hintProgression": [
+            "Попросите ученика подчеркнуть каждое число и каждое условие в правилах.",
+            "Направьте внимание на значения чуть ниже и выше 50 и 100.",
+            "Спросите, что произойдёт, если premium customer использует blocked postal code.",
+            "Дайте один пример строки тест-кейса только после того, как ученик застрял."
+          ],
+          "ifLearnerStruggles": [
+            "Начните только с классов эквивалентности для суммы.",
+            "Попросите превратить одно pricing rule в один конкретный тест-кейс.",
+            "Попросите сначала три самые ценные проверки, затем расширьте до полного артефакта."
+          ],
+          "afterCompletion": [
+            "Кратко отметьте самый сильный выбор техники у ученика.",
+            "Назовите одно неясное правило, с которым ученик хорошо справился или которое нужно уточнить.",
+            "Свяжите упражнение с будущей работой по API, UI и regression testing."
+          ]
+        }
+      }
+    },
+    "pillars": [
+      "test-design"
+    ]
+  },
+  {
+    "id": "08-test-design-your-website",
+    "moduleId": "08-test-design",
+    "kind": "test-design",
+    "estimatedMinutes": 40,
+    "skillFocus": [
+      "test-case-design",
+      "risk-based-selection",
+      "devtools-network",
+      "evidence-writing"
+    ],
+    "updatedAt": "2026-09-25",
+    "languages": {
+      "en": {
+        "title": "Test your most-used website",
+        "learnerBrief": "Pick a website you use every day, design concrete test cases for one core flow, then open browser devtools and check what really happens under the UI.",
+        "context": "You choose the product: a website or web app you use daily. Examples if you are stuck: YouTube, Gmail, an online bank, a marketplace like Ozon or Amazon, a food delivery app. Pick ONE core flow only — sign-in, search, or checkout. Write 8-12 concrete test cases for that flow (steps, expected result, priority). Then open browser devtools (F12), switch to the Network tab, perform the flow once, and map what you see to your test cases: which requests fire on a button click or sign-in, what status codes come back, and at least one thing the UI hides — a background API call, a redirect, or a cookie or browser-storage write.",
+        "deliverable": "A test-case list for one core flow (8-12 cases with steps, expected result, priority) plus a short 'what the network tab revealed' section naming 2-3 observed requests with their method and status code.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Help the learner connect paper test design with real application behavior by reading the browser Network tab as evidence.",
+          "presentTaskHow": [
+            "Ask the learner to name the website and the one core flow before anything else.",
+            "If the learner has no site in mind, suggest examples: YouTube, Gmail, an online bank, a marketplace like Ozon or Amazon, a food delivery app.",
+            "Ask the learner to draft the test cases first and only then open devtools.",
+            "Remind them to record method, URL, and status code for anything they quote."
+          ],
+          "doNotReveal": [
+            "Do not hand the learner a ready list of test cases for their chosen flow.",
+            "Do not describe the expected network requests of a specific website on their behalf.",
+            "Do not guess status codes or hidden calls for the learner's flow — they must observe them in devtools."
+          ],
+          "reviewFor": [
+            "Each test case has concrete steps and an honest, observable expected result.",
+            "Priorities reflect risk, not habit: sign-in and payment steps outrank cosmetic checks.",
+            "The count is 8-12 cases, and they cover different behaviors rather than rephrasing one check.",
+            "The 'what the network tab revealed' section names 2-3 real requests with method and status.",
+            "At least one finding contradicted or refined a test-case assumption."
+          ],
+          "completionCriteria": [
+            "The artifact contains 8-12 test cases for exactly one core flow.",
+            "Every test case has steps, an expected result, and a priority.",
+            "The network section lists 2-3 observed requests with method and status code.",
+            "At least one thing the UI hides is described: a background API call, a redirect, or a cookie or browser-storage write.",
+            "The learner verified at least one assumption in devtools without guessing it."
+          ],
+          "hintProgression": [
+            "Ask which single click in the flow matters most — start the case list there.",
+            "Suggest watching the Network tab while performing the flow to see which requests fire.",
+            "Point at the filter row in the Network tab: XHR/Fetch hides most background calls.",
+            "If the learner cannot find anything the UI hides, ask what happened between two pages they did not click."
+          ],
+          "ifLearnerStruggles": [
+            "Narrow the flow to one screen: sign-in only, or search results only.",
+            "Ask for three high-priority cases first, then expand to 8-12.",
+            "Walk through opening devtools step by step: F12, Network tab, clear the log, perform the action, read the rows."
+          ],
+          "afterCompletion": [
+            "Highlight the sharpest observation from the network section.",
+            "Note one case where devtools corrected the learner's assumption.",
+            "Connect the exercise to API testing and to writing evidence-based defect reports."
+          ]
+        }
+      },
+      "ru": {
+        "title": "Протестируй сайт, которым пользуешься каждый день",
+        "learnerBrief": "Выберите сайт или веб-приложение, которым пользуетесь каждый день, составьте конкретные тест-кейсы для одного основного сценария, а затем откройте devtools браузера и посмотрите, что реально происходит под интерфейсом.",
+        "context": "Продукт выбираете вы: сайт или веб-приложение из повседневной жизни. Если застряли, вот примеры: YouTube, Gmail, онлайн-банк, маркетплейс вроде Ozon или Amazon, приложение доставки еды. Выберите только ОДИН основной сценарий — sign-in, поиск или checkout. Напишите 8-12 конкретных тест-кейсов для него (шаги, ожидаемый результат, приоритет). Затем откройте devtools браузера (F12), переключитесь на вкладку Network, выполните сценарий один раз и сопоставьте увиденное со своими тест-кейсами: какие запросы уходят при клике по кнопке или при sign-in, какие возвращаются статус-коды, и хотя бы одну вещь, которую UI скрывает — фоновый API-запрос, redirect или запись в cookie или browser storage.",
+        "deliverable": "Список тест-кейсов для одного основного сценария (8-12 кейсов с шагами, ожидаемым результатом и приоритетом) плюс короткий раздел «что показала вкладка Network» с 2-3 наблюдаемыми запросами и их методом и статус-кодом.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Помочь ученику связать тест-дизайн на бумаге с реальным поведением приложения, читая вкладку Network в браузере как доказательства.",
+          "presentTaskHow": [
+            "Сначала попросите ученика назвать сайт и один основной сценарий.",
+            "Если ученик не может выбрать сайт, предложите примеры: YouTube, Gmail, онлайн-банк, маркетплейс вроде Ozon или Amazon, приложение доставки еды.",
+            "Попросите сначала написать тест-кейсы и только потом открывать devtools.",
+            "Напомните фиксировать метод, URL и статус-код для всего, что ученик цитирует."
+          ],
+          "doNotReveal": [
+            "Не выдавайте ученику готовый список тест-кейсов для выбранного сценария.",
+            "Не описывайте за ученика ожидаемые сетевые запросы конкретного сайта.",
+            "Не угадывайте статус-коды или скрытые вызовы для сценария ученика — он должен наблюдать их в devtools."
+          ],
+          "reviewFor": [
+            "У каждого тест-кейса конкретные шаги и честный наблюдаемый ожидаемый результат.",
+            "Приоритеты отражают риск, а не привычку: шаги sign-in и оплаты важнее косметических проверок.",
+            "Количество 8-12 кейсов, и они покрывают разные поведения, а не переформулируют одну проверку.",
+            "Раздел «что показала вкладка Network» называет 2-3 реальных запроса с методом и статусом.",
+            "Хотя бы одно наблюдение противоречит или уточняет предположение из тест-кейса."
+          ],
+          "completionCriteria": [
+            "В артефакте 8-12 тест-кейсов ровно для одного основного сценария.",
+            "У каждого тест-кейса есть шаги, ожидаемый результат и приоритет.",
+            "Раздел о Network перечисляет 2-3 наблюдаемых запроса с методом и статус-кодом.",
+            "Описана хотя бы одна вещь, которую UI скрывает: фоновый API-запрос, redirect или запись в cookie или browser storage.",
+            "Ученик проверил в devtools хотя бы одно предположение вместо того, чтобы угадать его."
+          ],
+          "hintProgression": [
+            "Спросите, какой один клик в сценарии важнее всего — начните список кейсов с него.",
+            "Предложите открыть вкладку Network во время выполнения сценария, чтобы увидеть, какие запросы уходят.",
+            "Покажите на строку фильтров во вкладке Network: XHR/Fetch скрывает большинство фоновых запросов.",
+            "Если ученик не находит ничего скрытого, спросите, что произошло между двумя страницами, по которым он не кликал."
+          ],
+          "ifLearnerStruggles": [
+            "Сузьте сценарий до одного экрана: только sign-in или только результаты поиска.",
+            "Попросите сначала три high-priority кейса, затем расширьте до 8-12.",
+            "Проведите ученика по открытию devtools по шагам: F12, вкладка Network, очистить лог, выполнить действие, прочитать строки."
+          ],
+          "afterCompletion": [
+            "Отметьте самое точное наблюдение из раздела о Network.",
+            "Назовите случай, когда devtools скорректировал предположение ученика.",
+            "Свяжите упражнение с API-тестированием и с написанием defect reports на основе доказательств."
+          ]
+        }
+      }
+    },
+    "pillars": [
+      "test-design",
+      "tooling-devtools"
+    ]
+  }
+]

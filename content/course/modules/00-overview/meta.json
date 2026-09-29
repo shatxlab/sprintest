@@ -1,0 +1,16 @@
+{
+  "id": "00-overview",
+  "slug": "00-overview",
+  "order": 0,
+  "title": {
+    "en": "Course Overview",
+    "ru": "Обзор курса"
+  },
+  "summary": {
+    "en": "How to learn QA with an AI tutor while keeping ownership of your reasoning.",
+    "ru": "Как изучать QA с AI-наставником и сохранять собственное мышление."
+  },
+  "themes": ["qa-mindset", "ai-tutor", "learning-flow"],
+  "practiceTaskIds": ["00-overview-qa-mindset"],
+  "updatedAt": "2026-09-25"
+}

@@ -1,0 +1,23 @@
+{
+  "id": "16-playwright-foundations",
+  "slug": "16-playwright-foundations",
+  "order": 16,
+  "title": {
+    "en": "Playwright: Read and Run",
+    "ru": "Playwright: читать и запускать"
+  },
+  "summary": {
+    "en": "Set up a Playwright project, then learn the skill that carries the whole track: reading a test — anatomy, locators, web-first assertions — running it, and reading what the run really says. Your AI agent writes the first draft; you make it run, understand every line, and modify it.",
+    "ru": "Поднимаем проект Playwright и учимся главному навыку трека: читать тест — анатомию, локаторы, web-first ассерты, — запускать его и понимать, что прогон говорит на самом деле. Первый черновик пишет ваш AI-агент; вы заставляете его работать, понимаете каждую строку и вносите изменения."
+  },
+  "themes": [
+    "playwright",
+    "test-automation-basics",
+    "first-test"
+  ],
+  "practiceTaskIds": [
+    "16-playwright-foundations-first-test",
+    "16-playwright-foundations-automate-or-not"
+  ],
+  "updatedAt": "2026-09-27"
+}

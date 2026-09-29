@@ -1,0 +1,25 @@
+{
+  "id": "09-jira-and-confluence",
+  "slug": "09-jira-and-confluence",
+  "order": 10,
+  "title": {
+    "en": "Jira and Confluence",
+    "ru": "Jira и Confluence"
+  },
+  "summary": {
+    "en": "How QA uses issue trackers and project knowledge bases to describe work, defects, evidence, and decisions.",
+    "ru": "Как QA использует трекеры задач и базы знаний проекта для описания работы, дефектов, доказательств и решений."
+  },
+  "themes": [
+    "jira",
+    "bug-reports",
+    "jql",
+    "confluence",
+    "defect-localization"
+  ],
+  "practiceTaskIds": [
+    "09-jira-and-confluence-severity-drill",
+    "09-jira-and-confluence-evidence-report"
+  ],
+  "updatedAt": "2026-09-25"
+}

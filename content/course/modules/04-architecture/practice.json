@@ -1,0 +1,117 @@
+[
+  {
+    "id": "04-architecture-practice",
+    "moduleId": "04-architecture",
+    "kind": "api-analysis",
+    "estimatedMinutes": 35,
+    "skillFocus": [
+      "architecture-risk-analysis",
+      "contract-testing",
+      "defect-localization"
+    ],
+    "updatedAt": "2026-09-25",
+    "languages": {
+      "en": {
+        "title": "Turn a static architecture map into QA risks",
+        "learnerBrief": "Practice reading a small architecture scenario and turning component boundaries into test ideas and defect-location hypotheses.",
+        "context": "A profile feature has this static design: Browser -> Web frontend -> Profile API -> Profile database. After saving profile changes, the Profile API publishes a message to an Email notification worker. The team also provides a contract excerpt: PATCH /profile accepts displayName, timezone, emailFrequency, and privacyMode; success returns 200 with the saved profile; validation errors return 400 with field messages; forbidden account access returns 403.",
+        "deliverable": "Write a QA risk map with: component boundaries, 6-10 test ideas, which checks are synchronous or asynchronous, at least three contract checks, and two defect-location hypotheses for possible failures. Keep it scenario-based; do not assume access to a running product.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Help the learner use architecture to reason about risk, contracts, async behavior, and where evidence may point.",
+          "presentTaskHow": [
+            "Ask the learner to draw or list the boundaries before writing tests.",
+            "Invite a table with columns for boundary, risk, check, expected evidence, and likely owner/component.",
+            "Remind the learner to separate immediate API behavior from later worker behavior."
+          ],
+          "doNotReveal": [
+            "Do not provide a finished risk map before the learner attempts the task.",
+            "Do not invent secret backend behavior beyond the scenario and contract excerpt.",
+            "Do not turn the task into a running-product walkthrough or browser-click checklist."
+          ],
+          "reviewFor": [
+            "The learner identifies meaningful boundaries: frontend to API, API to database, API to worker, and permission boundary.",
+            "Test ideas include both synchronous response checks and asynchronous notification or eventual-status thinking.",
+            "Contract checks cover success, validation, and forbidden access paths.",
+            "Defect-location hypotheses connect symptoms to components and evidence.",
+            "The artifact avoids unsupported assumptions about implementation details."
+          ],
+          "completionCriteria": [
+            "The risk map names at least four component or data boundaries.",
+            "The artifact includes 6-10 test ideas tied to architecture risks.",
+            "At least three checks come directly from the contract excerpt.",
+            "The learner distinguishes synchronous API outcomes from asynchronous worker outcomes.",
+            "Two defect-location hypotheses name symptom, likely component, and evidence to collect."
+          ],
+          "hintProgression": [
+            "Ask what can fail at each arrow in the static design.",
+            "Prompt the learner to classify each check as immediate response or later side effect.",
+            "Point to the contract response codes and ask what each one implies for tests.",
+            "Offer one boundary example only after the learner has listed their own boundaries."
+          ],
+          "ifLearnerStruggles": [
+            "Start with the frontend to API boundary and ask what a request and response must contain.",
+            "Ask the learner to write three symptoms first, then map each symptom to a component.",
+            "Let the learner draft the contract checks before expanding to async worker risks."
+          ],
+          "afterCompletion": [
+            "Highlight the clearest boundary-to-risk connection.",
+            "Name one missing evidence source such as logs, request ID, response body, or database state.",
+            "Ask how the plan would change if the API became unavailable or slow."
+          ]
+        }
+      },
+      "ru": {
+        "title": "Превратить статичную карту архитектуры в QA-риски",
+        "learnerBrief": "Потренируйтесь читать небольшой архитектурный сценарий и превращать границы компонентов в идеи проверок и гипотезы о месте дефекта.",
+        "context": "У функции профиля такой статичный дизайн: Browser -> Web frontend -> Profile API -> Profile database. После сохранения изменений Profile API публикует сообщение для Email notification worker. Команда также дала фрагмент контракта: PATCH /profile принимает displayName, timezone, emailFrequency и privacyMode; при успехе возвращает 200 с сохранённым профилем; ошибки валидации возвращают 400 с сообщениями по полям; запрещённый доступ к аккаунту возвращает 403.",
+        "deliverable": "Напишите QA-карту рисков: границы компонентов, 6-10 идей проверок, какие проверки синхронные или асинхронные, минимум три контрактные проверки и две гипотезы о месте дефекта для возможных сбоев. Работайте по сценарию; не предполагайте доступ к работающему продукту.",
+        "aiTutorInstructions": {
+          "teachingGoal": "Помочь ученику использовать архитектуру для рассуждений о рисках, контрактах, асинхронности и направлении доказательств.",
+          "presentTaskHow": [
+            "Попросите ученика сначала нарисовать или перечислить границы, а уже потом писать тесты.",
+            "Предложите таблицу с колонками: граница, риск, проверка, ожидаемое доказательство и вероятный владелец или компонент.",
+            "Напомните отделять немедленное поведение API от более позднего поведения worker-а."
+          ],
+          "doNotReveal": [
+            "Не давайте готовую карту рисков до попытки ученика.",
+            "Не придумывайте секретное backend-поведение за пределами сценария и фрагмента контракта.",
+            "Не превращайте задачу в прохождение live-приложения или чек-лист кликов в браузере."
+          ],
+          "reviewFor": [
+            "Ученик выделяет значимые границы: frontend с API, API с базой, API с worker-ом и границу прав доступа.",
+            "Идеи проверок включают и синхронные ответы, и асинхронные уведомления или итоговое состояние.",
+            "Контрактные проверки покрывают успех, валидацию и запрещённый доступ.",
+            "Гипотезы о месте дефекта связывают симптом с компонентом и доказательством.",
+            "Артефакт избегает неподтверждённых предположений о деталях реализации."
+          ],
+          "completionCriteria": [
+            "Карта рисков называет минимум четыре компонентные или дата-границы.",
+            "Артефакт содержит 6-10 идей проверок, связанных с архитектурными рисками.",
+            "Минимум три проверки прямо опираются на фрагмент контракта.",
+            "Ученик отличает синхронные результаты API от асинхронных результатов worker-а.",
+            "Две гипотезы о месте дефекта называют симптом, вероятный компонент и доказательство для сбора."
+          ],
+          "hintProgression": [
+            "Спросите, что может сломаться на каждой стрелке статичного дизайна.",
+            "Подтолкните ученика классифицировать каждую проверку как немедленный ответ или более поздний побочный эффект.",
+            "Укажите на коды ответа в контракте и спросите, что каждый код означает для тестов.",
+            "Дайте один пример границы только после того, как ученик перечислил свои границы."
+          ],
+          "ifLearnerStruggles": [
+            "Начните с границы frontend и API: спросите, что должно быть в запросе и ответе.",
+            "Попросите сначала записать три симптома, затем сопоставить каждый симптом с компонентом.",
+            "Разрешите сначала написать контрактные проверки, а затем расшириться до рисков async worker-а."
+          ],
+          "afterCompletion": [
+            "Отметьте самую ясную связь между границей и риском.",
+            "Назовите один недостающий источник доказательств: логи, request ID, тело ответа или состояние базы.",
+            "Спросите, как изменится план, если API станет недоступным или медленным."
+          ]
+        }
+      }
+    },
+    "pillars": [
+      "api-integration"
+    ]
+  }
+]
