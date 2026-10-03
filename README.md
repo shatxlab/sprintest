@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/banner.svg" alt="Sprintest — AI-native QA course" width="760">
+</p>
+
 # Sprintest
 
 [English](#english) · [Русский](#русский)

@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 360" role="img" aria-label="Sprintest — AI-native QA course">
+  <defs>
+    <linearGradient id="bn-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1020"/>
+      <stop offset="0.6" stop-color="#0e1330"/>
+      <stop offset="1" stop-color="#0b1020"/>
+    </linearGradient>
+    <radialGradient id="bn-glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#6366f1" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#6366f1" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="bn-rule" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#6366f1"/>
+      <stop offset="1" stop-color="#22d3ee"/>
+    </linearGradient>
+    <linearGradient id="bn-icon-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4f46e5"/>
+      <stop offset="0.55" stop-color="#6d28d9"/>
+      <stop offset="1" stop-color="#06b6d4"/>
+    </linearGradient>
+    <radialGradient id="bn-icon-glow" cx="0.5" cy="0.32" r="0.78">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.30"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="bn-glass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.24"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0.06"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1280" height="360" fill="url(#bn-bg)"/>
+  <ellipse cx="230" cy="180" rx="320" ry="260" fill="url(#bn-glow)"/>
+
+  <!-- mark -->
+  <g transform="translate(96 68) scale(0.44)">
+    <rect width="512" height="512" rx="116" fill="url(#bn-icon-bg)"/>
+    <rect width="512" height="512" rx="116" fill="url(#bn-icon-glow)"/>
+    <g stroke="#ffffff" stroke-opacity="0.55" stroke-width="22" stroke-linecap="round">
+      <line x1="60" y1="196" x2="176" y2="196"/>
+      <line x1="42" y1="244" x2="184" y2="244"/>
+      <line x1="60" y1="292" x2="164" y2="292"/>
+    </g>
+    <circle cx="292" cy="244" r="112" fill="url(#bn-glass)"/>
+    <circle cx="292" cy="244" r="112" fill="none" stroke="#ffffff" stroke-width="34"/>
+    <line x1="372" y1="324" x2="434" y2="386" stroke="#ffffff" stroke-width="46" stroke-linecap="round"/>
+    <path d="M242 246 L280 286 L348 196" fill="none" stroke="#ffffff" stroke-width="36"
+          stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M430 84 l11 28 28 11 -28 11 -11 28 -11 -28 -28 -11 28 -11 z" fill="#a5f3fc"/>
+  </g>
+
+  <!-- wordmark -->
+  <text x="388" y="182" font-family="Inter, 'Segoe UI', 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif"
+        font-size="104" font-weight="700" letter-spacing="-2" fill="#ffffff">Sprintest</text>
+  <rect x="392" y="206" width="238" height="7" rx="3.5" fill="url(#bn-rule)"/>
+  <text x="392" y="262" font-family="Inter, 'Segoe UI', 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif"
+        font-size="30" fill="#94a3b8">AI-native QA course · 23 modules · English + Русский</text>
+</svg>

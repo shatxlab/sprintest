@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Sprintest">
+  <defs>
+    <linearGradient id="st-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4f46e5"/>
+      <stop offset="0.55" stop-color="#6d28d9"/>
+      <stop offset="1" stop-color="#06b6d4"/>
+    </linearGradient>
+    <radialGradient id="st-glow" cx="0.5" cy="0.32" r="0.78">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.30"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="st-glass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.24"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0.06"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="512" height="512" rx="116" fill="url(#st-bg)"/>
+  <rect width="512" height="512" rx="116" fill="url(#st-glow)"/>
+
+  <!-- sprint motion lines -->
+  <g stroke="#ffffff" stroke-opacity="0.55" stroke-width="22" stroke-linecap="round">
+    <line x1="60" y1="196" x2="176" y2="196"/>
+    <line x1="42" y1="244" x2="184" y2="244"/>
+    <line x1="60" y1="292" x2="164" y2="292"/>
+  </g>
+
+  <!-- magnifier lens -->
+  <circle cx="292" cy="244" r="112" fill="url(#st-glass)"/>
+  <circle cx="292" cy="244" r="112" fill="none" stroke="#ffffff" stroke-width="34"/>
+  <!-- handle -->
+  <line x1="372" y1="324" x2="434" y2="386" stroke="#ffffff" stroke-width="46" stroke-linecap="round"/>
+  <!-- check inside the lens -->
+  <path d="M242 246 L280 286 L348 196" fill="none" stroke="#ffffff" stroke-width="36"
+        stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- AI spark -->
+  <path d="M430 84 l11 28 28 11 -28 11 -11 28 -11 -28 -28 -11 28 -11 z" fill="#a5f3fc"/>
+</svg>
