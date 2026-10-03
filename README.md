@@ -6,10 +6,9 @@
 
 ## English
 
-A free, AI-native QA course delivered as an **installable agent skill**. No
-website, no API, no connector setup: the whole course — 23 modules from core
-manual QA to Playwright automation — lives in this repository, and your AI
-agent can teach it.
+A free, AI-native QA course delivered as an **installable agent skill**. The
+whole course — 23 modules from core manual QA to Playwright automation — lives
+in this repository, and your AI agent can teach it.
 
 ### Install
 
@@ -47,9 +46,8 @@ License: MIT — use it freely.
 ## Русский
 
 Бесплатный AI-native курс QA, поставляемый как **устанавливаемый навык (skill)**
-для агента. Ни сайта, ни API, ни настройки коннекторов: весь курс — 23 модуля от
-основ manual QA до автоматизации на Playwright — живёт в этом репозитории, и ваш
-AI-агент может его преподавать.
+для агента. Весь курс — 23 модуля от основ manual QA до автоматизации на
+Playwright — живёт в этом репозитории, и ваш AI-агент может его преподавать.
 
 ### Установка
 
