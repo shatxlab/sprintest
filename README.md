@@ -36,7 +36,6 @@ pass.
 
 ## For agents and contributors
 
-- `AGENTS.md` — repository conventions, content-authoring rules, test gates
 - `npx vitest run` — content-integrity gates (21 tests)
 - `npx tsc --noEmit` — typecheck
 
