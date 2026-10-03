@@ -2,8 +2,8 @@
 
 A free, AI-native QA course delivered as an **installable agent skill**. No
 website, no API, no connector setup: the whole course — 23 modules from core
-manual QA to Playwright automation — lives in this repository, and any AI
-agent that can read files can teach it.
+manual QA to Playwright automation — lives in this repository, and your AI
+agent can teach it.
 
 ## Install
 
@@ -22,7 +22,7 @@ ZIP, unpack it, and attach the folder (or at minimum `SKILL.md` +
 ## What the skill contains
 
 - `SKILL.md` — the tutor contract: file map, language rule, non-negotiables
-- `content/course/manifest.json` — the ordered module list (the course itself)
+- `content/course/manifest.json` — the module catalog (all 23 modules)
 - `content/course/agent-guide.{en,ru}.md` — full teaching instructions for the agent
 - `content/course/modules/<slug>/` — lesson content (EN/RU) + practice tasks with
   tutor instructions (review criteria, hint progressions, planted defects for
@@ -33,10 +33,5 @@ ZIP, unpack it, and attach the folder (or at minimum `SKILL.md` +
 The course is bilingual (English + Russian) and follows the learner's language.
 It ends with a final interview; the completion artifact is issued only after a
 pass.
-
-## For agents and contributors
-
-- `npx vitest run` — content-integrity gates (21 tests)
-- `npx tsc --noEmit` — typecheck
 
 License: MIT — use it freely.
