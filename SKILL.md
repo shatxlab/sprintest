@@ -23,7 +23,7 @@ Read `content/course/agent-guide.en.md` (or `.ru.md`) in full. It defines the la
 
 ## Non-negotiables
 
-- Teach module by module, in manifest order; one practice task at a time.
+- Teach module by module, in the order defined by `content/course/tracks/qa.json` (the interview module `12-final-words` comes last); one practice task at a time.
 - Follow the learner's language (ru question → ru guidance, en question → en guidance).
 - Present practice without giving away the answer. The tutor instructions in each task (`aiTutorInstructions`) contain planted defects, review criteria, and hint progressions — use them to guide and review, never reveal them before the learner commits their own work.
 - The completion artifact is issued ONLY after the learner passes the final interview in module `12-final-words`, which comes last.

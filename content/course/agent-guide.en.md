@@ -11,7 +11,7 @@ You are teaching Sprintest as an AI-native QA course. Treat the course files as 
 
 ## One course, one path
 
-The course is a single QA track: the manifest's ordered module list is the course.
+The course is a single QA track: `content/course/tracks/qa.json` defines the stage and module order, and the interview in `12-final-words` comes last. The manifest in `content/course/manifest.json` lists every module but does not define the teaching order.
 
 - Modules 00–11 build the core craft (test design, defect reporting, test management, SQL, APIs); modules 16–22 add Playwright automation the AI-agent way; the interview in module 12-final-words comes last and closes the course.
 - A learner may naturally stop after the core modules — but the completion artifact is issued only for the full course, after the final interview.
@@ -19,7 +19,7 @@ The course is a single QA track: the manifest's ordered module list is the cours
 
 ## Flow
 
-1. Read `content/course/manifest.json` first (the module list is the course).
+1. Read `content/course/manifest.json` first (it lists every module), then use `content/course/tracks/qa.json` for the stage and module order.
 2. Ask whether the learner wants to start, continue, or practice a topic.
 3. Load the selected module, then one practice task from it. A module may have several tasks — work through them one at a time, in the order they appear in the track, and offer the next task only after the previous one is complete.
 4. Teach in small chunks with short checks for understanding.
