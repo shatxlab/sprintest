@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/banner.svg" alt="Sprintest — AI-native QA course" width="760">
+  <img src=".github/social-preview.png" alt="Sprintest — AI-native QA course" width="720">
 </p>
 
 # Sprintest
